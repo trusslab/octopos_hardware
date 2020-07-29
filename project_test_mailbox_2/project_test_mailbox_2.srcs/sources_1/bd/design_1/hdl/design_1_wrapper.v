@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1.3 (lin64) Build 2644227 Wed Sep  4 09:44:18 MDT 2019
-//Date        : Fri Jul 17 21:46:24 2020
+//Date        : Tue Jul 28 20:41:33 2020
 //Host        : hymns-1 running 64-bit Ubuntu 18.04.3 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -24,6 +24,7 @@ module design_1_wrapper
     ddr4_sdram_dqs_t,
     ddr4_sdram_odt,
     ddr4_sdram_reset_n,
+    led_8bits_tri_o,
     reset,
     uart2_pl_rxd,
     uart2_pl_txd,
@@ -45,6 +46,7 @@ module design_1_wrapper
   inout [1:0]ddr4_sdram_dqs_t;
   output ddr4_sdram_odt;
   output ddr4_sdram_reset_n;
+  output [7:0]led_8bits_tri_o;
   input reset;
   input uart2_pl_rxd;
   output uart2_pl_txd;
@@ -67,6 +69,7 @@ module design_1_wrapper
   wire [1:0]ddr4_sdram_dqs_t;
   wire ddr4_sdram_odt;
   wire ddr4_sdram_reset_n;
+  wire [7:0]led_8bits_tri_o;
   wire reset;
   wire uart2_pl_rxd;
   wire uart2_pl_txd;
@@ -90,6 +93,7 @@ module design_1_wrapper
         .ddr4_sdram_dqs_t(ddr4_sdram_dqs_t),
         .ddr4_sdram_odt(ddr4_sdram_odt),
         .ddr4_sdram_reset_n(ddr4_sdram_reset_n),
+        .led_8bits_tri_o(led_8bits_tri_o),
         .reset(reset),
         .uart2_pl_rxd(uart2_pl_rxd),
         .uart2_pl_txd(uart2_pl_txd),
