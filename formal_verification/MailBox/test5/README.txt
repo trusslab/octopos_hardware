@@ -1,0 +1,1 @@
+In this test we proved that if the resource manager (interface 0) is the owner of the Mailbox, and itself does not delegate Mailbox to another domain, It will remain the owner of the Mailbox. (No matter what other domain does, and what are the values for limit_req and time_req)
