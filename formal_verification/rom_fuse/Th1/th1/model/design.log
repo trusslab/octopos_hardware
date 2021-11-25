@@ -1,0 +1,360 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: th1.sv
+Parsing formal SystemVerilog input from `th1.sv' to AST representation.
+Storing AST representation for module `$abstract\rom_fuse_main_logic'.
+Storing AST representation for module `$abstract\testbench'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\testbench'.
+Generating RTLIL representation for module `\testbench'.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \testbench
+
+2.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\rom_fuse_main_logic'.
+Generating RTLIL representation for module `\rom_fuse_main_logic'.
+
+2.2.3. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \rom_fuse_main_logic
+
+2.2.4. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \rom_fuse_main_logic
+Removing unused module `$abstract\testbench'.
+Removing unused module `$abstract\rom_fuse_main_logic'.
+Removed 2 unused modules.
+Module testbench directly or indirectly contains formal properties -> setting "keep" attribute.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$./rom_fuse_main_logic.v:45$23 in module rom_fuse_main_logic.
+Marked 1 switch rules as full_case in process $proc$./rom_fuse_main_logic.v:31$21 in module rom_fuse_main_logic.
+Removed a total of 0 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 3 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\testbench.$proc$th1.sv:0$19'.
+  Set init value: $formal$th1.sv:17$2_EN = 1'0
+Found init rule in `\testbench.$proc$th1.sv:0$17'.
+  Set init value: $formal$th1.sv:16$1_EN = 1'0
+Found init rule in `\testbench.$proc$th1.sv:14$16'.
+  Set init value: \init_counter = 8'00000000
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\rom_fuse_main_logic.$proc$./rom_fuse_main_logic.v:45$23'.
+     1/1: $0\random_fuse[31:0]
+Creating decoders for process `\rom_fuse_main_logic.$proc$./rom_fuse_main_logic.v:31$21'.
+     1/1: $0\LOCKED[0:0]
+Creating decoders for process `\testbench.$proc$th1.sv:0$19'.
+Creating decoders for process `\testbench.$proc$th1.sv:0$17'.
+Creating decoders for process `\testbench.$proc$th1.sv:14$16'.
+Creating decoders for process `\testbench.$proc$th1.sv:15$3'.
+     1/5: $0$formal$th1.sv:16$1_EN[0:0]$5
+     2/5: $0$formal$th1.sv:16$1_CHECK[0:0]$4
+     3/5: $0$formal$th1.sv:17$2_EN[0:0]$7
+     4/5: $0$formal$th1.sv:17$2_CHECK[0:0]$6
+     5/5: $0\init_counter[7:0]
+
+2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\rom_fuse_main_logic.\random_fuse' using process `\rom_fuse_main_logic.$proc$./rom_fuse_main_logic.v:45$23'.
+  created $dff cell `$procdff$45' with positive edge clock.
+Creating register for signal `\rom_fuse_main_logic.\LOCKED' using process `\rom_fuse_main_logic.$proc$./rom_fuse_main_logic.v:31$21'.
+  created $dff cell `$procdff$46' with positive edge clock.
+Creating register for signal `\testbench.\init_counter' using process `\testbench.$proc$th1.sv:15$3'.
+  created $dff cell `$procdff$47' with positive edge clock.
+Creating register for signal `\testbench.$formal$th1.sv:16$1_CHECK' using process `\testbench.$proc$th1.sv:15$3'.
+  created $dff cell `$procdff$48' with positive edge clock.
+Creating register for signal `\testbench.$formal$th1.sv:16$1_EN' using process `\testbench.$proc$th1.sv:15$3'.
+  created $dff cell `$procdff$49' with positive edge clock.
+Creating register for signal `\testbench.$formal$th1.sv:17$2_CHECK' using process `\testbench.$proc$th1.sv:15$3'.
+  created $dff cell `$procdff$50' with positive edge clock.
+Creating register for signal `\testbench.$formal$th1.sv:17$2_EN' using process `\testbench.$proc$th1.sv:15$3'.
+  created $dff cell `$procdff$51' with positive edge clock.
+
+2.3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\rom_fuse_main_logic.$proc$./rom_fuse_main_logic.v:45$23'.
+Removing empty process `rom_fuse_main_logic.$proc$./rom_fuse_main_logic.v:45$23'.
+Found and cleaned up 1 empty switch in `\rom_fuse_main_logic.$proc$./rom_fuse_main_logic.v:31$21'.
+Removing empty process `rom_fuse_main_logic.$proc$./rom_fuse_main_logic.v:31$21'.
+Removing empty process `testbench.$proc$th1.sv:0$19'.
+Removing empty process `testbench.$proc$th1.sv:0$17'.
+Removing empty process `testbench.$proc$th1.sv:14$16'.
+Found and cleaned up 3 empty switches in `\testbench.$proc$th1.sv:15$3'.
+Removing empty process `testbench.$proc$th1.sv:15$3'.
+Cleaned up 6 empty switches.
+
+2.3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom_fuse_main_logic.
+Optimizing module testbench.
+<suppressed ~1 debug messages>
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom_fuse_main_logic.
+Optimizing module testbench.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rom_fuse_main_logic..
+Finding unused cells or wires in module \testbench..
+Removed 0 unused cells and 19 unused wires.
+<suppressed ~2 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module rom_fuse_main_logic...
+Checking module testbench...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom_fuse_main_logic.
+Optimizing module testbench.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rom_fuse_main_logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \rom_fuse_main_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \testbench..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \rom_fuse_main_logic.
+  Optimizing cells in module \testbench.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rom_fuse_main_logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rom_fuse_main_logic..
+Finding unused cells or wires in module \testbench..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom_fuse_main_logic.
+Optimizing module testbench.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 7 bits (of 8) from port B of cell testbench.$eq$th1.sv:16$8 ($eq).
+Removed top 30 bits (of 32) from port B of cell testbench.$gt$th1.sv:17$10 ($gt).
+Removed top 25 bits (of 32) from port B of cell testbench.$lt$th1.sv:20$12 ($lt).
+Removed top 7 bits (of 8) from port B of cell testbench.$add$th1.sv:21$13 ($add).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rom_fuse_main_logic..
+Finding unused cells or wires in module \testbench..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom_fuse_main_logic.
+Optimizing module testbench.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rom_fuse_main_logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rom_fuse_main_logic..
+Finding unused cells or wires in module \testbench..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== rom_fuse_main_logic ===
+
+   Number of wires:                 10
+   Number of wire bits:            134
+   Number of public wires:           4
+   Number of public wire bits:      66
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $dff                            2
+     $eq                             2
+     $mux                            3
+     $ne                             1
+
+=== testbench ===
+
+   Number of wires:                 18
+   Number of wire bits:             70
+   Number of public wires:           4
+   Number of public wire bits:      42
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 18
+     $add                            1
+     $assert                         1
+     $assume                         1
+     $dff                            5
+     $eq                             2
+     $gt                             1
+     $lt                             1
+     $mux                            5
+     rom_fuse_main_logic             1
+
+=== design hierarchy ===
+
+   testbench                         1
+     rom_fuse_main_logic             1
+
+   Number of wires:                 28
+   Number of wire bits:            204
+   Number of public wires:           8
+   Number of public wire bits:     108
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 25
+     $add                            1
+     $assert                         1
+     $assume                         1
+     $dff                            7
+     $eq                             4
+     $gt                             1
+     $lt                             1
+     $mux                            8
+     $ne                             1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module rom_fuse_main_logic...
+Checking module testbench...
+Found and reported 0 problems.
+
+3. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+4. Executing ASYNC2SYNC pass.
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rom_fuse_main_logic..
+Finding unused cells or wires in module \testbench..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom_fuse_main_logic.
+Optimizing module testbench.
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rom_fuse_main_logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+7.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$45 ($dff) from module rom_fuse_main_logic (D = $procmux$27_Y, Q = \random_fuse).
+Adding EN signal on $procdff$47 ($dff) from module testbench (D = $add$th1.sv:21$13_Y, Q = \init_counter).
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rom_fuse_main_logic..
+Finding unused cells or wires in module \testbench..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~4 debug messages>
+
+7.5. Rerunning OPT passes. (Removed registers in this run.)
+
+7.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom_fuse_main_logic.
+Optimizing module testbench.
+
+7.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rom_fuse_main_logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+7.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rom_fuse_main_logic..
+Finding unused cells or wires in module \testbench..
+
+7.10. Finished fast OPT passes.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module rom_fuse_main_logic...
+Checking module testbench...
+Found and reported 0 problems.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \rom_fuse_main_logic
+
+9.2. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \rom_fuse_main_logic
+Removed 0 unused modules.
+Module testbench directly or indirectly contains formal properties -> setting "keep" attribute.
+
+10. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 554a8fc182, CPU: user 0.03s system 0.00s, MEM: 11.08 MB peak
+Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+Time spent: 26% 7x opt_clean (0 sec), 21% 7x opt_expr (0 sec), ...

@@ -2,8 +2,8 @@ First, you need to install the SymbiYosis tool:
 	https://symbiyosys.readthedocs.io/en/latest/install.html
 
 To run each proof:
-	1) cd to the test{n} directory
-	2) execute: sby -f test{n}.sby
+	1) cd to the Th{n} directory
+	2) execute: sby -f th{n}.sby
 
 If the proof fails and you want to check the failing input waveform you can use gtkwave.
 On ubuntu you can install it with:
@@ -14,3 +14,4 @@ you can then open the vcd waveform using:
 
 	gtkwave filename.vcd
 
+For list of proofs in this repo please see Theroms.txt

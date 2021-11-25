@@ -1,0 +1,14 @@
+[options]
+mode prove
+
+[engines]
+smtbmc
+
+[script]
+read -formal th2.sv
+prep -top testbench
+
+[files]
+th2.sv
+Octopos_reset_module_v1_0_S00_AXI.v
+Octopos_reset_module.v

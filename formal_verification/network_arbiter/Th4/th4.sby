@@ -1,0 +1,15 @@
+[options]
+mode prove
+
+[engines]
+smtbmc
+
+[script]
+read -formal th4.sv
+prep -top testbench
+
+[files]
+th4.sv
+network_arbiter_main_logic.v
+Network_arbitter_simple.v
+Octopos_Arbiter_ctrl_AXI.v

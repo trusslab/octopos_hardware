@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites disabled="0" errors="0" failures="0" tests="1" time="0">
+<testsuite disabled="0" errors="0" failures="0" name="th4b" skipped="0" tests="1" time="0">
+<properties>
+<property name="os" value="posix"/>
+</properties>
+<testcase classname="th4b" name="default" status="PASS" time="0">
+<system-out>SBY 16:06:22 [th4b] Removing directory '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th4b/th4b'.
+SBY 16:06:22 [th4b] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th4b/th4b.sv' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th4b/th4b/src/th4b.sv'.
+SBY 16:06:22 [th4b] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th4b/Octopos_MailBox_Ctrl_Interface_Manager.v' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th4b/th4b/src/Octopos_MailBox_Ctrl_Interface_Manager.v'.
+SBY 16:06:22 [th4b] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th4b/Octopos_MailBox_Main_logic.v' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th4b/th4b/src/Octopos_MailBox_Main_logic.v'.
+SBY 16:06:22 [th4b] engine_0: smtbmc
+SBY 16:06:22 [th4b] base: starting process &quot;cd th4b/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 16:06:22 [th4b] base: finished (returncode=0)
+SBY 16:06:22 [th4b] smt2: starting process &quot;cd th4b/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 16:06:22 [th4b] smt2: finished (returncode=0)
+SBY 16:06:22 [th4b] engine_0.basecase: starting process &quot;cd th4b; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 16:06:22 [th4b] engine_0.induction: starting process &quot;cd th4b; yosys-smtbmc --presat --unroll -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2&quot;
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 16:06:22 [th4b] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 16:06:22 [th4b] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 16:06:22 [th4b] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY 16:06:22 [th4b] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY 16:06:22 [th4b] engine_0.induction: ##   0:00:00  Status: passed
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 16:06:22 [th4b] engine_0.induction: finished (returncode=0)
+SBY 16:06:22 [th4b] engine_0: Status returned by engine for induction: pass
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 16:06:22 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 11..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 11..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 12..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 12..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 13..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 13..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 14..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 14..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 15..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 15..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 16..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 16..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 17..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 17..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 18..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 18..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assumptions in step 19..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Checking assertions in step 19..
+SBY 16:06:23 [th4b] engine_0.basecase: ##   0:00:00  Status: passed
+SBY 16:06:23 [th4b] engine_0.basecase: finished (returncode=0)
+SBY 16:06:23 [th4b] engine_0: Status returned by engine for basecase: pass
+SBY 16:06:23 [th4b] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 16:06:23 [th4b] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 16:06:23 [th4b] summary: engine_0 (smtbmc) returned pass for induction
+SBY 16:06:23 [th4b] summary: engine_0 (smtbmc) returned pass for basecase
+SBY 16:06:23 [th4b] summary: successful proof by k-induction.
+SBY 16:06:23 [th4b] DONE (PASS, rc=0)
+</system-out></testcase></testsuite></testsuites>

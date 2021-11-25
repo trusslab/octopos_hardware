@@ -1,0 +1,16 @@
+[options]
+mode prove
+
+[engines]
+smtbmc
+
+[script]
+read -formal th5c.sv
+prep -top top
+
+[files]
+th5c.sv
+Octopos_MailBox_Main_logic.v
+Octopos_MailBox_Ctrl_Interface_Manager.v
+Octopos_MailBox_1Writer_3Reader_v1_0.v
+Octopos_MailBox_ctrl_AXI.v

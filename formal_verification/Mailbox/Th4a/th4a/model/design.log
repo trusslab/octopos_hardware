@@ -1,0 +1,543 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: th4a.sv
+Parsing formal SystemVerilog input from `th4a.sv' to AST representation.
+Storing AST representation for module `$abstract\Octopos_MailBox_Main_Logic'.
+Storing AST representation for module `$abstract\Octopos_MailBox_Ctrl_Interface_Manager'.
+Storing AST representation for module `$abstract\testbench'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\testbench'.
+Generating RTLIL representation for module `\testbench'.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \testbench
+
+2.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\Octopos_MailBox_Main_Logic'.
+Generating RTLIL representation for module `\Octopos_MailBox_Main_Logic'.
+
+2.2.3. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Octopos_MailBox_Main_Logic
+
+2.2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\Octopos_MailBox_Ctrl_Interface_Manager'.
+Generating RTLIL representation for module `\Octopos_MailBox_Ctrl_Interface_Manager'.
+
+2.2.5. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Octopos_MailBox_Main_Logic
+Used module:         \Octopos_MailBox_Ctrl_Interface_Manager
+
+2.2.6. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Octopos_MailBox_Main_Logic
+Used module:         \Octopos_MailBox_Ctrl_Interface_Manager
+Removing unused module `$abstract\testbench'.
+Removing unused module `$abstract\Octopos_MailBox_Ctrl_Interface_Manager'.
+Removing unused module `$abstract\Octopos_MailBox_Main_Logic'.
+Removed 3 unused modules.
+Module testbench directly or indirectly contains formal properties -> setting "keep" attribute.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:61$61 in module Octopos_MailBox_Ctrl_Interface_Manager.
+Marked 1 switch rules as full_case in process $proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:49$59 in module Octopos_MailBox_Ctrl_Interface_Manager.
+Marked 1 switch rules as full_case in process $proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:32$55 in module Octopos_MailBox_Ctrl_Interface_Manager.
+Marked 6 switch rules as full_case in process $proc$./Octopos_MailBox_Main_logic.v:172$47 in module Octopos_MailBox_Main_Logic.
+Marked 2 switch rules as full_case in process $proc$./Octopos_MailBox_Main_logic.v:159$43 in module Octopos_MailBox_Main_Logic.
+Marked 2 switch rules as full_case in process $proc$./Octopos_MailBox_Main_logic.v:150$39 in module Octopos_MailBox_Main_Logic.
+Marked 1 switch rules as full_case in process $proc$./Octopos_MailBox_Main_logic.v:142$29 in module Octopos_MailBox_Main_Logic.
+Marked 1 switch rules as full_case in process $proc$./Octopos_MailBox_Main_logic.v:130$19 in module Octopos_MailBox_Main_Logic.
+Marked 1 switch rules as full_case in process $proc$./Octopos_MailBox_Main_logic.v:108$18 in module Octopos_MailBox_Main_Logic.
+Removed a total of 0 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 16 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\testbench.$proc$th4a.sv:0$15'.
+  Set init value: $formal$th4a.sv:76$2_EN = 1'0
+Found init rule in `\testbench.$proc$th4a.sv:0$13'.
+  Set init value: $formal$th4a.sv:75$1_EN = 1'0
+Found init rule in `\testbench.$proc$th4a.sv:73$12'.
+  Set init value: \init = 1'1
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:61$61'.
+     1/1: $0\interrupt_line[0:0]
+Creating decoders for process `\Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:49$59'.
+     1/1: $0\system_reg_previous[31:0]
+Creating decoders for process `\Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:32$55'.
+     1/1: $0\S_READ_STATE_VALUE[31:0]
+Creating decoders for process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:172$47'.
+     1/2: $0\Octopos_resetn[0:0]
+     2/2: $0\state_reg[31:0]
+Creating decoders for process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:159$43'.
+     1/2: $2\next_time_out[11:0]
+     2/2: $1\next_time_out[11:0]
+Creating decoders for process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:150$39'.
+     1/2: $2\next_limit[11:0]
+     2/2: $1\next_limit[11:0]
+Creating decoders for process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:142$29'.
+     1/1: $1\deligate_req[0:0]
+Creating decoders for process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:130$19'.
+     1/1: $1\expire_or_yield_req[0:0]
+Creating decoders for process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:108$18'.
+     1/2: $1\write_req[0:0]
+     2/2: $1\write_state_value[31:0]
+Creating decoders for process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:96$17'.
+Creating decoders for process `\testbench.$proc$th4a.sv:0$15'.
+Creating decoders for process `\testbench.$proc$th4a.sv:0$13'.
+Creating decoders for process `\testbench.$proc$th4a.sv:73$12'.
+Creating decoders for process `\testbench.$proc$th4a.sv:74$3'.
+     1/4: $0$formal$th4a.sv:75$1_EN[0:0]$5
+     2/4: $0$formal$th4a.sv:75$1_CHECK[0:0]$4
+     3/4: $0$formal$th4a.sv:76$2_EN[0:0]$7
+     4/4: $0$formal$th4a.sv:76$2_CHECK[0:0]$6
+
+2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\Octopos_MailBox_Ctrl_Interface_Manager.\S_READ_STATE_VALUE' from process `\Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:32$55'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\next_time_out' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:159$43'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\next_limit' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:150$39'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\deligate_req' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:142$29'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\expire_or_yield_req' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:130$19'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\write_state_value' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:108$18'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\write_req' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:108$18'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\owner_id' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:96$17'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\time_out' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:96$17'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\limit' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:96$17'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\write_state_owner_id' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:96$17'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\write_state_time_out' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:96$17'.
+No latch inferred for signal `\Octopos_MailBox_Main_Logic.\write_state_limit' from process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:96$17'.
+
+2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\Octopos_MailBox_Ctrl_Interface_Manager.\interrupt_line' using process `\Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:61$61'.
+  created $dff cell `$procdff$159' with positive edge clock.
+Creating register for signal `\Octopos_MailBox_Ctrl_Interface_Manager.\system_reg_previous' using process `\Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:49$59'.
+  created $dff cell `$procdff$160' with positive edge clock.
+Creating register for signal `\Octopos_MailBox_Main_Logic.\state_reg' using process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:172$47'.
+  created $dff cell `$procdff$161' with positive edge clock.
+Creating register for signal `\Octopos_MailBox_Main_Logic.\Octopos_resetn' using process `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:172$47'.
+  created $dff cell `$procdff$162' with positive edge clock.
+Creating register for signal `\testbench.\init' using process `\testbench.$proc$th4a.sv:74$3'.
+  created $dff cell `$procdff$163' with positive edge clock.
+Creating register for signal `\testbench.$formal$th4a.sv:75$1_CHECK' using process `\testbench.$proc$th4a.sv:74$3'.
+  created $dff cell `$procdff$164' with positive edge clock.
+Creating register for signal `\testbench.$formal$th4a.sv:75$1_EN' using process `\testbench.$proc$th4a.sv:74$3'.
+  created $dff cell `$procdff$165' with positive edge clock.
+Creating register for signal `\testbench.$formal$th4a.sv:76$2_CHECK' using process `\testbench.$proc$th4a.sv:74$3'.
+  created $dff cell `$procdff$166' with positive edge clock.
+Creating register for signal `\testbench.$formal$th4a.sv:76$2_EN' using process `\testbench.$proc$th4a.sv:74$3'.
+  created $dff cell `$procdff$167' with positive edge clock.
+
+2.3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:61$61'.
+Removing empty process `Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:61$61'.
+Found and cleaned up 1 empty switch in `\Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:49$59'.
+Removing empty process `Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:49$59'.
+Found and cleaned up 1 empty switch in `\Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:32$55'.
+Removing empty process `Octopos_MailBox_Ctrl_Interface_Manager.$proc$./Octopos_MailBox_Ctrl_Interface_Manager.v:32$55'.
+Found and cleaned up 6 empty switches in `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:172$47'.
+Removing empty process `Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:172$47'.
+Found and cleaned up 2 empty switches in `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:159$43'.
+Removing empty process `Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:159$43'.
+Found and cleaned up 2 empty switches in `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:150$39'.
+Removing empty process `Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:150$39'.
+Found and cleaned up 1 empty switch in `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:142$29'.
+Removing empty process `Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:142$29'.
+Found and cleaned up 1 empty switch in `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:130$19'.
+Removing empty process `Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:130$19'.
+Found and cleaned up 1 empty switch in `\Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:108$18'.
+Removing empty process `Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:108$18'.
+Removing empty process `Octopos_MailBox_Main_Logic.$proc$./Octopos_MailBox_Main_logic.v:96$17'.
+Removing empty process `testbench.$proc$th4a.sv:0$15'.
+Removing empty process `testbench.$proc$th4a.sv:0$13'.
+Removing empty process `testbench.$proc$th4a.sv:73$12'.
+Found and cleaned up 2 empty switches in `\testbench.$proc$th4a.sv:74$3'.
+Removing empty process `testbench.$proc$th4a.sv:74$3'.
+Cleaned up 21 empty switches.
+
+2.3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Octopos_MailBox_Ctrl_Interface_Manager.
+<suppressed ~5 debug messages>
+Optimizing module Octopos_MailBox_Main_Logic.
+<suppressed ~19 debug messages>
+Optimizing module testbench.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Octopos_MailBox_Ctrl_Interface_Manager.
+Optimizing module Octopos_MailBox_Main_Logic.
+Optimizing module testbench.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Octopos_MailBox_Ctrl_Interface_Manager..
+Finding unused cells or wires in module \Octopos_MailBox_Main_Logic..
+Finding unused cells or wires in module \testbench..
+Removed 3 unused cells and 78 unused wires.
+<suppressed ~6 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module Octopos_MailBox_Ctrl_Interface_Manager...
+Checking module Octopos_MailBox_Main_Logic...
+Checking module testbench...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Octopos_MailBox_Ctrl_Interface_Manager.
+Optimizing module Octopos_MailBox_Main_Logic.
+Optimizing module testbench.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Octopos_MailBox_Ctrl_Interface_Manager'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\Octopos_MailBox_Main_Logic'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\testbench'.
+Removed a total of 7 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Octopos_MailBox_Ctrl_Interface_Manager..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Octopos_MailBox_Main_Logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$121.
+    dead port 1/2 on $mux $procmux$130.
+Running muxtree optimizer on module \testbench..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 2 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Octopos_MailBox_Ctrl_Interface_Manager.
+  Optimizing cells in module \Octopos_MailBox_Main_Logic.
+  Optimizing cells in module \testbench.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Octopos_MailBox_Ctrl_Interface_Manager'.
+Finding identical cells in module `\Octopos_MailBox_Main_Logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Octopos_MailBox_Ctrl_Interface_Manager..
+Finding unused cells or wires in module \Octopos_MailBox_Main_Logic..
+Finding unused cells or wires in module \testbench..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~2 debug messages>
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Octopos_MailBox_Ctrl_Interface_Manager.
+Optimizing module Octopos_MailBox_Main_Logic.
+Optimizing module testbench.
+
+2.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Octopos_MailBox_Ctrl_Interface_Manager..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Octopos_MailBox_Main_Logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \testbench..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Octopos_MailBox_Ctrl_Interface_Manager.
+  Optimizing cells in module \Octopos_MailBox_Main_Logic.
+  Optimizing cells in module \testbench.
+Performed a total of 0 changes.
+
+2.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Octopos_MailBox_Ctrl_Interface_Manager'.
+Finding identical cells in module `\Octopos_MailBox_Main_Logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+2.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Octopos_MailBox_Ctrl_Interface_Manager..
+Finding unused cells or wires in module \Octopos_MailBox_Main_Logic..
+Finding unused cells or wires in module \testbench..
+
+2.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Octopos_MailBox_Ctrl_Interface_Manager.
+Optimizing module Octopos_MailBox_Main_Logic.
+Optimizing module testbench.
+
+2.7.14. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 9) from port B of cell Octopos_MailBox_Ctrl_Interface_Manager.$eq$./Octopos_MailBox_Ctrl_Interface_Manager.v:35$56 ($eq).
+Removed top 20 bits (of 32) from mux cell Octopos_MailBox_Main_Logic.$procmux$100 ($mux).
+Removed top 8 bits (of 32) from mux cell Octopos_MailBox_Main_Logic.$procmux$103 ($mux).
+Removed top 8 bits (of 32) from mux cell Octopos_MailBox_Main_Logic.$procmux$106 ($mux).
+Removed top 6 bits (of 8) from port B of cell Octopos_MailBox_Main_Logic.$procmux$143_CMP0 ($eq).
+Removed top 7 bits (of 8) from port B of cell Octopos_MailBox_Main_Logic.$procmux$144_CMP0 ($eq).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Octopos_MailBox_Ctrl_Interface_Manager..
+Finding unused cells or wires in module \Octopos_MailBox_Main_Logic..
+Finding unused cells or wires in module \testbench..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Octopos_MailBox_Ctrl_Interface_Manager.
+Optimizing module Octopos_MailBox_Main_Logic.
+Optimizing module testbench.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Octopos_MailBox_Ctrl_Interface_Manager'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\Octopos_MailBox_Main_Logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 2 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Octopos_MailBox_Ctrl_Interface_Manager..
+Finding unused cells or wires in module \Octopos_MailBox_Main_Logic..
+Finding unused cells or wires in module \testbench..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== Octopos_MailBox_Ctrl_Interface_Manager ===
+
+   Number of wires:                 21
+   Number of wire bits:            167
+   Number of public wires:          12
+   Number of public wire bits:     127
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 12
+     $dff                            2
+     $eq                             2
+     $logic_or                       1
+     $mux                            6
+     $ne                             1
+
+=== Octopos_MailBox_Main_Logic ===
+
+   Number of wires:                 78
+   Number of wire bits:            729
+   Number of public wires:          44
+   Number of public wire bits:     465
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 46
+     $and                            1
+     $dff                            2
+     $eq                             5
+     $logic_and                      6
+     $logic_not                      3
+     $logic_or                       2
+     $mux                           15
+     $ne                             2
+     $pmux                           2
+     $reduce_bool                    2
+     $sub                            2
+     Octopos_MailBox_Ctrl_Interface_Manager      4
+
+=== testbench ===
+
+   Number of wires:                 38
+   Number of wire bits:            317
+   Number of public wires:          28
+   Number of public wire bits:     307
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 14
+     $assert                         1
+     $assume                         1
+     $dff                            5
+     $eq                             1
+     $logic_not                      1
+     $mux                            4
+     Octopos_MailBox_Main_Logic      1
+
+=== design hierarchy ===
+
+   testbench                         1
+     Octopos_MailBox_Main_Logic      1
+       Octopos_MailBox_Ctrl_Interface_Manager      4
+
+   Number of wires:                200
+   Number of wire bits:           1714
+   Number of public wires:         120
+   Number of public wire bits:    1280
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                103
+     $and                            1
+     $assert                         1
+     $assume                         1
+     $dff                           15
+     $eq                            14
+     $logic_and                      6
+     $logic_not                      4
+     $logic_or                       6
+     $mux                           43
+     $ne                             6
+     $pmux                           2
+     $reduce_bool                    2
+     $sub                            2
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module Octopos_MailBox_Ctrl_Interface_Manager...
+Checking module Octopos_MailBox_Main_Logic...
+Checking module testbench...
+Found and reported 0 problems.
+
+3. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+4. Executing ASYNC2SYNC pass.
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Octopos_MailBox_Ctrl_Interface_Manager..
+Finding unused cells or wires in module \Octopos_MailBox_Main_Logic..
+Finding unused cells or wires in module \testbench..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Octopos_MailBox_Ctrl_Interface_Manager.
+Optimizing module Octopos_MailBox_Main_Logic.
+Optimizing module testbench.
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Octopos_MailBox_Ctrl_Interface_Manager'.
+Finding identical cells in module `\Octopos_MailBox_Main_Logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+7.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$160 ($dff) from module Octopos_MailBox_Ctrl_Interface_Manager (D = \S_SYSTEM_STATE_REG, Q = \system_reg_previous, rval = 16777215).
+Adding SRST signal on $procdff$159 ($dff) from module Octopos_MailBox_Ctrl_Interface_Manager (D = $procmux$70_Y, Q = \interrupt_line, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$173 ($sdff) from module Octopos_MailBox_Ctrl_Interface_Manager (D = 1'1, Q = \interrupt_line).
+Adding SRST signal on $procdff$162 ($dff) from module Octopos_MailBox_Main_Logic (D = $procmux$94_Y, Q = \Octopos_resetn, rval = 1'1).
+Adding SRST signal on $procdff$161 ($dff) from module Octopos_MailBox_Main_Logic (D = $procmux$112_Y, Q = \state_reg, rval = 16777215).
+Adding EN signal on $auto$ff.cc:262:slice$182 ($sdff) from module Octopos_MailBox_Main_Logic (D = $procmux$112_Y [11:0], Q = \state_reg [11:0]).
+Adding EN signal on $auto$ff.cc:262:slice$182 ($sdff) from module Octopos_MailBox_Main_Logic (D = $procmux$112_Y [23:12], Q = \state_reg [23:12]).
+Adding EN signal on $auto$ff.cc:262:slice$182 ($sdff) from module Octopos_MailBox_Main_Logic (D = $procmux$112_Y [31:24], Q = \state_reg [31:24]).
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Octopos_MailBox_Ctrl_Interface_Manager..
+Finding unused cells or wires in module \Octopos_MailBox_Main_Logic..
+Finding unused cells or wires in module \testbench..
+Removed 7 unused cells and 7 unused wires.
+<suppressed ~9 debug messages>
+
+7.5. Rerunning OPT passes. (Removed registers in this run.)
+
+7.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Octopos_MailBox_Ctrl_Interface_Manager.
+Optimizing module Octopos_MailBox_Main_Logic.
+<suppressed ~3 debug messages>
+Optimizing module testbench.
+
+7.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Octopos_MailBox_Ctrl_Interface_Manager'.
+Finding identical cells in module `\Octopos_MailBox_Main_Logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+7.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Octopos_MailBox_Ctrl_Interface_Manager..
+Finding unused cells or wires in module \Octopos_MailBox_Main_Logic..
+Finding unused cells or wires in module \testbench..
+
+7.10. Finished fast OPT passes.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module Octopos_MailBox_Ctrl_Interface_Manager...
+Checking module Octopos_MailBox_Main_Logic...
+Checking module testbench...
+Found and reported 0 problems.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Octopos_MailBox_Main_Logic
+Used module:         \Octopos_MailBox_Ctrl_Interface_Manager
+
+9.2. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Octopos_MailBox_Main_Logic
+Used module:         \Octopos_MailBox_Ctrl_Interface_Manager
+Removed 0 unused modules.
+Module testbench directly or indirectly contains formal properties -> setting "keep" attribute.
+
+10. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: b2651d9b9c, CPU: user 0.08s system 0.00s, MEM: 12.09 MB peak
+Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+Time spent: 28% 8x opt_clean (0 sec), 16% 8x opt_expr (0 sec), ...

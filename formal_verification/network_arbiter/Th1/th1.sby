@@ -1,0 +1,14 @@
+[options]
+mode prove
+
+[engines]
+smtbmc
+
+[script]
+read -formal th1.sv
+prep -top testbench
+
+[files]
+th1.sv
+network_arbiter_main_logic.v
+Network_arbitter_simple.v

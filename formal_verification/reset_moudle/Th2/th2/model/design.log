@@ -1,0 +1,699 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: th2.sv
+Parsing formal SystemVerilog input from `th2.sv' to AST representation.
+Storing AST representation for module `$abstract\Octopos_reset_module_v1_0_S00_AXI'.
+Storing AST representation for module `$abstract\Octopos_reset_module_v1_0'.
+Storing AST representation for module `$abstract\testbench'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\testbench'.
+Generating RTLIL representation for module `\testbench'.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \testbench
+
+2.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\Octopos_reset_module_v1_0'.
+Generating RTLIL representation for module `\Octopos_reset_module_v1_0'.
+
+2.2.3. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Octopos_reset_module_v1_0
+Parameter \C_S_AXI_DATA_WIDTH = 32
+Parameter \C_S_AXI_ADDR_WIDTH = 4
+
+2.2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\Octopos_reset_module_v1_0_S00_AXI'.
+Parameter \C_S_AXI_DATA_WIDTH = 32
+Parameter \C_S_AXI_ADDR_WIDTH = 4
+Generating RTLIL representation for module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI'.
+
+2.2.5. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Octopos_reset_module_v1_0
+Used module:         $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI
+
+2.2.6. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Octopos_reset_module_v1_0
+Used module:         $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI
+Removing unused module `$abstract\testbench'.
+Removing unused module `$abstract\Octopos_reset_module_v1_0'.
+Removing unused module `$abstract\Octopos_reset_module_v1_0_S00_AXI'.
+Removed 3 unused modules.
+Module testbench directly or indirectly contains formal properties -> setting "keep" attribute.
+Mapping positional arguments of cell testbench.orm_inst (Octopos_reset_module_v1_0).
+Warning: Resizing cell port testbench.orm_inst.s00_axi_awaddr from 32 bits to 4 bits.
+Warning: Resizing cell port testbench.orm_inst.s00_axi_araddr from 32 bits to 4 bits.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:532$137 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Removed 1 dead cases from process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:519$136 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 1 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:519$136 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 2 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:492$127 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 2 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:461$123 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 2 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:427$115 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 2 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:404$112 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 1 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:392$110 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 1 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:380$108 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 3 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:357$101 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 3 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:334$94 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 1 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:322$90 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 1 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:310$88 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 1 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:296$84 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Removed 1 dead cases from process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:232$64 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 3 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:232$64 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 2 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:200$55 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 1 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:179$49 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 3 switch rules as full_case in process $proc$./Octopos_reset_module_v1_0_S00_AXI.v:145$42 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Marked 3 switch rules as full_case in process $proc$./Octopos_reset_module.v:129$38 in module Octopos_reset_module_v1_0.
+Marked 1 switch rules as full_case in process $proc$./Octopos_reset_module.v:84$33 in module Octopos_reset_module_v1_0.
+Removed a total of 2 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 9 redundant assignments.
+Promoted 12 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\testbench.$proc$th2.sv:0$27'.
+  Set init value: $formal$th2.sv:105$7_EN = 1'0
+Found init rule in `\testbench.$proc$th2.sv:0$25'.
+  Set init value: $formal$th2.sv:103$6_EN = 1'0
+Found init rule in `\testbench.$proc$th2.sv:0$23'.
+  Set init value: $formal$th2.sv:102$5_EN = 1'0
+Found init rule in `\testbench.$proc$th2.sv:96$22'.
+  Set init value: \init = 1'1
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:532$137'.
+     1/1: $0\axi_rdata[31:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:519$136'.
+     1/1: $0\reg_data_out[31:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:492$127'.
+     1/2: $0\axi_rvalid[0:0]
+     2/2: $0\axi_rresp[1:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:461$123'.
+     1/2: $0\axi_arready[0:0]
+     2/2: $0\axi_araddr[3:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:427$115'.
+     1/2: $0\axi_bvalid[0:0]
+     2/2: $0\axi_bresp[1:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:404$112'.
+     1/2: $2\reset_status[0:0]
+     2/2: $1\reset_status[0:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:392$110'.
+     1/1: $1\USER_RESET[0:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:380$108'.
+     1/1: $1\FIRST_RESET[0:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:357$101'.
+     1/1: $0\first_reset_counter[6:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:334$94'.
+     1/1: $0\reset_counter[6:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:322$90'.
+     1/1: $1\user_reset_start[0:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:310$88'.
+     1/1: $0\old_slv_reg0[31:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:296$84'.
+     1/2: $0\random_fuse[31:0]
+     2/2: $0\first_reset_start[0:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:232$64'.
+     1/19: $0\slv_reg3[31:0] [31:24]
+     2/19: $0\slv_reg3[31:0] [23:16]
+     3/19: $0\slv_reg3[31:0] [15:8]
+     4/19: $0\slv_reg3[31:0] [7:0]
+     5/19: $0\slv_reg2[31:0] [23:16]
+     6/19: $0\slv_reg2[31:0] [15:8]
+     7/19: $0\slv_reg2[31:0] [7:0]
+     8/19: $0\slv_reg1[31:0] [23:16]
+     9/19: $0\slv_reg1[31:0] [15:8]
+    10/19: $0\slv_reg1[31:0] [7:0]
+    11/19: $0\slv_reg0[31:0] [23:16]
+    12/19: $0\slv_reg0[31:0] [15:8]
+    13/19: $0\slv_reg0[31:0] [7:0]
+    14/19: $2\byte_index[31:0]
+    15/19: $1\byte_index[31:0]
+    16/19: $0\slv_reg2[31:0] [31:24]
+    17/19: $0\slv_reg1[31:0] [31:24]
+    18/19: $0\slv_reg0[31:0] [31:24]
+    19/19: $3\byte_index[31:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:200$55'.
+     1/1: $0\axi_wready[0:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:179$49'.
+     1/1: $0\axi_awaddr[3:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:145$42'.
+     1/2: $0\axi_awready[0:0]
+     2/2: $0\aw_en[0:0]
+Creating decoders for process `\Octopos_reset_module_v1_0.$proc$./Octopos_reset_module.v:129$38'.
+     1/3: $3\out_reset_n[0:0]
+     2/3: $2\out_reset_n[0:0]
+     3/3: $1\out_reset_n[0:0]
+Creating decoders for process `\Octopos_reset_module_v1_0.$proc$./Octopos_reset_module.v:84$33'.
+     1/1: $1\busy_n[0:0]
+Creating decoders for process `\testbench.$proc$th2.sv:0$27'.
+Creating decoders for process `\testbench.$proc$th2.sv:0$25'.
+Creating decoders for process `\testbench.$proc$th2.sv:0$23'.
+Creating decoders for process `\testbench.$proc$th2.sv:96$22'.
+Creating decoders for process `\testbench.$proc$th2.sv:101$8'.
+     1/6: $0$formal$th2.sv:102$5_EN[0:0]$10
+     2/6: $0$formal$th2.sv:102$5_CHECK[0:0]$9
+     3/6: $0$formal$th2.sv:103$6_EN[0:0]$12
+     4/6: $0$formal$th2.sv:103$6_CHECK[0:0]$11
+     5/6: $0$formal$th2.sv:105$7_EN[0:0]$14
+     6/6: $0$formal$th2.sv:105$7_CHECK[0:0]$13
+
+2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\reg_data_out' from process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:519$136'.
+No latch inferred for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\reset_status' from process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:404$112'.
+No latch inferred for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\USER_RESET' from process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:392$110'.
+No latch inferred for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\FIRST_RESET' from process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:380$108'.
+No latch inferred for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\user_reset_start' from process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:322$90'.
+No latch inferred for signal `\Octopos_reset_module_v1_0.\out_reset_n' from process `\Octopos_reset_module_v1_0.$proc$./Octopos_reset_module.v:129$38'.
+No latch inferred for signal `\Octopos_reset_module_v1_0.\busy_n' from process `\Octopos_reset_module_v1_0.$proc$./Octopos_reset_module.v:84$33'.
+
+2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\axi_rdata' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:532$137'.
+  created $dff cell `$procdff$503' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\axi_rresp' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:492$127'.
+  created $dff cell `$procdff$504' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\axi_rvalid' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:492$127'.
+  created $dff cell `$procdff$505' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\axi_araddr' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:461$123'.
+  created $dff cell `$procdff$506' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\axi_arready' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:461$123'.
+  created $dff cell `$procdff$507' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\axi_bresp' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:427$115'.
+  created $dff cell `$procdff$508' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\axi_bvalid' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:427$115'.
+  created $dff cell `$procdff$509' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\first_reset_counter' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:357$101'.
+  created $dff cell `$procdff$510' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\reset_counter' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:334$94'.
+  created $dff cell `$procdff$511' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\old_slv_reg0' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:310$88'.
+  created $dff cell `$procdff$512' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\random_fuse' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:296$84'.
+  created $dff cell `$procdff$513' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\first_reset_start' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:296$84'.
+  created $dff cell `$procdff$514' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\slv_reg0' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:232$64'.
+  created $dff cell `$procdff$515' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\slv_reg1' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:232$64'.
+  created $dff cell `$procdff$516' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\slv_reg2' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:232$64'.
+  created $dff cell `$procdff$517' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\slv_reg3' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:232$64'.
+  created $dff cell `$procdff$518' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\byte_index' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:232$64'.
+  created $dff cell `$procdff$519' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\axi_wready' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:200$55'.
+  created $dff cell `$procdff$520' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\axi_awaddr' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:179$49'.
+  created $dff cell `$procdff$521' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\axi_awready' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:145$42'.
+  created $dff cell `$procdff$522' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.\aw_en' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:145$42'.
+  created $dff cell `$procdff$523' with positive edge clock.
+Creating register for signal `\testbench.\init' using process `\testbench.$proc$th2.sv:101$8'.
+  created $dff cell `$procdff$524' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:102$5_CHECK' using process `\testbench.$proc$th2.sv:101$8'.
+  created $dff cell `$procdff$525' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:102$5_EN' using process `\testbench.$proc$th2.sv:101$8'.
+  created $dff cell `$procdff$526' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:103$6_CHECK' using process `\testbench.$proc$th2.sv:101$8'.
+  created $dff cell `$procdff$527' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:103$6_EN' using process `\testbench.$proc$th2.sv:101$8'.
+  created $dff cell `$procdff$528' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:105$7_CHECK' using process `\testbench.$proc$th2.sv:101$8'.
+  created $dff cell `$procdff$529' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:105$7_EN' using process `\testbench.$proc$th2.sv:101$8'.
+  created $dff cell `$procdff$530' with positive edge clock.
+
+2.3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:532$137'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:532$137'.
+Found and cleaned up 1 empty switch in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:519$136'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:519$136'.
+Found and cleaned up 3 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:492$127'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:492$127'.
+Found and cleaned up 2 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:461$123'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:461$123'.
+Found and cleaned up 3 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:427$115'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:427$115'.
+Found and cleaned up 2 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:404$112'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:404$112'.
+Found and cleaned up 1 empty switch in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:392$110'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:392$110'.
+Found and cleaned up 1 empty switch in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:380$108'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:380$108'.
+Found and cleaned up 3 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:357$101'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:357$101'.
+Found and cleaned up 3 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:334$94'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:334$94'.
+Found and cleaned up 1 empty switch in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:322$90'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:322$90'.
+Found and cleaned up 1 empty switch in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:310$88'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:310$88'.
+Found and cleaned up 1 empty switch in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:296$84'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:296$84'.
+Found and cleaned up 19 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:232$64'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:232$64'.
+Found and cleaned up 2 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:200$55'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:200$55'.
+Found and cleaned up 2 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:179$49'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:179$49'.
+Found and cleaned up 3 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:145$42'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$proc$./Octopos_reset_module_v1_0_S00_AXI.v:145$42'.
+Found and cleaned up 3 empty switches in `\Octopos_reset_module_v1_0.$proc$./Octopos_reset_module.v:129$38'.
+Removing empty process `Octopos_reset_module_v1_0.$proc$./Octopos_reset_module.v:129$38'.
+Found and cleaned up 1 empty switch in `\Octopos_reset_module_v1_0.$proc$./Octopos_reset_module.v:84$33'.
+Removing empty process `Octopos_reset_module_v1_0.$proc$./Octopos_reset_module.v:84$33'.
+Removing empty process `testbench.$proc$th2.sv:0$27'.
+Removing empty process `testbench.$proc$th2.sv:0$25'.
+Removing empty process `testbench.$proc$th2.sv:0$23'.
+Removing empty process `testbench.$proc$th2.sv:96$22'.
+Found and cleaned up 3 empty switches in `\testbench.$proc$th2.sv:101$8'.
+Removing empty process `testbench.$proc$th2.sv:101$8'.
+Cleaned up 57 empty switches.
+
+2.3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+<suppressed ~80 debug messages>
+Optimizing module Octopos_reset_module_v1_0.
+<suppressed ~7 debug messages>
+Optimizing module testbench.
+<suppressed ~4 debug messages>
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Optimizing module Octopos_reset_module_v1_0.
+Optimizing module testbench.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI..
+Finding unused cells or wires in module \Octopos_reset_module_v1_0..
+Finding unused cells or wires in module \testbench..
+Removed 28 unused cells and 234 unused wires.
+<suppressed ~33 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI...
+Checking module Octopos_reset_module_v1_0...
+Checking module testbench...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Optimizing module Octopos_reset_module_v1_0.
+Optimizing module testbench.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI'.
+<suppressed ~54 debug messages>
+Finding identical cells in module `\Octopos_reset_module_v1_0'.
+Finding identical cells in module `\testbench'.
+Removed a total of 18 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Octopos_reset_module_v1_0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$470.
+    dead port 1/2 on $mux $procmux$473.
+    dead port 1/2 on $mux $procmux$479.
+Running muxtree optimizer on module \testbench..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 3 multiplexer ports.
+<suppressed ~43 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+  Optimizing cells in module \Octopos_reset_module_v1_0.
+  Optimizing cells in module \testbench.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI'.
+Finding identical cells in module `\Octopos_reset_module_v1_0'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI..
+Finding unused cells or wires in module \Octopos_reset_module_v1_0..
+Finding unused cells or wires in module \testbench..
+Removed 0 unused cells and 21 unused wires.
+<suppressed ~2 debug messages>
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Optimizing module Octopos_reset_module_v1_0.
+Optimizing module testbench.
+
+2.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Octopos_reset_module_v1_0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \testbench..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~43 debug messages>
+
+2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+  Optimizing cells in module \Octopos_reset_module_v1_0.
+  Optimizing cells in module \testbench.
+Performed a total of 0 changes.
+
+2.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI'.
+Finding identical cells in module `\Octopos_reset_module_v1_0'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+2.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI..
+Finding unused cells or wires in module \Octopos_reset_module_v1_0..
+Finding unused cells or wires in module \testbench..
+
+2.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Optimizing module Octopos_reset_module_v1_0.
+Optimizing module testbench.
+
+2.7.14. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$procmux$147_CMP0 ($eq).
+Removed top 1 bits (of 7) from port B of cell $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$lt$./Octopos_reset_module_v1_0_S00_AXI.v:346$99 ($lt).
+Removed top 6 bits (of 7) from port B of cell $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$add$./Octopos_reset_module_v1_0_S00_AXI.v:348$100 ($add).
+Removed top 2 bits (of 7) from port B of cell $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$lt$./Octopos_reset_module_v1_0_S00_AXI.v:369$106 ($lt).
+Removed top 6 bits (of 7) from port B of cell $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$add$./Octopos_reset_module_v1_0_S00_AXI.v:371$107 ($add).
+Removed top 1 bits (of 2) from port B of cell $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.$procmux$313_CMP0 ($eq).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI..
+Finding unused cells or wires in module \Octopos_reset_module_v1_0..
+Finding unused cells or wires in module \testbench..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Optimizing module Octopos_reset_module_v1_0.
+Optimizing module testbench.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI'.
+Finding identical cells in module `\Octopos_reset_module_v1_0'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI..
+Finding unused cells or wires in module \Octopos_reset_module_v1_0..
+Finding unused cells or wires in module \testbench..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI ===
+
+   Number of wires:                185
+   Number of wire bits:           1178
+   Number of public wires:          50
+   Number of public wire bits:     395
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                173
+     $add                            2
+     $and                            2
+     $dff                           20
+     $eq                             8
+     $logic_and                     22
+     $logic_not                      4
+     $lt                             2
+     $mux                          101
+     $ne                             1
+     $not                            8
+     $pmux                           1
+     $reduce_bool                    2
+
+=== Octopos_reset_module_v1_0 ===
+
+   Number of wires:                 48
+   Number of wire bits:            135
+   Number of public wires:          43
+   Number of public wire bits:     130
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 13
+     $logic_and                      1
+     $logic_not                      2
+     $mux                            4
+     $not                            5
+     $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI      1
+
+=== testbench ===
+
+   Number of wires:                 58
+   Number of wire bits:            198
+   Number of public wires:          41
+   Number of public wire bits:     181
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 22
+     $assert                         1
+     $assume                         2
+     $dff                            7
+     $mux                            8
+     $not                            2
+     $reduce_bool                    1
+     Octopos_reset_module_v1_0       1
+
+=== design hierarchy ===
+
+   testbench                         1
+     Octopos_reset_module_v1_0       1
+       $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI      1
+
+   Number of wires:                291
+   Number of wire bits:           1511
+   Number of public wires:         134
+   Number of public wire bits:     706
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                206
+     $add                            2
+     $and                            2
+     $assert                         1
+     $assume                         2
+     $dff                           27
+     $eq                             8
+     $logic_and                     23
+     $logic_not                      6
+     $lt                             2
+     $mux                          113
+     $ne                             1
+     $not                           15
+     $pmux                           1
+     $reduce_bool                    3
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI...
+Checking module Octopos_reset_module_v1_0...
+Checking module testbench...
+Found and reported 0 problems.
+
+3. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+4. Executing ASYNC2SYNC pass.
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI..
+Finding unused cells or wires in module \Octopos_reset_module_v1_0..
+Finding unused cells or wires in module \testbench..
+Removed 4 unused cells and 4 unused wires.
+<suppressed ~5 debug messages>
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Optimizing module Octopos_reset_module_v1_0.
+Optimizing module testbench.
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI'.
+Finding identical cells in module `\Octopos_reset_module_v1_0'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+7.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$523 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$461_Y, Q = \aw_en, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$541 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$461_Y, Q = \aw_en).
+Adding SRST signal on $procdff$522 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$452_Y, Q = \axi_awready, rval = 1'0).
+Adding SRST signal on $procdff$521 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$444_Y, Q = \axi_awaddr, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$546 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_AWADDR, Q = \axi_awaddr).
+Adding SRST signal on $procdff$520 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$439_Y, Q = \axi_wready, rval = 1'0).
+Adding SRST signal on $procdff$518 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = { $procmux$239_Y $procmux$249_Y $procmux$259_Y $procmux$269_Y }, Q = \slv_reg3, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$549 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [7:0], Q = \slv_reg3 [7:0]).
+Adding EN signal on $auto$ff.cc:262:slice$549 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [15:8], Q = \slv_reg3 [15:8]).
+Adding EN signal on $auto$ff.cc:262:slice$549 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [23:16], Q = \slv_reg3 [23:16]).
+Adding EN signal on $auto$ff.cc:262:slice$549 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [31:24], Q = \slv_reg3 [31:24]).
+Adding SRST signal on $procdff$517 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = { $procmux$397_Y $procmux$280_Y $procmux$291_Y $procmux$302_Y }, Q = \slv_reg2, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$562 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [7:0], Q = \slv_reg2 [7:0]).
+Adding EN signal on $auto$ff.cc:262:slice$562 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [15:8], Q = \slv_reg2 [15:8]).
+Adding EN signal on $auto$ff.cc:262:slice$562 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [23:16], Q = \slv_reg2 [23:16]).
+Adding EN signal on $auto$ff.cc:262:slice$562 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [31:24], Q = \slv_reg2 [31:24]).
+Adding SRST signal on $procdff$516 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = { $procmux$409_Y $procmux$314_Y $procmux$326_Y $procmux$338_Y }, Q = \slv_reg1, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$575 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [7:0], Q = \slv_reg1 [7:0]).
+Adding EN signal on $auto$ff.cc:262:slice$575 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [15:8], Q = \slv_reg1 [15:8]).
+Adding EN signal on $auto$ff.cc:262:slice$575 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [23:16], Q = \slv_reg1 [23:16]).
+Adding EN signal on $auto$ff.cc:262:slice$575 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [31:24], Q = \slv_reg1 [31:24]).
+Adding SRST signal on $procdff$515 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = { $procmux$422_Y $procmux$351_Y $procmux$364_Y $procmux$377_Y }, Q = \slv_reg0, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$588 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [7:0], Q = \slv_reg0 [7:0]).
+Adding EN signal on $auto$ff.cc:262:slice$588 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [15:8], Q = \slv_reg0 [15:8]).
+Adding EN signal on $auto$ff.cc:262:slice$588 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [23:16], Q = \slv_reg0 [23:16]).
+Adding EN signal on $auto$ff.cc:262:slice$588 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_WDATA [31:24], Q = \slv_reg0 [31:24]).
+Adding EN signal on $procdff$513 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = 32'11011110101011011011111011101111, Q = \random_fuse).
+Adding SRST signal on $procdff$512 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \slv_reg0, Q = \old_slv_reg0, rval = 0).
+Adding SRST signal on $procdff$511 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $add$./Octopos_reset_module_v1_0_S00_AXI.v:348$100_Y, Q = \reset_counter, rval = 7'0000000).
+Adding SRST signal on $procdff$510 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $add$./Octopos_reset_module_v1_0_S00_AXI.v:371$107_Y, Q = \first_reset_counter, rval = 7'0000000).
+Adding SRST signal on $procdff$509 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$178_Y, Q = \axi_bvalid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$617 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$178_Y, Q = \axi_bvalid).
+Adding SRST signal on $procdff$508 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$184_Y, Q = \axi_bresp, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$621 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = 2'00, Q = \axi_bresp).
+Adding SRST signal on $procdff$507 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$164_Y, Q = \axi_arready, rval = 1'0).
+Adding SRST signal on $procdff$506 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$170_Y, Q = \axi_araddr, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$624 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \S_AXI_ARADDR, Q = \axi_araddr).
+Adding SRST signal on $procdff$505 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$152_Y, Q = \axi_rvalid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$626 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$152_Y, Q = \axi_rvalid).
+Adding SRST signal on $procdff$504 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$158_Y, Q = \axi_rresp, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$630 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = 2'00, Q = \axi_rresp).
+Adding SRST signal on $procdff$503 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = $procmux$139_Y, Q = \axi_rdata, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$632 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI (D = \reg_data_out, Q = \axi_rdata).
+Adding SRST signal on $procdff$530 ($dff) from module testbench (D = $procmux$495_Y, Q = $formal$th2.sv:105$7_EN, rval = 1'0).
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI..
+Finding unused cells or wires in module \Octopos_reset_module_v1_0..
+Finding unused cells or wires in module \testbench..
+Removed 89 unused cells and 77 unused wires.
+<suppressed ~91 debug messages>
+
+7.5. Rerunning OPT passes. (Removed registers in this run.)
+
+7.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+<suppressed ~3 debug messages>
+Optimizing module Octopos_reset_module_v1_0.
+Optimizing module testbench.
+
+7.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\Octopos_reset_module_v1_0'.
+Finding identical cells in module `\testbench'.
+Removed a total of 1 cells.
+
+7.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI..
+Finding unused cells or wires in module \Octopos_reset_module_v1_0..
+Finding unused cells or wires in module \testbench..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+7.10. Finished fast OPT passes.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI...
+Checking module Octopos_reset_module_v1_0...
+Checking module testbench...
+Found and reported 0 problems.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Octopos_reset_module_v1_0
+Used module:         $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI
+
+9.2. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Octopos_reset_module_v1_0
+Used module:         $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI
+Removed 0 unused modules.
+Module testbench directly or indirectly contains formal properties -> setting "keep" attribute.
+
+10. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: e4fa66aef7, CPU: user 0.13s system 0.00s, MEM: 14.45 MB peak
+Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+Time spent: 24% 8x opt_clean (0 sec), 16% 8x opt_expr (0 sec), ...
