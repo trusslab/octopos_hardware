@@ -1,5 +1,5 @@
-num_of_ports = 3;
-manyWriter_OneReader =0;
+num_of_ports = 4;
+manyWriter_OneReader =1;
 
 version = 'v1_0'
 suffix = ''
@@ -163,7 +163,7 @@ f.write('\t`define BUSY_PATTERN5 8\'b00100000\n')
 f.write('\t`define BUSY_PATTERN6 8\'b01000000\n')
 f.write('\t`define BUSY_PATTERN7 8\'b10000000\n')
 f.write('\n')    
-f.write('\t`define TIMER_MAX F0000000\n')
+f.write('\t`define TIMER_MAX 32\'hF0000000\n')
 f.write('\t//System registers (FlipFlops) defenitions\n')#comment
 f.write('\treg [31:0] timer_counter;\n' )
 
