@@ -1,5 +1,5 @@
-num_of_ports = 4;
-manyWriter_OneReader =1;
+num_of_ports = 3;
+manyWriter_OneReader =0;
 
 version = 'v1_0'
 suffix = ''
@@ -42,7 +42,8 @@ f.write('\t//Parameters\n')
 f.write('\t(\n') # parameter def start
 f.write('\t\t// Parameters of Axi contrl Buses Interfaces\n') # comment
 f.write('\t\tparameter integer C_S_ctrl_AXI_DATA_WIDTH	= 32,\n')
-f.write('\t\tparameter integer C_S_ctrl_AXI_ADDR_WIDTH	= 4\n')
+f.write('\t\tparameter integer C_S_ctrl_AXI_ADDR_WIDTH	= 4,\n')
+f.write('\t\tparameter integer CLK_ATTR = "FREQ_HZ 99990005"\n')
 f.write('\t)\n') # parameter def end
 
 f.write('\t//Ports\n')
@@ -52,6 +53,7 @@ f.write('\t\tinput wire S_CLK,\n')
 f.write('\t\tinput wire S_ARESETN,\n')
 for i in range(0,num_of_ports):
     f.write('\t\t// Ctrl%d AXI port\n' % i) # comment
+    f.write('\t\t(* X_INTERFACE_PARAMETER = CLK_ATTR *)\n')
     f.write('\t\tinput wire  s_ctrl%d_axi_aclk,\n' % i)
     f.write('\t\tinput wire  s_ctrl%d_axi_aresetn,\n' % i)
     f.write('\t\tinput wire [C_S_ctrl_AXI_ADDR_WIDTH-1 : 0] s_ctrl%d_axi_awaddr,\n' % i)
@@ -74,6 +76,7 @@ for i in range(0,num_of_ports):
     f.write('\t\toutput wire  s_ctrl%d_axi_rvalid,\n' % i)
     f.write('\t\tinput wire  s_ctrl%d_axi_rready,\n' % i)
 f.write('\t\t// Ctrl%s AXI port\n' % '_fixed') # comment
+f.write('\t\t(* X_INTERFACE_PARAMETER = CLK_ATTR *)\n')
 f.write('\t\tinput wire  s_ctrl%s_axi_aclk,\n' % '_fixed')
 f.write('\t\tinput wire  s_ctrl%s_axi_aresetn,\n' % '_fixed')
 f.write('\t\tinput wire [C_S_ctrl_AXI_ADDR_WIDTH-1 : 0] s_ctrl%s_axi_awaddr,\n' % '_fixed')
@@ -96,6 +99,7 @@ f.write('\t\toutput wire [1 : 0] s_ctrl%s_axi_rresp,\n' % '_fixed')
 f.write('\t\toutput wire  s_ctrl%s_axi_rvalid,\n' % '_fixed')
 f.write('\t\tinput wire  s_ctrl%s_axi_rready,\n' % '_fixed')    
 for i in range(0,num_of_ports):
+    f.write('\t\t(* X_INTERFACE_PARAMETER = CLK_ATTR *)\n')
     f.write('\t\t// data%d AXI port\n' % i) # comment
     f.write('\t\tinput wire S0_data%d_AXI_ACLK,\n' % i)
     f.write('\t\tinput wire S0_data%d_AXI_ARESETN,\n' % i)
@@ -117,6 +121,7 @@ for i in range(0,num_of_ports):
     f.write('\t\toutput wire S0_data%d_AXI_RVALID,\n' % i)
     f.write('\t\tinput wire S0_data%d_AXI_RREADY,\n' % i)
 f.write('\t\t// data%s AXI port\n' % '_fixed') # comment
+f.write('\t\t(* X_INTERFACE_PARAMETER = CLK_ATTR *)\n')
 f.write('\t\tinput wire S1_data%s_AXI_ACLK,\n' % '_fixed')
 f.write('\t\tinput wire S1_data%s_AXI_ARESETN,\n' % '_fixed')
 f.write('\t\tinput wire [31 : 0] S1_data%s_AXI_AWADDR,\n' % '_fixed')
@@ -137,16 +142,19 @@ f.write('\t\toutput wire [1 : 0] S1_data%s_AXI_RRESP,\n' % '_fixed')
 f.write('\t\toutput wire S1_data%s_AXI_RVALID,\n' % '_fixed')
 f.write('\t\tinput wire S1_data%s_AXI_RREADY,\n' % '_fixed')
 
-f.write('\t\t// Busy lines\n') # comment
-for i in range(0,8):
-    f.write('\t\toutput wire busy%d,\n' %i)      
 
 f.write('\t\t// Interrupt lines\n') # comment
 for i in range(0,num_of_ports):
     f.write('\t\toutput wire Interrupt_%d,\n' % i) 
     f.write('\t\toutput wire Interrupt_ctrl%d,\n' % i)
 f.write('\t\toutput wire Interrupt_fixed,\n') 
-f.write('\t\toutput wire Interrupt_ctrl_fixed\n') 
+f.write('\t\toutput wire Interrupt_ctrl_fixed,\n') 
+
+f.write('\t\t// Busy lines\n') # comment
+for i in range(0,7):
+    f.write('\t\toutput wire busy%d,\n' %i)      
+f.write('\t\toutput wire busy7\n')   
+
 f.write('\t);//Ports def end\n') # Ports def end
 
 #Id defenitions
