@@ -1,6 +1,6 @@
 f = open("Octopos_MailBox_Main_logic.v","w+");
-num_of_ports = 3;
-manyWriter_OneReader =0;
+num_of_ports = 4;
+manyWriter_OneReader =1;
 f.write('`timescale 1 ns / 1 ps\n')
 
 f.write('//////////////////////////////////////////////////////////////////////////////////\n')
@@ -144,7 +144,7 @@ f.write('// delegation, to ensure availability we do not allow inifint\n')
 f.write('// delagation \n')
 f.write('always @(*)\n')
 f.write('begin\n')
-f.write('\tif( (write_req == 1\'b1) && (owner_id == `ID0) && (write_state_owner_id != `YIELD_ID) && (write_state_owner_id != `ID0) && (write_state_limit != `INFINITY) )\n')
+f.write('\tif( (write_req == 1\'b1) && (owner_id == `ID0) && (write_state_owner_id != `YIELD_ID) && (write_state_owner_id != `ID0) && (write_state_time_out != `INFINITY) )\n')
 f.write('\t\tdeligate_req = 1\'b1;\n')
 f.write('\telse\n')
 f.write('\t\tdeligate_req = 1\'b0;\n')
