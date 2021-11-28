@@ -141,7 +141,7 @@ module Octopos_MailBox_Main_Logic(
 	// delagation 
  	always @(*)
 	begin
-		if( (write_req == 1'b1) && (owner_id == `ID0) && (write_state_owner_id != `YIELD_ID) && (write_state_time_out != `INFINITY) && (write_state_limit != `INFINITY) )
+		if( (write_req == 1'b1) && (owner_id == `ID0) && (write_state_owner_id != `YIELD_ID) && (write_state_owner_id != `ID0) && (write_state_time_out != `INFINITY) )
 			deligate_req = 1'b1;
 		else
 			deligate_req = 1'b0;
