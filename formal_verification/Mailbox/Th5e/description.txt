@@ -1,0 +1,8 @@
+ When the ownership of the Mailbox changes, we reset (wipe) the FIFO.
+
+
+When the ownership of the Mailbox changes:
+if( owner_id != prev_owner_id ) begin 
+
+we reset (wipe) the FIFO:
+assert(!internal_mailbox_resetn);

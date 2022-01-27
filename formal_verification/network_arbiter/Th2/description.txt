@@ -1,0 +1,7 @@
+In this proof we show that if there is no write from control interface (network doamin in current implementation) state of the arbitter cannot change.
+
+To do so we keep the previous state of the arbitter (state of the arbitter in the previous clock cycle) in a register.
+To check that no write happens we use assume(s_ctrl0_axi_wvalid == 1'b0);
+
+and finally we show that the state remained unchanged using an assert function:
+ assert (prev_trusted == trusted);  

@@ -1,0 +1,19 @@
+If one of the normal domains  becomes the owner of the mailbox, and we ensure that time_tick or data transfer do not happen, and it never yields the ownership of Mailbox itself, it never loses its ownership, and time/data limit remains unchanged, no matter what the other signals in the hardware are.
+
+
+
+If one of the normal domains  becomes the owner of the mailbox:
+on first tik of clock reset happens and the domain 0 becomes the owner. on second tik of clock domain 0 delegates the ownership to a normal domain. 
+    if (counter == 2) begin
+    	write_req_0 <= 1;
+	write_state_0 <= 32'h020FF0FF;
+
+
+and we ensure that time_tick or data transfer do not happen, and it never yields the ownership of Mailbox itself,
+    assume(limit_req == 0);
+    assume(time_req == 0);
+    assume(write_2_owner_id != 8'hFF);
+
+it never loses its ownership, and time/data limit remains unchanged, no matter what the other signals in the hardware are.:
+    assert (owner_id == `ID2);
+    assert (prev_state_reg == state_reg);

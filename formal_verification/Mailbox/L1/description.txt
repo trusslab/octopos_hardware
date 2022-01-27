@@ -1,0 +1,9 @@
+every read correctly update the data qouta.
+
+(latched_limit_req == 1'b1 ): This means a read has happened in previous clock cycle
+(prev_owner_id != `ID0) : This means a normal domain was the owner of the mailbox when the read happened. 
+(owner_id == prev_owner_id) and (prev_limit>0): These mean it did not result in expiration.
+
+Then the correct behaviour in this situation is to decrease the value of quota by one.
+assert(limit == prev_limit - 1); 
+

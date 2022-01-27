@@ -1,0 +1,5 @@
+ The fixed domain can always verify (get the correct value of) the current owner of the mailbox and value of remaining time/data quota
+
+it is the easist proof. 
+
+no matter of whatever all signals always assert(read_state_fixed == state_reg);

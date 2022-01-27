@@ -1,0 +1,3 @@
+ When a domain owns the mailbox, it can correctly transfer data to/from the FIFO.
+
+I think the logic is  self-explanatory. we check the correct connection for both read and write paths

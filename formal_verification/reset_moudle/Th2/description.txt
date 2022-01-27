@@ -1,0 +1,5 @@
+This proof is very straightforward.
+We assume that the fr (first reset) signal is not on. it means that it is not the first time that we want to reset a domain (because for that one we treat it specially and let it go through). Assuming fr =0 , 
+we check if any of the domain busy signals are 1 (domains_busy != 4'b0)   we should not let the output zero become active. 
+assert(out_reset_n == 1'b1);
+Please note that the output reset signal is active low. 
