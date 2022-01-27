@@ -1,0 +1,4 @@
+This proof is very straightforward. As the ROM fuse device is designed in a specific way that is not dependent on the reset signal, even the reset signal can be inputted by the proof solver (can take arbitrary values).
+The proof goes as follows:
+On positive edges of the clock, we increment a counter which is initialized to 'Zero'. When the counter is 'One' one CLK cycle after the beginning of the test we assume that the ROM fuse has been locked. 
+Then we ask the prover to prove that the ROM fuse cannot be unlocked in the following clock cycles no matter how other signals are changing. 

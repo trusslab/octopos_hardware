@@ -1,0 +1,3 @@
+When a domain owns the mailbox, other domains cannot read/write to/from the FIFO
+
+It is similar to th5c but this time for each domain ID we check the connectivity of other domain interfaces to make sure it is disconnected

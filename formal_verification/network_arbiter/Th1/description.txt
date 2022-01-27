@@ -1,0 +1,3 @@
+This proof is simple. 
+We show that if the control interface (netwrok domain in the current implementation) changes the state of the arbiter the state will change. 
+We perform one write on the control interface and use one assert. 

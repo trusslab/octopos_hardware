@@ -1,0 +1,7 @@
+Domain0 never loses the ownership of the Mailbox if itself does not delegate it to another domain. 
+
+by assuming assume(write_req_0 == 0);  we make sure that the domain0 itself is not writing to the state register to delegate the ownership. So we can assert that (owner_id == `ID0)
+
+
+
+

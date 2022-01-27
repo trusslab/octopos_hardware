@@ -1,0 +1,6 @@
+When arbiter is in trusted state, all values of I/O data interface signals are identical to FIFO interface values
+
+This proof is very simple. to show that the aribter is in trusted state, we use an assume function.
+   assume(trusted == 1'b1);
+
+Then we used several assert functions to show that MUX output is connected to trusted signals (coming from the FIFO). 

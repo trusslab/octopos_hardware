@@ -1,0 +1,7 @@
+If a normal domain loses the ownership of the Mailbox, the next owner is always domain0.
+
+I think the logic is self-explanatory.  
+(prev_owner_id != `ID0): this means the previous owner was nto domain zero ( is a normal domain)
+( owner_id != prev_owner_id): this means the owenership is changed in this clock cycle.
+ assert(owner_id == `ID0); : this ensures that the new owner is doamin0; 
+
