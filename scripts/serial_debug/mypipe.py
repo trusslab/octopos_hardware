@@ -2,8 +2,8 @@ import os
 encoding = 'utf-8'
 class MyPipe:
     def __init__(self , name):
-        os.system('mkdir -p /tmp/Octopos')
-        self.path = '/tmp/Octopos/' + name
+        os.system('mkdir -p /home/zephyr/tmp_octopos')
+        self.path = '/home/zephyr/tmp_octopos/' + name
         self.buffer = ''
         self.should_buffer = True
         return
@@ -12,7 +12,7 @@ class MyPipe:
             self.buffer = self.buffer + str(data,encoding)
         except:
             print('cannot convert to string', data)
-        if(self.path == '/tmp/Octopos/output'):
+        if(self.path == '/home/zephyr/tmp_octopos/output'):
             print(self.path, ' buffer:' , self.buffer)
         if(self.should_buffer == False):
             self.flush_buffer()
