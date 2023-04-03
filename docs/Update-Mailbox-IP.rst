@@ -2,7 +2,10 @@
 Update OctopOS Mailbox IP
 =========================
 
-Software Version: Vivado 2019.1.3
+Software Version: Vivado 2020.1
+
+:Author: - Seyed Mohammadjavad Seyed Talebi (mjavad@uci.edu)
+:Author: - Zephyr Yao (z.yao@uci.edu)
 
 Step 1: Generate Mailbox Verilog code
 -------------------------------------
