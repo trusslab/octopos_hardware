@@ -17,6 +17,7 @@ Download a local copy of the Linux and U-Boot sources
 =====================================================
 
 Run the following commands to download the Linux and U-Boot sources:
+
 .. code-block:: bash
 
    mkdir ~/octopos_untrusted_domain

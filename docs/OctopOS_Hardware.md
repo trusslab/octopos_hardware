@@ -126,6 +126,8 @@ We use PMOD pins for domains to dump debug information. The following table show
 | E22 | Storage Domain   |
 | J20 | Enclave 1 Domain |
 | J19 | Enclave 2 Domain |
+| F20 | TX to TPM        |
+| G20 | RX from TPM      |
 
 The pin mapping can be found at the Page 74-75 of [ZCU102 Evaluation Board User Guide UG1182 (v1.7) February 21, 2023](https://docs.xilinx.com/v/u/en-US/ug1182-zcu102-eval-bd).
 

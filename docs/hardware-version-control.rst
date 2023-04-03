@@ -19,9 +19,6 @@ Copy additional local files
 
 Open the generated TCL file. The file specifies a list of source files that need to be manually copied to the Git repository.
 
-.. image:: img/2020-02-2.png
-  :alt: TCL file details
-
 Checklist
 ---------
 Before committing to Git, please review this checklist to ensure that everything is up-to-date:
