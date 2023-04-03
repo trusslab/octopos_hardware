@@ -1,11 +1,13 @@
-# Populating Hardware Design and Launching OctopOS Software
+# Populating Hardware Design and Launching OctopOS Software from Scratch
 
 Software Version: Vivado 2020.1
+
 Hardware Version: ZCU102
 
 This document provides a step-by-step guide to populate our hardware design and to launch OctopOS software on top of it.
+
 It is recommended to follow this guide on a single Linux machine with at least 32GB of RAM and 512GB of free disk space (SSD is preferred), although it is possible to prepare hardware design, OctopOS binaries, and petalinux image separately on different machines.
-We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare the hardware design and OctopOS binaries. The total machine time is about 6 hours, and the manual work takes about 8 hours if you are familiar with the tools.
+We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare the hardware design and OctopOS binaries. The total machine time is about 6-9 hours, and the manual work takes about 8-12 hours if you are familiar with the tools.
 
 ## Hardware Design
 
@@ -82,7 +84,7 @@ We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare th
 
 ## Petalinux for the untrusted domain
 
-22) Create the petalinux project for the untrusted domain.
+22) Create the petalinux project for the untrusted domain.  Please see [Guide to create Petalinux project for the untrusted domain](https://github.com/trusslab/octopos_hardware/blob/main/docs/petalinux-guide.rst) for details.
 
 ## Package the final boot image
 
@@ -103,21 +105,44 @@ Please refer to this table for path settings,
 
 ## Boot the external TPM device
 
-24) Launch TPM on the untrusted domain.
+24) Launch TPM on the untrusted domain. Please see [Guide to launch TPM for OctopOS hardware](TODO) for details.
 
 ## Prepare serial terminals
 
 25) Plug the following pins and jumpers on the ZCU102 board:
 
+TODO: Insert board picture.
+
+Jumper XX is needed for enabling the network SFP port.
+Switch XX must be set to position XX to enable SD boot.
+
+We use PMOD pins for domains to dump debug information. The following table shows the mapping between PMOD pins and domains:
+
 | Pin | Connect to |
 |-----|------------|
-| xx  | xx         |
-| xx  | xx         |
-| xx  | xx         |
-| xx  | xx         |
+| D20 | Serial Domain    |
+| E20 | OS Domain        |
+| D22 | Network Domain   |
+| E22 | Storage Domain   |
+| J20 | Enclave 1 Domain |
+| J19 | Enclave 2 Domain |
 
-26) Open serial terminals for the following devices:
+The pin mapping can be found at the Page 74-75 of [ZCU102 Evaluation Board User Guide UG1182 (v1.7) February 21, 2023](https://docs.xilinx.com/v/u/en-US/ug1182-zcu102-eval-bd).
+
+26)  Open serial terminals for the following devices:
+
+The keyboard domain is directly mapped to one of the board's serial interface (on Ubuntu, it is `/dev/ttyUSB2`, with baud rate 9600).
+
+The untrusted domain is mapped to the other board's serial interface (on Ubuntu, it is `/dev/ttyUSB0`, with baud rate 115200).
+
+All other domains are mapped to the PMOD pins. You can use a USB-to-serial converter to connect to the PMOD pins. The baud rates are 115200 for all domains.
+
+For all domains, Serial Hardware Flow Control should be disabled. The board's JTAG interface should be disconnected.
+
+An Arduino Mega board can be used to collect serial outputs from multiple domains. We develop a script for this purpose. Please see https://github.com/trusslab/octopos_hardware/tree/main/scripts/serial_debug for details.
 
 ## Boot the ZCU102 board
 
 27) Insert the SD-Card into the ZCU102 board, and power on the board.
+
+OctopOS will be booted automatically. Upon successful boot, you should see boot stages printed on the resource manage's debug terminal, and domain prints on the corresponding domain's debug terminal.
