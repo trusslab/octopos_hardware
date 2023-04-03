@@ -1,0 +1,5 @@
+After a reset, domain0 always becomes the owner of the Mailbox.
+
+We want to show after reset signal get active (please note that it is active low) owner_id becomes the ID0(belongs to resource manager) 
+
+We save the value of the reset signal in previous clock cycle in reset_latched , when reset latched is 1 means that the reset got ativated in previous cycle so now we can assert that the owner id shoud be ID0.

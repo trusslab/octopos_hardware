@@ -1,0 +1,14 @@
+[options]
+mode prove
+
+[engines]
+smtbmc
+
+[script]
+read -formal l3.sv
+prep -top testbench
+
+[files]
+l3.sv
+Octopos_MailBox_Main_logic.v
+Octopos_MailBox_Ctrl_Interface_Manager.v

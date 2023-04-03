@@ -1,0 +1,704 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: th2.sv
+Parsing formal SystemVerilog input from `th2.sv' to AST representation.
+Storing AST representation for module `$abstract\network_arbiter_main_logic'.
+Storing AST representation for module `$abstract\Network_arbitter_simple'.
+Storing AST representation for module `$abstract\Octopos_Arbiter_ctrl_AXI'.
+Storing AST representation for module `$abstract\testbench'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\testbench'.
+Generating RTLIL representation for module `\testbench'.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \testbench
+
+2.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\Network_arbitter_simple'.
+Generating RTLIL representation for module `\Network_arbitter_simple'.
+
+2.2.3. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Network_arbitter_simple
+
+2.2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\network_arbiter_main_logic'.
+Generating RTLIL representation for module `\network_arbiter_main_logic'.
+Parameter \C_S_AXI_DATA_WIDTH = 32
+Parameter \C_S_AXI_ADDR_WIDTH = 4
+
+2.2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\Octopos_Arbiter_ctrl_AXI'.
+Parameter \C_S_AXI_DATA_WIDTH = 32
+Parameter \C_S_AXI_ADDR_WIDTH = 4
+Generating RTLIL representation for module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI'.
+
+2.2.6. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Network_arbitter_simple
+Used module:         \network_arbiter_main_logic
+Used module:         $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI
+
+2.2.7. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Network_arbitter_simple
+Used module:         \network_arbiter_main_logic
+Used module:         $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI
+Removing unused module `$abstract\testbench'.
+Removing unused module `$abstract\Octopos_Arbiter_ctrl_AXI'.
+Removing unused module `$abstract\Network_arbitter_simple'.
+Removing unused module `$abstract\network_arbiter_main_logic'.
+Removed 4 unused modules.
+Module testbench directly or indirectly contains formal properties -> setting "keep" attribute.
+Mapping positional arguments of cell testbench.nas_inst (Network_arbitter_simple).
+Warning: Resizing cell port testbench.nas_inst.s_ctrl0_axi_awaddr from 32 bits to 4 bits.
+Warning: Resizing cell port testbench.nas_inst.s_ctrl0_axi_araddr from 32 bits to 4 bits.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$./Octopos_Arbiter_ctrl_AXI.v:394$152 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Removed 1 dead cases from process $proc$./Octopos_Arbiter_ctrl_AXI.v:380$151 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Marked 1 switch rules as full_case in process $proc$./Octopos_Arbiter_ctrl_AXI.v:380$151 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Marked 2 switch rules as full_case in process $proc$./Octopos_Arbiter_ctrl_AXI.v:353$142 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Marked 2 switch rules as full_case in process $proc$./Octopos_Arbiter_ctrl_AXI.v:322$138 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Marked 2 switch rules as full_case in process $proc$./Octopos_Arbiter_ctrl_AXI.v:288$130 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Removed 1 dead cases from process $proc$./Octopos_Arbiter_ctrl_AXI.v:230$112 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Marked 3 switch rules as full_case in process $proc$./Octopos_Arbiter_ctrl_AXI.v:230$112 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Marked 2 switch rules as full_case in process $proc$./Octopos_Arbiter_ctrl_AXI.v:196$103 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Marked 1 switch rules as full_case in process $proc$./Octopos_Arbiter_ctrl_AXI.v:175$97 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Marked 3 switch rules as full_case in process $proc$./Octopos_Arbiter_ctrl_AXI.v:141$90 in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Marked 1 switch rules as full_case in process $proc$./network_arbiter_main_logic.v:56$88 in module network_arbiter_main_logic.
+Marked 1 switch rules as full_case in process $proc$./network_arbiter_main_logic.v:43$87 in module network_arbiter_main_logic.
+Marked 1 switch rules as full_case in process $proc$th2.sv:216$10 in module testbench.
+Removed a total of 2 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 14 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\testbench.$proc$th2.sv:0$40'.
+  Set init value: $formal$th2.sv:222$9_EN = 1'0
+Found init rule in `\testbench.$proc$th2.sv:0$38'.
+  Set init value: $formal$th2.sv:221$8_EN = 1'0
+Found init rule in `\testbench.$proc$th2.sv:0$36'.
+  Set init value: $formal$th2.sv:218$7_EN = 1'0
+Found init rule in `\testbench.$proc$th2.sv:0$34'.
+  Set init value: $formal$th2.sv:217$6_EN = 1'0
+Found init rule in `\testbench.$proc$th2.sv:0$32'.
+  Set init value: $formal$th2.sv:217$5_EN = 1'0
+Found init rule in `\testbench.$proc$th2.sv:211$31'.
+  Set init value: \init = 1'1
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:394$152'.
+     1/1: $0\axi_rdata[31:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:380$151'.
+     1/1: $0\reg_data_out[31:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:353$142'.
+     1/2: $0\axi_rvalid[0:0]
+     2/2: $0\axi_rresp[1:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:322$138'.
+     1/2: $0\axi_arready[0:0]
+     2/2: $0\axi_araddr[3:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:288$130'.
+     1/2: $0\axi_bvalid[0:0]
+     2/2: $0\axi_bresp[1:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:230$112'.
+     1/19: $0\slv_reg3[31:0] [31:24]
+     2/19: $0\slv_reg3[31:0] [23:16]
+     3/19: $0\slv_reg3[31:0] [15:8]
+     4/19: $0\slv_reg3[31:0] [7:0]
+     5/19: $0\slv_reg2[31:0] [23:16]
+     6/19: $0\slv_reg2[31:0] [15:8]
+     7/19: $0\slv_reg2[31:0] [7:0]
+     8/19: $0\slv_reg1[31:0] [23:16]
+     9/19: $0\slv_reg1[31:0] [15:8]
+    10/19: $0\slv_reg1[31:0] [7:0]
+    11/19: $0\slv_reg0[31:0] [23:16]
+    12/19: $0\slv_reg0[31:0] [15:8]
+    13/19: $0\slv_reg0[31:0] [7:0]
+    14/19: $2\byte_index[31:0]
+    15/19: $1\byte_index[31:0]
+    16/19: $0\slv_reg2[31:0] [31:24]
+    17/19: $0\slv_reg1[31:0] [31:24]
+    18/19: $0\slv_reg0[31:0] [31:24]
+    19/19: $3\byte_index[31:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:196$103'.
+     1/1: $0\axi_wready[0:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:175$97'.
+     1/1: $0\axi_awaddr[3:0]
+Creating decoders for process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:141$90'.
+     1/2: $0\axi_awready[0:0]
+     2/2: $0\aw_en[0:0]
+Creating decoders for process `\network_arbiter_main_logic.$proc$./network_arbiter_main_logic.v:56$88'.
+     1/1: $0\state_reg[31:0]
+Creating decoders for process `\network_arbiter_main_logic.$proc$./network_arbiter_main_logic.v:43$87'.
+     1/1: $1\trusted[0:0]
+Creating decoders for process `\Network_arbitter_simple.$proc$./Network_arbitter_simple.v:340$86'.
+Creating decoders for process `\testbench.$proc$th2.sv:0$40'.
+Creating decoders for process `\testbench.$proc$th2.sv:0$38'.
+Creating decoders for process `\testbench.$proc$th2.sv:0$36'.
+Creating decoders for process `\testbench.$proc$th2.sv:0$34'.
+Creating decoders for process `\testbench.$proc$th2.sv:0$32'.
+Creating decoders for process `\testbench.$proc$th2.sv:211$31'.
+Creating decoders for process `\testbench.$proc$th2.sv:216$10'.
+     1/7: $0\prev_trusted[0:0]
+     2/7: $0$formal$th2.sv:217$5_EN[0:0]$12
+     3/7: $0$formal$th2.sv:217$5_CHECK[0:0]$11
+     4/7: $0$formal$th2.sv:221$8_EN[0:0]$18
+     5/7: $0$formal$th2.sv:221$8_CHECK[0:0]$17
+     6/7: $0$formal$th2.sv:222$9_EN[0:0]$20
+     7/7: $0$formal$th2.sv:222$9_CHECK[0:0]$19
+
+2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\reg_data_out' from process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:380$151'.
+No latch inferred for signal `\network_arbiter_main_logic.\trusted' from process `\network_arbiter_main_logic.$proc$./network_arbiter_main_logic.v:43$87'.
+No latch inferred for signal `\Network_arbitter_simple.\write_state_value' from process `\Network_arbitter_simple.$proc$./Network_arbitter_simple.v:340$86'.
+
+2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\axi_rdata' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:394$152'.
+  created $dff cell `$procdff$461' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\axi_rresp' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:353$142'.
+  created $dff cell `$procdff$462' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\axi_rvalid' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:353$142'.
+  created $dff cell `$procdff$463' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\axi_araddr' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:322$138'.
+  created $dff cell `$procdff$464' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\axi_arready' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:322$138'.
+  created $dff cell `$procdff$465' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\axi_bresp' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:288$130'.
+  created $dff cell `$procdff$466' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\axi_bvalid' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:288$130'.
+  created $dff cell `$procdff$467' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\slv_reg0' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:230$112'.
+  created $dff cell `$procdff$468' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\slv_reg1' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:230$112'.
+  created $dff cell `$procdff$469' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\slv_reg2' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:230$112'.
+  created $dff cell `$procdff$470' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\slv_reg3' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:230$112'.
+  created $dff cell `$procdff$471' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\byte_index' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:230$112'.
+  created $dff cell `$procdff$472' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\axi_wready' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:196$103'.
+  created $dff cell `$procdff$473' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\axi_awaddr' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:175$97'.
+  created $dff cell `$procdff$474' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\axi_awready' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:141$90'.
+  created $dff cell `$procdff$475' with positive edge clock.
+Creating register for signal `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.\aw_en' using process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:141$90'.
+  created $dff cell `$procdff$476' with positive edge clock.
+Creating register for signal `\network_arbiter_main_logic.\state_reg' using process `\network_arbiter_main_logic.$proc$./network_arbiter_main_logic.v:56$88'.
+  created $dff cell `$procdff$477' with positive edge clock.
+Creating register for signal `\testbench.\init' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$478' with positive edge clock.
+Creating register for signal `\testbench.\prev_trusted' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$479' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:217$5_CHECK' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$480' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:217$5_EN' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$481' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:217$6_CHECK' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$482' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:217$6_EN' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$483' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:218$7_CHECK' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$484' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:218$7_EN' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$485' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:221$8_CHECK' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$486' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:221$8_EN' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$487' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:222$9_CHECK' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$488' with positive edge clock.
+Creating register for signal `\testbench.$formal$th2.sv:222$9_EN' using process `\testbench.$proc$th2.sv:216$10'.
+  created $dff cell `$procdff$489' with positive edge clock.
+
+2.3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:394$152'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:394$152'.
+Found and cleaned up 1 empty switch in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:380$151'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:380$151'.
+Found and cleaned up 3 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:353$142'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:353$142'.
+Found and cleaned up 2 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:322$138'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:322$138'.
+Found and cleaned up 3 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:288$130'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:288$130'.
+Found and cleaned up 19 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:230$112'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:230$112'.
+Found and cleaned up 2 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:196$103'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:196$103'.
+Found and cleaned up 2 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:175$97'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:175$97'.
+Found and cleaned up 3 empty switches in `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:141$90'.
+Removing empty process `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$proc$./Octopos_Arbiter_ctrl_AXI.v:141$90'.
+Found and cleaned up 1 empty switch in `\network_arbiter_main_logic.$proc$./network_arbiter_main_logic.v:56$88'.
+Removing empty process `network_arbiter_main_logic.$proc$./network_arbiter_main_logic.v:56$88'.
+Found and cleaned up 1 empty switch in `\network_arbiter_main_logic.$proc$./network_arbiter_main_logic.v:43$87'.
+Removing empty process `network_arbiter_main_logic.$proc$./network_arbiter_main_logic.v:43$87'.
+Removing empty process `Network_arbitter_simple.$proc$./Network_arbitter_simple.v:340$86'.
+Removing empty process `testbench.$proc$th2.sv:0$40'.
+Removing empty process `testbench.$proc$th2.sv:0$38'.
+Removing empty process `testbench.$proc$th2.sv:0$36'.
+Removing empty process `testbench.$proc$th2.sv:0$34'.
+Removing empty process `testbench.$proc$th2.sv:0$32'.
+Removing empty process `testbench.$proc$th2.sv:211$31'.
+Found and cleaned up 2 empty switches in `\testbench.$proc$th2.sv:216$10'.
+Removing empty process `testbench.$proc$th2.sv:216$10'.
+Cleaned up 41 empty switches.
+
+2.3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+<suppressed ~60 debug messages>
+Optimizing module network_arbiter_main_logic.
+<suppressed ~2 debug messages>
+Optimizing module Network_arbitter_simple.
+<suppressed ~10 debug messages>
+Optimizing module testbench.
+<suppressed ~2 debug messages>
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Optimizing module network_arbiter_main_logic.
+Optimizing module Network_arbitter_simple.
+Optimizing module testbench.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI..
+Finding unused cells or wires in module \network_arbiter_main_logic..
+Finding unused cells or wires in module \Network_arbitter_simple..
+Finding unused cells or wires in module \testbench..
+Removed 30 unused cells and 225 unused wires.
+<suppressed ~36 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI...
+Checking module Network_arbitter_simple...
+Checking module network_arbiter_main_logic...
+Checking module testbench...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Optimizing module Network_arbitter_simple.
+Optimizing module network_arbiter_main_logic.
+Optimizing module testbench.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI'.
+<suppressed ~54 debug messages>
+Finding identical cells in module `\Network_arbitter_simple'.
+Finding identical cells in module `\network_arbiter_main_logic'.
+Finding identical cells in module `\testbench'.
+<suppressed ~3 debug messages>
+Removed a total of 19 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Network_arbitter_simple..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \network_arbiter_main_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \testbench..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~70 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+  Optimizing cells in module \Network_arbitter_simple.
+  Optimizing cells in module \network_arbiter_main_logic.
+  Optimizing cells in module \testbench.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI'.
+Finding identical cells in module `\Network_arbitter_simple'.
+Finding identical cells in module `\network_arbiter_main_logic'.
+Finding identical cells in module `\testbench'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI..
+Finding unused cells or wires in module \Network_arbitter_simple..
+Finding unused cells or wires in module \network_arbiter_main_logic..
+Finding unused cells or wires in module \testbench..
+Removed 0 unused cells and 21 unused wires.
+<suppressed ~2 debug messages>
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Optimizing module Network_arbitter_simple.
+Optimizing module network_arbiter_main_logic.
+Optimizing module testbench.
+
+2.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Network_arbitter_simple..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \network_arbiter_main_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \testbench..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~69 debug messages>
+
+2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+  Optimizing cells in module \Network_arbitter_simple.
+  Optimizing cells in module \network_arbiter_main_logic.
+  Optimizing cells in module \testbench.
+Performed a total of 0 changes.
+
+2.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI'.
+Finding identical cells in module `\Network_arbitter_simple'.
+Finding identical cells in module `\network_arbiter_main_logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+2.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI..
+Finding unused cells or wires in module \Network_arbitter_simple..
+Finding unused cells or wires in module \network_arbiter_main_logic..
+Finding unused cells or wires in module \testbench..
+
+2.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Optimizing module Network_arbitter_simple.
+Optimizing module network_arbiter_main_logic.
+Optimizing module testbench.
+
+2.7.14. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$procmux$162_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.$procmux$283_CMP0 ($eq).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI..
+Finding unused cells or wires in module \Network_arbitter_simple..
+Finding unused cells or wires in module \network_arbiter_main_logic..
+Finding unused cells or wires in module \testbench..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Optimizing module Network_arbitter_simple.
+Optimizing module network_arbiter_main_logic.
+Optimizing module testbench.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI'.
+Finding identical cells in module `\Network_arbitter_simple'.
+Finding identical cells in module `\network_arbiter_main_logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI..
+Finding unused cells or wires in module \Network_arbitter_simple..
+Finding unused cells or wires in module \network_arbiter_main_logic..
+Finding unused cells or wires in module \testbench..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI ===
+
+   Number of wires:                148
+   Number of wire bits:            988
+   Number of public wires:          40
+   Number of public wire bits:     342
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                138
+     $and                            2
+     $dff                           15
+     $eq                             6
+     $logic_and                     18
+     $logic_not                      2
+     $mux                           89
+     $not                            5
+     $pmux                           1
+
+=== Network_arbitter_simple ===
+
+   Number of wires:                101
+   Number of wire bits:            679
+   Number of public wires:         101
+   Number of public wire bits:     679
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 36
+     $mux                           34
+     $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI      1
+     network_arbiter_main_logic      1
+
+=== network_arbiter_main_logic ===
+
+   Number of wires:                 10
+   Number of wire bits:            103
+   Number of public wires:           8
+   Number of public wire bits:      70
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $dff                            1
+     $eq                             1
+     $mux                            2
+
+=== testbench ===
+
+   Number of wires:                119
+   Number of wire bits:            660
+   Number of public wires:         100
+   Number of public wire bits:     641
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 27
+     $assert                         1
+     $assume                         4
+     $dff                           10
+     $eq                             3
+     $mux                            6
+     $not                            2
+     Network_arbitter_simple         1
+
+=== design hierarchy ===
+
+   testbench                         1
+     Network_arbitter_simple         1
+       $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI      1
+       network_arbiter_main_logic      1
+
+   Number of wires:                378
+   Number of wire bits:           2430
+   Number of public wires:         249
+   Number of public wire bits:    1732
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                202
+     $and                            2
+     $assert                         1
+     $assume                         4
+     $dff                           26
+     $eq                            10
+     $logic_and                     18
+     $logic_not                      2
+     $mux                          131
+     $not                            7
+     $pmux                           1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI...
+Checking module Network_arbitter_simple...
+Checking module network_arbiter_main_logic...
+Checking module testbench...
+Found and reported 0 problems.
+
+3. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+4. Executing ASYNC2SYNC pass.
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI..
+Finding unused cells or wires in module \Network_arbitter_simple..
+Finding unused cells or wires in module \network_arbiter_main_logic..
+Finding unused cells or wires in module \testbench..
+Removed 6 unused cells and 6 unused wires.
+<suppressed ~7 debug messages>
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Optimizing module Network_arbitter_simple.
+Optimizing module network_arbiter_main_logic.
+Optimizing module testbench.
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI'.
+Finding identical cells in module `\Network_arbitter_simple'.
+Finding identical cells in module `\network_arbiter_main_logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+7.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$476 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$431_Y, Q = \aw_en, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$498 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$431_Y, Q = \aw_en).
+Adding SRST signal on $procdff$475 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$422_Y, Q = \axi_awready, rval = 1'0).
+Adding SRST signal on $procdff$474 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$414_Y, Q = \axi_awaddr, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$503 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_AWADDR, Q = \axi_awaddr).
+Adding SRST signal on $procdff$473 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$409_Y, Q = \axi_wready, rval = 1'0).
+Adding SRST signal on $procdff$471 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = { $procmux$209_Y $procmux$219_Y $procmux$229_Y $procmux$239_Y }, Q = \slv_reg3, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$506 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [7:0], Q = \slv_reg3 [7:0]).
+Adding EN signal on $auto$ff.cc:262:slice$506 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [15:8], Q = \slv_reg3 [15:8]).
+Adding EN signal on $auto$ff.cc:262:slice$506 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [23:16], Q = \slv_reg3 [23:16]).
+Adding EN signal on $auto$ff.cc:262:slice$506 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [31:24], Q = \slv_reg3 [31:24]).
+Adding SRST signal on $procdff$470 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = { $procmux$367_Y $procmux$250_Y $procmux$261_Y $procmux$272_Y }, Q = \slv_reg2, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$519 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [7:0], Q = \slv_reg2 [7:0]).
+Adding EN signal on $auto$ff.cc:262:slice$519 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [15:8], Q = \slv_reg2 [15:8]).
+Adding EN signal on $auto$ff.cc:262:slice$519 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [23:16], Q = \slv_reg2 [23:16]).
+Adding EN signal on $auto$ff.cc:262:slice$519 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [31:24], Q = \slv_reg2 [31:24]).
+Adding SRST signal on $procdff$469 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = { $procmux$379_Y $procmux$284_Y $procmux$296_Y $procmux$308_Y }, Q = \slv_reg1, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$532 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [7:0], Q = \slv_reg1 [7:0]).
+Adding EN signal on $auto$ff.cc:262:slice$532 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [15:8], Q = \slv_reg1 [15:8]).
+Adding EN signal on $auto$ff.cc:262:slice$532 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [23:16], Q = \slv_reg1 [23:16]).
+Adding EN signal on $auto$ff.cc:262:slice$532 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [31:24], Q = \slv_reg1 [31:24]).
+Adding SRST signal on $procdff$468 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = { $procmux$392_Y $procmux$321_Y $procmux$334_Y $procmux$347_Y }, Q = \slv_reg0, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$545 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [7:0], Q = \slv_reg0 [7:0]).
+Adding EN signal on $auto$ff.cc:262:slice$545 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [15:8], Q = \slv_reg0 [15:8]).
+Adding EN signal on $auto$ff.cc:262:slice$545 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [23:16], Q = \slv_reg0 [23:16]).
+Adding EN signal on $auto$ff.cc:262:slice$545 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_WDATA [31:24], Q = \slv_reg0 [31:24]).
+Adding SRST signal on $procdff$467 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$193_Y, Q = \axi_bvalid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$558 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$193_Y, Q = \axi_bvalid).
+Adding SRST signal on $procdff$466 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$199_Y, Q = \axi_bresp, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$562 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = 2'00, Q = \axi_bresp).
+Adding SRST signal on $procdff$465 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$179_Y, Q = \axi_arready, rval = 1'0).
+Adding SRST signal on $procdff$464 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$185_Y, Q = \axi_araddr, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$565 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \S_AXI_ARADDR, Q = \axi_araddr).
+Adding SRST signal on $procdff$463 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$167_Y, Q = \axi_rvalid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$567 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$167_Y, Q = \axi_rvalid).
+Adding SRST signal on $procdff$462 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$173_Y, Q = \axi_rresp, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$571 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = 2'00, Q = \axi_rresp).
+Adding SRST signal on $procdff$461 ($dff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = $procmux$154_Y, Q = \axi_rdata, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$573 ($sdff) from module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI (D = \reg_data_out, Q = \axi_rdata).
+Adding SRST signal on $procdff$477 ($dff) from module network_arbiter_main_logic (D = \WRITE_STATE_VALUE, Q = \state_reg, rval = 0).
+Adding SRST signal on $procdff$479 ($dff) from module testbench (D = \trusted, Q = \prev_trusted, rval = 1'1).
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI..
+Finding unused cells or wires in module \Network_arbitter_simple..
+Finding unused cells or wires in module \network_arbiter_main_logic..
+Finding unused cells or wires in module \testbench..
+Removed 82 unused cells and 70 unused wires.
+<suppressed ~85 debug messages>
+
+7.5. Rerunning OPT passes. (Removed registers in this run.)
+
+7.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+<suppressed ~3 debug messages>
+Optimizing module Network_arbitter_simple.
+Optimizing module network_arbiter_main_logic.
+Optimizing module testbench.
+
+7.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI'.
+Finding identical cells in module `\Network_arbitter_simple'.
+Finding identical cells in module `\network_arbiter_main_logic'.
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+7.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI..
+Finding unused cells or wires in module \Network_arbitter_simple..
+Finding unused cells or wires in module \network_arbiter_main_logic..
+Finding unused cells or wires in module \testbench..
+
+7.10. Finished fast OPT passes.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI...
+Checking module Network_arbitter_simple...
+Checking module network_arbiter_main_logic...
+Checking module testbench...
+Found and reported 0 problems.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Network_arbitter_simple
+Used module:         $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI
+Used module:         \network_arbiter_main_logic
+
+9.2. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \Network_arbitter_simple
+Used module:         $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI
+Used module:         \network_arbiter_main_logic
+Removed 0 unused modules.
+Module testbench directly or indirectly contains formal properties -> setting "keep" attribute.
+
+10. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: ab0650e946, CPU: user 0.15s system 0.00s, MEM: 14.08 MB peak
+Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+Time spent: 27% 8x opt_clean (0 sec), 15% 8x opt_expr (0 sec), ...

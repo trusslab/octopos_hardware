@@ -1,0 +1,3 @@
+first chown /dev/ttyACM0 for user then run the python codes.
+first run oct_serial.py, then run os.py,serial.py, and storage.py 
+

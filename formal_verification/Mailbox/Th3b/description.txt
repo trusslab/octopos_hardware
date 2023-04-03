@@ -1,0 +1,6 @@
+ When the remaining time quota or data quota becomes zero, the owner domain loses the ownership of the mailbox
+
+I think the logic is self-explanatory.
+
+The only thing that you need to be carefull about is that limit_expired, and time_expired are registers. and when we use '<=' it means that on the edge of clock cycle old value of right-hand-side becomes the new value of left-hand-size. As a result when (time_expired || limit_expired) it means that the qouta was zero in previous clock cycle and the ownership should be already expired.
+So we use assert (state_reg == { `ID0 , `INFINITY, `INFINITY} ); to proove.

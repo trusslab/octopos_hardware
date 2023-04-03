@@ -1,0 +1,134 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+3. Printing statistics.
+
+=== testbench ===
+
+   Number of wires:                 58
+   Number of wire bits:            194
+   Number of public wires:          41
+   Number of public wire bits:     177
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 26
+     $anyseq                         4
+     $assert                         1
+     $assume                         2
+     $dff                            3
+     $mux                            8
+     $not                            6
+     $reduce_bool                    1
+     Octopos_reset_module_v1_0       1
+
+=== Octopos_reset_module_v1_0 ===
+
+   Number of wires:                 48
+   Number of wire bits:            135
+   Number of public wires:          43
+   Number of public wire bits:     130
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 13
+     $logic_and                      1
+     $logic_not                      2
+     $mux                            4
+     $not                            5
+     $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI      1
+
+=== $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI ===
+
+   Number of wires:                189
+   Number of wire bits:            953
+   Number of public wires:          50
+   Number of public wire bits:     395
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                177
+     $add                            2
+     $and                            2
+     $anyseq                         1
+     $dff                           32
+     $eq                             8
+     $logic_and                     22
+     $logic_not                      4
+     $lt                             2
+     $mux                           68
+     $ne                             1
+     $not                           11
+     $pmux                           1
+     $reduce_and                    16
+     $reduce_bool                    5
+     $reduce_or                      2
+
+=== design hierarchy ===
+
+   testbench                         1
+     Octopos_reset_module_v1_0       1
+       $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI      1
+
+   Number of wires:                295
+   Number of wire bits:           1282
+   Number of public wires:         134
+   Number of public wire bits:     702
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                214
+     $add                            2
+     $and                            2
+     $anyseq                         5
+     $assert                         1
+     $assume                         2
+     $dff                           35
+     $eq                             8
+     $logic_and                     23
+     $logic_not                      6
+     $lt                             2
+     $mux                           80
+     $ne                             1
+     $not                           22
+     $pmux                           1
+     $reduce_and                    16
+     $reduce_bool                    6
+     $reduce_or                      2
+
+4. Executing SMT2 backend.
+Creating SMT-LIBv2 representation of module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_reset_module_v1_0_S00_AXI.
+Creating SMT-LIBv2 representation of module Octopos_reset_module_v1_0.
+Creating SMT-LIBv2 representation of module testbench.
+
+End of script. Logfile hash: 6077f483d5, CPU: user 0.01s system 0.01s, MEM: 10.77 MB peak
+Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+Time spent: 64% 2x write_smt2 (0 sec), 28% 2x read_ilang (0 sec), ...

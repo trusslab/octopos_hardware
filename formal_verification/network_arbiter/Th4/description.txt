@@ -1,0 +1,7 @@
+When arbiter is in untrusted state, all values of I/O data interface signals are identical to DMA interface values
+
+
+This proof is very simple. to show that the aribter is in untrusted state, we use an assume function.
+   assume(trusted == 1'b0);
+
+Then we used several assert functions to show that MUX output is connected to untrusted signals (coming from the DMA). 

@@ -1,0 +1,14 @@
+Nothing other than a timer tik  changes the data quota 
+
+assume(timer_req == 0); : timer tik does not happen
+
+assume( !((owner_id == `ID0)&&( {limit,timer}!={`INFINITY,`INFINITY}))  );   :
+a normal domain with non infinit qouta is owning the mailbox
+
+
+ (!reset_latched) && (owner_id == prev_owner_id) ):
+(!reset_latched): we did not reset the mailbox in prevous clock cycle, and
+(owner_id == prev_owner_id): a deligation did not take place
+
+
+ assert(timer == prev_timer); time qouta remained unchanged. 

@@ -1,0 +1,14 @@
+# running in l3/src/
+read -formal l3.sv
+prep -top testbench
+
+memory_nordff
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+write_ilang ../model/design.il

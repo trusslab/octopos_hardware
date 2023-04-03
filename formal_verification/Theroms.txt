@@ -1,0 +1,107 @@
+Mailbox
+
+The Mailbox is a hardware component that manages the communication between (1) a set of domains with (2) a specific domain (which we call the fixed domain) through a FIFO. At any given time, only one domain can own the Mailbox and communicate with the fixed domain. Among the domains, we have a domain, called domain0, which has a unique property: that is, upon reset, domain0 becomes the owner of the Mailbox. domain0 can hold the ownership of the mailbox indefinitely, or it can delegate its ownership to other normal domains for a given amount of time (time quota) and for transfering given amount of data (data quota)  to/from the fixed domain. When a domain time quota, or data quota finishes, that domain's ownership of the mailbox expires and domain0 becomes the owner of the Mailbox again. A normal domain can also yield its ownership of the Mailbox to domain0 before it expires. Fixed domain and the domain which holds the ownership of the mailbox can always verify the current owner of the mailbox and value of the remaining time/data quota.
+
+As discussed in the paper, Mailbox is a strongly-trusted component. Therefore, it needs to enforce isolation between the set of domains that end up using it. Using formal verification, we prove that our Mailbox implementation correctly and comprehensively enforces the required isolation. More specifically, we prove the following theorems about our Mailbox implementation.
+
+Theorem1. 
+After a reset, domain0 always becomes the owner of the Mailbox.
+proof location in repo: octopos_hardware/formal_verification/Mailbox/Th1
+
+Theorem2.
+Domain0 never loses the ownership of the Mailbox if itself does not delegate it to another domain. 
+proof location in repo: octopos_hardware/formal_verification/Mailbox/Th2
+
+Theorm3 (Availability: domains cannot use the mailbox more than their quota and once their done, domain0 takes control).
+3.a If a normal domain loses the ownership of the Mailbox, the next owner is always domain0.
+proof location in repo: octopos_hardware/formal_verification/Mailbox/Th3a
+3.b When the remaining time quota or data quota becomes zero, the owner domain loses the ownership of the mailbox.
+proof location in repo: octopos_hardware/formal_verification/Mailbox/Th3b
+3.c  Domains cannot overuse their data/time quota. (They cannot use more quota than the initial quota domain0 delegates to them)
+Lemma 1 and Lemma 2. 
+To prove 3.c assuming that 3.b is True, we only need to show Lemma 1 and  Lemma 2 are correct
+Lemma 1 Every read correctly updates the remaining data quota (For non-infinit value decreases by one until it reaches zero).
+proof location in repo: octopos_hardware/formal_verification/Mailbox/L1
+Lemma 2   Every time tik correctly updates the remaining time quota (For non-infinit value decreases by one until it reaches zero)
+
+proof location in repo: octopos_hardware/formal_verification/Mailbox/L2
+
+Theorem4.  (Verification)
+4.a The fixed domain can always verify (get the correct value of) the current owner of the mailbox and value of remaining time/data quota.
+proof location in repo: octopos_hardware/formal_verification/Mailbox/Th4a
+4.b The owner domain can verify (get the correct value of) current owner of the mailbox and value of remaining time/data quota.
+proof location in repo: octopos_hardware/formal_verification/Mailbox/Th4b
+
+Theorem5.  (Secure exclusive access)
+5.a  When a domain owns the mailbox, other domains (including domain0) cannot change the ownership of the mailbox. They also cannot change the remaining time/data quota. 
+Lemma3. 
+        To prove 5.a we proved the following:
+If one of the domains  becomes the owner of the mailbox, and we ensure that time_tick or data transfer do not happen, and it never yields the ownership of Mailbox itself, it never loses its ownership, and time/data limit remains unchanged, no matter what the other signals in the hardware are.
+proof location in repo: octopos_hardware/formal_verification/Mailbox/L3
+
+ 5.b  When a domain owns the mailbox, other domains (including domain0) cannot get the id of   the current owner of the Mailbox or the remaining data/time quota. 
+proof location in repo: octopos_hardware/formal_verification/Mailbox/Th5b
+    5.c  When a domain owns the mailbox, it can correctly transfer data to/from the FIFO. 
+proof location in repo: octopos_hardware/formal_verification/Mailbox/Th5c
+    5.d  When a domain owns the mailbox, other domains cannot read/write to/from the FIFO.
+proof location in repo: octopos_hardware/formal_verification/Mailbox/Th5d
+    5.e  When the ownership of the Mailbox changes, we reset (wipe) the FIFO.
+    proof location in repo: octopos_hardware/formal_verification/Mailbox/Th5b
+5.f  Domains cannot be tricked to underuse their data/time quota. (If the domain itself does not yield the ownership of the Mailbox, its ownership is guaranteed until it uses the whole data or time quota)
+Lemma 4 and Lemma 5. 
+To prove 5.f assuming that Lemma3 is True, we only need to show Lema 4  and Lema 5.
+Lemma 4 Nothing other than a data read changes the data quota 
+    proof location in repo: octopos_hardware/formal_verification/Mailbox/L4
+Lemma 5 Nothing other than a timer tik changes the time quota 
+    proof location in repo: octopos_hardware/formal_verification/Mailbox/L5
+
+
+ROM fuse
+
+In our hardware prototype (xilinx's ZCU102 board) it was not possible to use ROM device as a Microblaze processor memory. However, to ensure the security of our system, we needed to store our bootloader in a read-only memroy. As a result, we use a RAM device but we make it read-only as soon as the bootloader starts executing. 
+   
+ROM fuse is a one-time writable fuse to disable RAM's Write Enable (WE) signal. By disabling the RAM's WE signal we practically convert it to a ROM. The main feature of this hardware is its irreversibility, which means once the fuse is burnt (WE signal disabled), there is no way to enable it back until you power-cycle the device.
+
+
+Theorem1. 
+Burning the ROM fuse is irreversible.
+proof location in repo: octopos_hardware/formal_verification/rom_fuse/Th1
+
+_____________________________________________________________________________________
+
+Arbiter
+
+The arbiter is a simple device that decides the I/O domain’s data plane. It has two states, trusted state and untrusted state. In trusted state it connects the I/O device data interface to a FIFO and in untrusted mode it connects the I/O device data interface to a DMA. It also has a control interface that can switch its state. 
+
+Theorem1. 
+The arbiter control interface can arbitrarily change its state between trusted and untrusted. 
+proof location in repo: octopos_hardware/formal_verification/arbiter/Th1
+
+Theorem2. 
+Nothing other than its control interface can change the arbiter's state. 
+proof location in repo: octopos_hardware/formal_verification/arbiter/Th2
+
+Theorem3.
+When arbiter is in trusted state, all values of I/O data interface signals are identical to FIFO interface values
+proof location in repo: octopos_hardware/formal_verification/arbiter/Th3
+
+Theorem4.
+When arbiter is in untrusted state, all values of I/O data interface signals are identical to DMA interface values
+proof location in repo: octopos_hardware/formal_verification/arbiter/Th4
+
+_____________________________________________________________________________________
+
+Reset manager
+
+Reset manager is a simple hardware that prevents a domain from being reseted if the domain is using one of other domain's mailboxes or any other domain is using one of this domain's mailboxes. 
+
+Theorem1. 
+Reset signal does not get activated  if any domain is using one of this domain's Mailboxes 
+proof location in repo: octopos_hardware/formal_verification/reset_module/Th1
+
+Theorem2. 
+Reset signal does not get activated if this domain is using any of other domain's Mailboxes
+proof location in repo: octopos_hardware/formal_verification/reset_module/Th2
+
+
+

@@ -1,0 +1,71 @@
+SBY 16:33:13 [l4] Removing directory '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/L4/l4'.
+SBY 16:33:13 [l4] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/L4/l4.sv' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/L4/l4/src/l4.sv'.
+SBY 16:33:13 [l4] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/L4/Octopos_MailBox_Main_logic.v' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/L4/l4/src/Octopos_MailBox_Main_logic.v'.
+SBY 16:33:13 [l4] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/L4/Octopos_MailBox_Ctrl_Interface_Manager.v' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/L4/l4/src/Octopos_MailBox_Ctrl_Interface_Manager.v'.
+SBY 16:33:13 [l4] engine_0: smtbmc
+SBY 16:33:13 [l4] base: starting process "cd l4/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 16:33:13 [l4] base: Warning: wire '\yield_req_latched' is assigned in a block at l4.sv:97.2-97.24.
+SBY 16:33:13 [l4] base: l4.sv:97: Warning: Identifier `\yield_req_latched' is implicitly declared.
+SBY 16:33:13 [l4] base: finished (returncode=0)
+SBY 16:33:13 [l4] smt2: starting process "cd l4/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 16:33:13 [l4] smt2: finished (returncode=0)
+SBY 16:33:13 [l4] engine_0.basecase: starting process "cd l4; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 16:33:13 [l4] engine_0.induction: starting process "cd l4; yosys-smtbmc --presat --unroll -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 16:33:13 [l4] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 16:33:13 [l4] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY 16:33:13 [l4] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 16:33:13 [l4] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY 16:33:13 [l4] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY 16:33:13 [l4] engine_0.induction: ##   0:00:00  Status: passed
+SBY 16:33:13 [l4] engine_0.induction: finished (returncode=0)
+SBY 16:33:13 [l4] engine_0: Status returned by engine for induction: pass
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 16:33:13 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 11..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 11..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 12..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 12..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 13..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 13..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 14..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 14..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 15..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 15..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 16..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 16..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 17..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 17..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 18..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 18..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assumptions in step 19..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Checking assertions in step 19..
+SBY 16:33:14 [l4] engine_0.basecase: ##   0:00:00  Status: passed
+SBY 16:33:14 [l4] engine_0.basecase: finished (returncode=0)
+SBY 16:33:14 [l4] engine_0: Status returned by engine for basecase: pass
+SBY 16:33:14 [l4] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 16:33:14 [l4] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 16:33:14 [l4] summary: engine_0 (smtbmc) returned pass for induction
+SBY 16:33:14 [l4] summary: engine_0 (smtbmc) returned pass for basecase
+SBY 16:33:14 [l4] summary: successful proof by k-induction.
+SBY 16:33:14 [l4] DONE (PASS, rc=0)

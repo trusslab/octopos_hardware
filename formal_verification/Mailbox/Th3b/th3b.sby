@@ -1,0 +1,14 @@
+[options]
+mode prove
+
+[engines]
+smtbmc
+
+[script]
+read -formal th3b.sv
+prep -top testbench
+
+[files]
+th3b.sv
+Octopos_MailBox_Main_logic.v
+Octopos_MailBox_Ctrl_Interface_Manager.v

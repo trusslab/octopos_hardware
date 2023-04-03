@@ -1,0 +1,140 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+3. Printing statistics.
+
+=== testbench ===
+
+   Number of wires:                116
+   Number of wire bits:            657
+   Number of public wires:         100
+   Number of public wire bits:     641
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 24
+     $anyseq                         3
+     $assert                         1
+     $assume                         4
+     $dff                            4
+     $eq                             3
+     $mux                            6
+     $not                            2
+     Network_arbitter_simple         1
+
+=== network_arbiter_main_logic ===
+
+   Number of wires:                 10
+   Number of wire bits:            103
+   Number of public wires:           8
+   Number of public wire bits:      70
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $dff                            1
+     $eq                             1
+     $mux                            2
+
+=== Network_arbitter_simple ===
+
+   Number of wires:                101
+   Number of wire bits:            679
+   Number of public wires:         101
+   Number of public wire bits:     679
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 36
+     $mux                           34
+     $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI      1
+     network_arbiter_main_logic      1
+
+=== $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI ===
+
+   Number of wires:                151
+   Number of wire bits:            786
+   Number of public wires:          40
+   Number of public wire bits:     342
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                141
+     $and                            2
+     $anyseq                         1
+     $dff                           27
+     $eq                             6
+     $logic_and                     18
+     $logic_not                      2
+     $mux                           60
+     $not                            5
+     $pmux                           1
+     $reduce_and                    16
+     $reduce_bool                    3
+
+=== design hierarchy ===
+
+   testbench                         1
+     Network_arbitter_simple         1
+       $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI      1
+       network_arbiter_main_logic      1
+
+   Number of wires:                378
+   Number of wire bits:           2225
+   Number of public wires:         249
+   Number of public wire bits:    1732
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                202
+     $and                            2
+     $anyseq                         4
+     $assert                         1
+     $assume                         4
+     $dff                           32
+     $eq                            10
+     $logic_and                     18
+     $logic_not                      2
+     $mux                          102
+     $not                            7
+     $pmux                           1
+     $reduce_and                    16
+     $reduce_bool                    3
+
+4. Executing SMT2 backend.
+Creating SMT-LIBv2 representation of module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_Arbiter_ctrl_AXI.
+Creating SMT-LIBv2 representation of module network_arbiter_main_logic.
+Creating SMT-LIBv2 representation of module Network_arbitter_simple.
+Creating SMT-LIBv2 representation of module testbench.
+
+End of script. Logfile hash: 7138c75277, CPU: user 0.02s system 0.00s, MEM: 10.73 MB peak
+Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+Time spent: 71% 2x write_smt2 (0 sec), 23% 2x read_ilang (0 sec), ...

@@ -1,0 +1,185 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+3. Printing statistics.
+
+=== top ===
+
+   Number of wires:                237
+   Number of wire bits:           1161
+   Number of public wires:         185
+   Number of public wire bits:    1109
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 61
+     $anyseq                        13
+     $assert                         6
+     $assume                         1
+     $dff                           10
+     $eq                             8
+     $logic_not                      2
+     $mux                           20
+     Octopos_MailBox_1Writer_3Reader_v1_0      1
+
+=== Octopos_MailBox_Main_Logic ===
+
+   Number of wires:                 88
+   Number of wire bits:            766
+   Number of public wires:          44
+   Number of public wire bits:     465
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 58
+     $and                            1
+     $dff                            4
+     $eq                             5
+     $logic_and                      6
+     $logic_not                      3
+     $logic_or                       2
+     $mux                           20
+     $ne                             3
+     $pmux                           2
+     $reduce_and                     1
+     $reduce_bool                    5
+     $sub                            2
+     Octopos_MailBox_Ctrl_Interface_Manager      4
+
+=== Octopos_MailBox_Ctrl_Interface_Manager ===
+
+   Number of wires:                 22
+   Number of wire bits:            168
+   Number of public wires:          12
+   Number of public wire bits:     127
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 13
+     $dff                            2
+     $eq                             2
+     $logic_or                       1
+     $mux                            4
+     $ne                             1
+     $not                            1
+     $reduce_and                     1
+     $reduce_or                      1
+
+=== Octopos_MailBox_1Writer_3Reader_v1_0 ===
+
+   Number of wires:                257
+   Number of wire bits:           1669
+   Number of public wires:         242
+   Number of public wire bits:    1592
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 53
+     $dff                            1
+     $eq                             8
+     $logic_and                      1
+     $logic_not                      2
+     $mux                           30
+     $not                            1
+     $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_MailBox_ctrl_AXI      4
+     $pmux                           3
+     $reduce_or                      1
+     $sub                            1
+     Octopos_MailBox_Main_Logic      1
+
+=== $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_MailBox_ctrl_AXI ===
+
+   Number of wires:                181
+   Number of wire bits:            847
+   Number of public wires:          45
+   Number of public wire bits:     378
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                168
+     $and                            2
+     $anyseq                         1
+     $dff                           29
+     $eq                             6
+     $logic_and                     18
+     $logic_not                      2
+     $mux                           72
+     $ne                             4
+     $not                            5
+     $pmux                           3
+     $reduce_and                    19
+     $reduce_bool                    5
+     $reduce_or                      2
+
+=== design hierarchy ===
+
+   top                               1
+     Octopos_MailBox_1Writer_3Reader_v1_0      1
+       $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_MailBox_ctrl_AXI      4
+       Octopos_MailBox_Main_Logic      1
+         Octopos_MailBox_Ctrl_Interface_Manager      4
+
+   Number of wires:               1394
+   Number of wire bits:           7656
+   Number of public wires:         699
+   Number of public wire bits:    5186
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                886
+     $and                            9
+     $anyseq                        17
+     $assert                         6
+     $assume                         1
+     $dff                          139
+     $eq                            53
+     $logic_and                     79
+     $logic_not                     15
+     $logic_or                       6
+     $mux                          374
+     $ne                            23
+     $not                           25
+     $pmux                          17
+     $reduce_and                    81
+     $reduce_bool                   25
+     $reduce_or                     13
+     $sub                            3
+
+4. Executing SMT2 backend.
+Creating SMT-LIBv2 representation of module $paramod$114b39599d2a39317ef2d59db5028e7002c676ba\Octopos_MailBox_ctrl_AXI.
+Creating SMT-LIBv2 representation of module Octopos_MailBox_Ctrl_Interface_Manager.
+Creating SMT-LIBv2 representation of module Octopos_MailBox_Main_Logic.
+Creating SMT-LIBv2 representation of module Octopos_MailBox_1Writer_3Reader_v1_0.
+Creating SMT-LIBv2 representation of module top.
+
+End of script. Logfile hash: 011ba4d38f, CPU: user 0.02s system 0.00s, MEM: 11.49 MB peak
+Yosys 0.10+40 (git sha1 5cebf6a8, clang 8.0.0-3 -fPIC -Os)
+Time spent: 69% 2x write_smt2 (0 sec), 25% 2x read_ilang (0 sec), ...

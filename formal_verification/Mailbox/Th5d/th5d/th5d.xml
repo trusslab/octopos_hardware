@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites disabled="0" errors="0" failures="0" tests="1" time="3">
+<testsuite disabled="0" errors="0" failures="0" name="th5d" skipped="0" tests="1" time="3">
+<properties>
+<property name="os" value="posix"/>
+</properties>
+<testcase classname="th5d" name="default" status="PASS" time="3">
+<system-out>SBY 18:55:25 [th5d] Removing directory '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/th5d'.
+SBY 18:55:25 [th5d] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/th5d.sv' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/th5d/src/th5d.sv'.
+SBY 18:55:25 [th5d] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/Octopos_MailBox_Main_logic.v' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/th5d/src/Octopos_MailBox_Main_logic.v'.
+SBY 18:55:25 [th5d] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/Octopos_MailBox_Ctrl_Interface_Manager.v' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/th5d/src/Octopos_MailBox_Ctrl_Interface_Manager.v'.
+SBY 18:55:25 [th5d] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/Octopos_MailBox_1Writer_3Reader_v1_0.v' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/th5d/src/Octopos_MailBox_1Writer_3Reader_v1_0.v'.
+SBY 18:55:25 [th5d] Copy '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/Octopos_MailBox_ctrl_AXI.v' to '/home/mohammad/Octopos/symbiyosys/examples/Mailbox_th/Th5d/th5d/src/Octopos_MailBox_ctrl_AXI.v'.
+SBY 18:55:25 [th5d] engine_0: smtbmc
+SBY 18:55:25 [th5d] base: starting process &quot;cd th5d/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_WREADY is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RVALID is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RRESP [1] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RRESP [0] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [31] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [30] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [29] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [28] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [27] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [26] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [25] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [24] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [23] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [22] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [21] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [20] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [19] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [18] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [17] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [16] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [15] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [14] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [13] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [12] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [11] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [10] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [9] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [8] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [7] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [6] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [5] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [4] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [3] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [2] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [1] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_RDATA [0] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_BVALID is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_BRESP [1] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_BRESP [0] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_AWREADY is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S1_data_fixed_AXI_ARREADY is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\Interrupt_fixed is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RVALID is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RRESP [1] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RRESP [0] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [31] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [30] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [29] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [28] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [27] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [26] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [25] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [24] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [23] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [22] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [21] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [20] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [19] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [18] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [17] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [16] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [15] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [14] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [13] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [12] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [11] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [10] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [9] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [8] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [7] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [6] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [5] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [4] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [3] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [2] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [1] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_RDATA [0] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_BVALID is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_BRESP [1] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_BRESP [0] is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_WREADY is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_AWREADY is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\Interrupt_S0 is used but has no driver.
+SBY 18:55:25 [th5d] base: Warning: Wire Octopos_MailBox_1Writer_3Reader_v1_0.\S0_data_AXI_ARREADY is used but has no driver.
+SBY 18:55:26 [th5d] base: finished (returncode=0)
+SBY 18:55:26 [th5d] smt2: starting process &quot;cd th5d/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 18:55:26 [th5d] smt2: finished (returncode=0)
+SBY 18:55:26 [th5d] engine_0.basecase: starting process &quot;cd th5d; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 18:55:26 [th5d] engine_0.induction: starting process &quot;cd th5d; yosys-smtbmc --presat --unroll -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2&quot;
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 18:55:26 [th5d] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 18:55:26 [th5d] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY 18:55:26 [th5d] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY 18:55:26 [th5d] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY 18:55:26 [th5d] engine_0.induction: ##   0:00:00  Status: passed
+SBY 18:55:26 [th5d] engine_0.induction: finished (returncode=0)
+SBY 18:55:26 [th5d] engine_0: Status returned by engine for induction: pass
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 18:55:26 [th5d] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:01  Checking assumptions in step 9..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:01  Checking assertions in step 9..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:01  Checking assumptions in step 10..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:01  Checking assertions in step 10..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:01  Checking assumptions in step 11..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:01  Checking assertions in step 11..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:01  Checking assumptions in step 12..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:01  Checking assertions in step 12..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:01  Checking assumptions in step 13..
+SBY 18:55:27 [th5d] engine_0.basecase: ##   0:00:01  Checking assertions in step 13..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:01  Checking assumptions in step 14..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:01  Checking assertions in step 14..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:02  Checking assumptions in step 15..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:02  Checking assertions in step 15..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:02  Checking assumptions in step 16..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:02  Checking assertions in step 16..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:02  Checking assumptions in step 17..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:02  Checking assertions in step 17..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:02  Checking assumptions in step 18..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:02  Checking assertions in step 18..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:02  Checking assumptions in step 19..
+SBY 18:55:28 [th5d] engine_0.basecase: ##   0:00:02  Checking assertions in step 19..
+SBY 18:55:29 [th5d] engine_0.basecase: ##   0:00:02  Status: passed
+SBY 18:55:29 [th5d] engine_0.basecase: finished (returncode=0)
+SBY 18:55:29 [th5d] engine_0: Status returned by engine for basecase: pass
+SBY 18:55:29 [th5d] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 18:55:29 [th5d] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 18:55:29 [th5d] summary: engine_0 (smtbmc) returned pass for induction
+SBY 18:55:29 [th5d] summary: engine_0 (smtbmc) returned pass for basecase
+SBY 18:55:29 [th5d] summary: successful proof by k-induction.
+SBY 18:55:29 [th5d] DONE (PASS, rc=0)
+</system-out></testcase></testsuite></testsuites>
