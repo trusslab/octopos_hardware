@@ -1,11 +1,10 @@
-================
-Populating Hardware Design and Launching OctopOS Software
-================
+# Populating Hardware Design and Launching OctopOS Software
+
 
 Software Version: Vivado 2020.1
 Hardware Version: ZCU102
 
-:Author: - Zephyr Yao (z.yao@uci.edu)
+Author: Zephyr Yao (z.yao@uci.edu)
 
 This document provides a step-by-step guide to populate our hardware design and launch OctopOS software on top of it.
 
@@ -43,52 +42,29 @@ This document provides a step-by-step guide to populate our hardware design and 
 
 17) Open the Vitis OctopOS domain working directory (`~/vitis_workspace/octopos_domains`). Repeat the following step for each domain projects: double-click the `<domain name>_system`, a subfolder named `<domain name>` will show up; right click the `<domain name>` folder, select `C/C++ Build Settings`, and navigate to `Microblaze gcc compiler->Symbols`, add the corresponding symbols in the table below for each project; navigate to `Microblaze gcc compiler->Optimization`, select `Optimize for size -Os`; navigate to `Microblaze gcc compiler->Inferred Options->Software Platform`, add `${workspace_loc:/${ProjName}/src/octopos/arch/include}` and `${workspace_loc:/${ProjName}/src/octopos/include}` to the include path. If the add button is not visible, drag the edge of the window to the right to make it visible. 
 
-+-----------------+-------------------------------------------------------+
-| Domain | Compiler Symbol |
-+=================+=======================================================+
-| Storage | ARCH_SEC_HW PROJ_CPP ARCH_SEC_HW_STORAGE |
-+-----------------+-------------------------------------------------------+
-| OS | ARCH_SEC_HW ARCH_SEC_HW_OS ROLE_OS |
-+-----------------+-------------------------------------------------------+
-| Keyboard | ARCH_SEC_HW_KEYBOARD |
-+-----------------+-------------------------------------------------------+
-| Serialout | ARCH_SEC_HW_SERIAL_OUT |
-+-----------------+-------------------------------------------------------+
-| Enclave0 | RUNTIME_ID=1 ARCH_SEC_HW ARCH_SEC_HW_RUNTIME |
-+-----------------+-------------------------------------------------------+
-| Enclave1 | RUNTIME_ID=2 ARCH_SEC_HW ARCH_SEC_HW_RUNTIME |
-+-----------------+-------------------------------------------------------+
-| Network | ARCH_SEC_HW ARCH_SEC_HW_NETWORK HW_MAILBOX_BLOCKING |
-+-----------------+-------------------------------------------------------+
+| Domain   | Compiler Symbol                                       |
+|----------|-------------------------------------------------------|
+| Storage  | ARCH_SEC_HW PROJ_CPP ARCH_SEC_HW_STORAGE               |
+| OS       | ARCH_SEC_HW ARCH_SEC_HW_OS ROLE_OS                     |
+| Keyboard | ARCH_SEC_HW_KEYBOARD                                  |
+| Serialout| ARCH_SEC_HW_SERIAL_OUT                                 |
+| Enclave0 | RUNTIME_ID=1 ARCH_SEC_HW ARCH_SEC_HW_RUNTIME           |
+| Enclave1 | RUNTIME_ID=2 ARCH_SEC_HW ARCH_SEC_HW_RUNTIME           |
+| Network  | ARCH_SEC_HW ARCH_SEC_HW_NETWORK HW_MAILBOX_BLOCKING   |
+
 
 18) Open the Vitis OctopOS bootloader working directory (`~/vitis_workspace/octopos_bootloaders`). Repeat the same step as in step 17 for each bootloader projects (but use the table below for compiler symbols.
 
-+------------------+-------------------------------------------------------+
-| Domain Name | Compiler Symbol |
-+==================+=======================================================+
-| Storage Bootloader| ARCH_SEC_HW_BOOT ARCH_SEC_HW PROJ_CPP ARCH_SEC_HW_BOOT_ |
-| | STORAGE ARCH_SEC_HW_STORAGE |
-+------------------+-------------------------------------------------------+
-| OS Bootloader | ARCH_SEC_HW ARCH_SEC_HW_OS ARCH_SEC_HW_BOOT ARCH_SEC_HW_|
-| | BOOT_OS |
-+------------------+-------------------------------------------------------+
-| Keyboard Bootloader|ARCH_SEC_HW ARCH_SEC_HW_KEYBOARD ARCH_SEC_HW_BOOT |
-| | ARCH_SEC_HW_BOOT_KEYBOARD ARCH_SEC_HW_BOOT_OTHER |
-+------------------+-------------------------------------------------------+
-| Serialout Bootloader|ARCH_SEC_HW ARCH_SEC_HW_SERIAL_OUT ARCH_SEC_HW_BOOT |
-| | ARCH_SEC_HW_BOOT_SERIAL_OUT ARCH_SEC_HW_BOOT_OTHER |
-+------------------+-------------------------------------------------------+
-| Enclave0 Bootloader|ARCH_SEC_HW ARCH_SEC_HW_RUNTIME ARCH_SEC_HW_BOOT |
-| | ARCH_SEC_HW_BOOT_RUNTIME_1 ARCH_SEC_HW_BOOT_OTHER |
-| | RUNTIME_ID=1 |
-+------------------+-------------------------------------------------------+
-| Enclave1 Bootloader|ARCH_SEC_HW ARCH_SEC_HW_RUNTIME ARCH_SEC_HW_BOOT |
-| | ARCH_SEC_HW_BOOT_RUNTIME_2 ARCH_SEC_HW_BOOT_OTHER |
-| | RUNTIME_ID=2 |
-+------------------+-------------------------------------------------------+
-| Network Bootloader|ARCH_SEC_HW ARCH_SEC_HW_NETWORK ARCH_SEC_HW_BOOT |
-| | ARCH_SEC_HW_BOOT_OTHER ARCH_SEC_HW_BOOT_NETWORK |
-+------------------+-------------------------------------------------------+
+| Domain Name         | Compiler Symbol                                            |
+|---------------------|------------------------------------------------------------|
+| Storage Bootloader  | ARCH_SEC_HW_BOOT ARCH_SEC_HW PROJ_CPP ARCH_SEC_HW_BOOT_STORAGE ARCH_SEC_HW_STORAGE |
+| OS Bootloader       | ARCH_SEC_HW ARCH_SEC_HW_OS ARCH_SEC_HW_BOOT ARCH_SEC_HW_BOOT_OS |
+| Keyboard Bootloader | ARCH_SEC_HW ARCH_SEC_HW_KEYBOARD ARCH_SEC_HW_BOOT ARCH_SEC_HW_BOOT_KEYBOARD ARCH_SEC_HW_BOOT_OTHER |
+| Serialout Bootloader| ARCH_SEC_HW ARCH_SEC_HW_SERIAL_OUT ARCH_SEC_HW_BOOT ARCH_SEC_HW_BOOT_SERIAL_OUT ARCH_SEC_HW_BOOT_OTHER |
+| Enclave0 Bootloader | ARCH_SEC_HW ARCH_SEC_HW_RUNTIME ARCH_SEC_HW_BOOT ARCH_SEC_HW_BOOT_RUNTIME_1 ARCH_SEC_HW_BOOT_OTHER RUNTIME_ID=1 |
+| Enclave1 Bootloader | ARCH_SEC_HW ARCH_SEC_HW_RUNTIME ARCH_SEC_HW_BOOT ARCH_SEC_HW_BOOT_RUNTIME_2 ARCH_SEC_HW_BOOT_OTHER RUNTIME_ID=2 |
+| Network Bootloader   | ARCH_SEC_HW ARCH_SEC_HW_NETWORK ARCH_SEC_HW_BOOT ARCH_SEC_HW_BOOT_OTHER ARCH_SEC_HW_BOOT_NETWORK |
+
 
 19) Open the Vitis OctopOS domain working directory (`~/vitis_workspace/octopos_domains`). Build all projects. The first build will take a few minutes.
 
