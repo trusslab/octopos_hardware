@@ -35,9 +35,9 @@ The Petalinux device tree relies on the correct name of OctopOS mailbox and othe
 .. code-block:: bash
 
    cd ~/octopos_untrusted_domain
-   petalinux-create --type project -s \<PATH_TO_DOWNLOADED_BSP\>/xilinx-zcu102-v2020.1-final.bsp --name untrusted
+   petalinux-create --type project -s <PATH_TO_DOWNLOADED_BSP>/xilinx-zcu102-v2020.1-final.bsp --name untrusted
    
-   petalinux-config --get-hw-description=\<PATH_TO_THE_DIR_CONTAINING_OCTOPOS_XSA\> 
+   petalinux-config --get-hw-description=<PATH_TO_THE_DIR_CONTAINING_OCTOPOS_XSA> 
 
 The petalinux-config command can be repeated to change or update the hardware xsa file. 
 
@@ -55,11 +55,11 @@ In the petalinux-config menu, select the following options:
 
 * Change Linux source to local,
 
-"Linux Components Selection -> linux-kernel -> select (ext-local-src)", and input the absolute path of the Linux source code downloaded in the previous step (assumed to be ~/octopos_untrusted_domain/octopos_dom_linux).
+"Linux Components Selection -> linux-kernel -> select (ext-local-src)", and input the absolute path of the Linux source code downloaded in the previous step (e.g., ~/octopos_untrusted_domain/octopos_dom_linux).
 
 * Change U-Boot source to local,
 
-"U-Boot Components Selection -> u-boot -> select (ext-local-src)", and input the absolute path of the U-Boot source code downloaded in the previous step (assumed to be ~/octopos_untrusted_domain/octopos_uboot).
+"U-Boot Components Selection -> u-boot -> select (ext-local-src)", and input the absolute path of the U-Boot source code downloaded in the previous step (e.g., ~/octopos_untrusted_domain/octopos_uboot).
 
 * Change boot configure
 
