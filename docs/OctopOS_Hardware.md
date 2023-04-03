@@ -1,22 +1,29 @@
 # Populating Hardware Design and Launching OctopOS Software
 
-
 Software Version: Vivado 2020.1
 Hardware Version: ZCU102
 
-Author: Zephyr Yao (z.yao@uci.edu)
+This document provides a step-by-step guide to populate our hardware design and to launch OctopOS software on top of it.
+It is recommended to follow this guide on a single Linux machine with at least 32GB of RAM and 512GB of free disk space (SSD is preferred), although it is possible to prepare hardware design, OctopOS binaries, and petalinux image separately on different machines.
+We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare the hardware design and OctopOS binaries. The total machine time is about 8 hours, and the manual work takes about 12 hours if you are familiar with the tools.
 
-This document provides a step-by-step guide to populate our hardware design and launch OctopOS software on top of it.
+## Hardware Design
 
 1) Clone this repo (`git clone https://github.com/trusslab/octopos_hardware`) into `<PATH_TO_OCTOPOS_HARDWARE>`. This repo contains the hardware design of our multi-domain hardware prototype, IP source codes, and scripts to populate the hardware design and launch OctopOS software.
 
 2) To re-create the hardware project, install Vivado 2020.1, and run `vivado -source <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102/project_zcu102.tcl`.
 
+![Populated hardware block design](img/2023-04-03-vivado.png)
+
 3) Re-create the mailbox projects in the same way, package them, and add their paths to the IP repository of the main project. You may follow the instruction in our `guide to update Mailbox IP <https://github.com/trusslab/octopos_hardware/blob/main/docs/Update-Mailbox-IP.rst>`_ to do so.
 
 4) Generate bitstream. This may take a few hours depending on your machine.
 
-5) The synthesized hardware design is a `xsa` file. To export the hardware design to the Vitis SDK, click `File -> Export -> Export Hardware`. Take note of the file location of the exported `xsa` file.
+5) The synthesized hardware design is a `xsa` file. To export the hardware design to the Vitis SDK, click `File -> Export -> Export Hardware`. Selected `Fixed` and `Include bitstream`. Take note of the file location of the exported `xsa` file.
+
+![Generated hardware design](img/2023-04-03-xsa.png)
+
+## OctopOS Software
 
 6) Launch Vitis, and load the exported `xsa`` file in step 5. The version of Vitis SDK should be 2020.1. Vitis SDK provides a GUI to manage the software running on each processor. 
 
@@ -52,6 +59,7 @@ This document provides a step-by-step guide to populate our hardware design and 
 | Enclave1 | RUNTIME_ID=2 ARCH_SEC_HW ARCH_SEC_HW_RUNTIME           |
 | Network  | ARCH_SEC_HW ARCH_SEC_HW_NETWORK HW_MAILBOX_BLOCKING   |
 
+![Vitis settings](img/2023-04-03-vitis_settings.png)
 
 18) Open the Vitis OctopOS bootloader working directory (`~/vitis_workspace/octopos_bootloaders`). Repeat the same step as in step 17 for each bootloader projects (but use the table below for compiler symbols.
 
@@ -66,13 +74,17 @@ This document provides a step-by-step guide to populate our hardware design and 
 | Network Bootloader   | ARCH_SEC_HW ARCH_SEC_HW_NETWORK ARCH_SEC_HW_BOOT ARCH_SEC_HW_BOOT_OTHER ARCH_SEC_HW_BOOT_NETWORK |
 
 
-19) Open the Vitis OctopOS domain working directory (`~/vitis_workspace/octopos_domains`). Build all projects. The first build will take a few minutes.
+1)  Open the Vitis OctopOS domain working directory (`~/vitis_workspace/octopos_domains`). Build all projects. The first build will take about 10 minutes.
 
-20) Open the Vitis OctopOS bootloader working directory (`~/vitis_workspace/octopos_bootloaders`). Build all projects.
+2)  Open the Vitis OctopOS bootloader working directory (`~/vitis_workspace/octopos_bootloaders`). Build all projects.
 
-21) Launch a new Vitis, and import the Vitis TPM project (`<PATH_TO_OCTOPOS_HARDWARE>/bin/vitis_tpm.zip`) to `~/vitis_workspace/octopos_tpm_forwarder`. Open the Vitis TPM project, and build it.
+3)  Launch a new Vitis, and import the Vitis TPM project (`<PATH_TO_OCTOPOS_HARDWARE>/bin/vitis_tpm.zip`) to `~/vitis_workspace/octopos_tpm_forwarder`. Open the Vitis TPM project, and build it.
+
+## Petalinux for the untrusted domain
 
 22) Create the petalinux project for the untrusted domain.
+
+## Package the final boot image
 
 23) Open `<PATH_TO_OCTOPOS_HARDWARE>/scripts/set_path.sh`.
 
@@ -90,7 +102,11 @@ Change the `OCTOPOS_DIR` variable to `<PATH_TO_OCTOPOS_SOFTWARE>`.
 
 Finally, set `BOOT_MEDIA` to the path to a mounted SD-Card. 
 
+## Boot the external TPM device
+
 24) Launch TPM on the untrusted domain.
+
+## Prepare serial terminals
 
 25) Plug the following pins and jumpers on the ZCU102 board:
 
@@ -102,5 +118,7 @@ Finally, set `BOOT_MEDIA` to the path to a mounted SD-Card.
 | xx  | xx         |
 
 26) Open serial terminals for the following devices:
+
+## Boot the ZCU102 board
 
 27) Insert the SD-Card into the ZCU102 board, and power on the board.
