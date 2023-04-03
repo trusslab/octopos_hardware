@@ -148,3 +148,7 @@ An Arduino Mega board can be used to collect serial outputs from multiple domain
 27) Insert the SD-Card into the ZCU102 board, and power on the board.
 
 OctopOS will be booted automatically. Upon successful boot, you should see boot stages printed on the resource manage's debug terminal, and domain prints on the corresponding domain's debug terminal.
+
+![OctopOS Resource Manager Domain](img/2023-04-03-OSBOOT.png)
+
+![OctopOS Untrusted Domain](img/2023-04-03-Untrusted.png)
