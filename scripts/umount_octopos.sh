@@ -59,3 +59,5 @@ sudo umount $1/network/src/octopos/network
 sudo umount $1/network/src/octopos/util/network
 sudo umount $1/network/src/octopos/arch
 sudo umount $1/network/src/octopos/include
+sudo umount $1/enclave0/src/octopos/application/sec_hw_benchmark
+sudo umount $1/enclave1/src/octopos/application/sec_hw_benchmark

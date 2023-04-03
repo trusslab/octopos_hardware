@@ -1,6 +1,6 @@
-cp $1/os/file_system.c $1/arch/sec_hw/bootloader_interface/file_system.c
-sed -i '1s/^/#if defined(ARCH_SEC_HW_BOOT) \&\& !defined(ARCH_SEC_HW_BOOT_OS)\n/' $1/arch/sec_hw/bootloader_interface/file_system.c
-echo '#endif' >> $1/arch/sec_hw/bootloader_interface/file_system.c
+#cp $1/os/file_system.c $1/arch/sec_hw/bootloader_interface/file_system.c
+#sed -i '1s/^/#if defined(ARCH_SEC_HW_BOOT) \&\& !defined(ARCH_SEC_HW_BOOT_OS)\n/' $1/arch/sec_hw/bootloader_interface/file_system.c
+#echo '#endif' >> $1/arch/sec_hw/bootloader_interface/file_system.c
 
 mkdir -p $2/oss/src/octopos/arch
 mkdir -p $2/oss/src/octopos/include
@@ -80,6 +80,7 @@ mkdir -p $2/enclave0/src/octopos/application/sec_login
 mkdir -p $2/enclave0/src/octopos/application/sim_loop
 mkdir -p $2/enclave0/src/octopos/application/fs_test
 mkdir -p $2/enclave0/src/octopos/application/socket_client
+mkdir -p $2/enclave0/src/octopos/application/bank_client
 mkdir -p $2/enclave0/src/octopos/application/sec_hw_benchmark
 mkdir -p $2/enclave0/src/octopos/utils/network
 
@@ -94,6 +95,7 @@ sudo mount --bind $1/applications/simple_loop $2/enclave0/src/octopos/applicatio
 sudo mount --bind $1/applications/fs_test $2/enclave0/src/octopos/application/fs_test
 sudo mount --bind $1/applications/socket_client $2/enclave0/src/octopos/application/socket_client
 sudo mount --bind $1/applications/sec_hw_benchmark $2/enclave0/src/octopos/application/sec_hw_benchmark
+sudo mount --bind $1/applications/bank_client $2/enclave0/src/octopos/application/bank_client
 sudo mount --bind $1/util/network $2/enclave0/src/octopos/utils/network
 
 mkdir -p $2/enclave0_bootloader/src/octopos/arch

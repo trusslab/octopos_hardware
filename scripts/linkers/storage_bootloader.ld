@@ -18,9 +18,8 @@ _HEAP_SIZE = DEFINED(_HEAP_SIZE) ? _HEAP_SIZE : 0x1000;
 MEMORY
 {
    storage_subsystem_microblaze_4_local_memory_ilmb_rom_if_cntlr_0_Mem_storage_subsystem_microblaze_4_local_memory_dlmb_rom_if_cntlr_0_Mem : ORIGIN = 0x50, LENGTH = 0x3FFB0
-   storage_subsystem_microblaze_4_local_memory_ilmb_bram_if_cntlr_Mem_storage_subsystem_microblaze_4_local_memory_dlmb_bram_if_cntlr_Mem : ORIGIN = 0x120000, LENGTH = 0x3C000
-   storage_subsystem_microblaze_4_local_memory_ilmb_bram_if_cntlr1_Mem_storage_subsystem_microblaze_4_local_memory_dlmb_bram_if_cntlr1_Mem : ORIGIN = 0x260000, LENGTH = 0x2000
-   common_heap_and_stack : ORIGIN = 0x15C000, LENGTH = 0x3FB0
+   storage_subsystem_microblaze_4_local_memory_ilmb_rom_if_cntlr_1_Mem_storage_subsystem_microblaze_4_local_memory_dlmb_rom_if_cntlr_1_Mem : ORIGIN = 0x40000, LENGTH = 0x3C000
+   common_heap_and_stack : ORIGIN = 0x7C000, LENGTH = 0x3FB0
 }
 
 /* Specify the default entry point to the program */
@@ -163,7 +162,7 @@ SECTIONS
    *(.gnu.linkonce.sb.*)
    . = ALIGN(8);
    __sbss_end = .;
-} > common_heap_and_stack
+} > storage_subsystem_microblaze_4_local_memory_ilmb_rom_if_cntlr_0_Mem_storage_subsystem_microblaze_4_local_memory_dlmb_rom_if_cntlr_0_Mem
 
 .tdata : {
    __tdata_start = .;
@@ -190,7 +189,7 @@ SECTIONS
    *(COMMON)
    . = ALIGN(4);
    __bss_end = .;
-} > common_heap_and_stack
+} > storage_subsystem_microblaze_4_local_memory_ilmb_rom_if_cntlr_0_Mem_storage_subsystem_microblaze_4_local_memory_dlmb_rom_if_cntlr_0_Mem
 
 _SDA_BASE_ = __sdata_start + ((__sbss_end - __sdata_start) / 2 );
 
@@ -204,7 +203,7 @@ _SDA2_BASE_ = __sdata2_start + ((__sbss2_end - __sdata2_start) / 2 );
    _heap_start = .;
    . += _HEAP_SIZE;
    _heap_end = .;
-} > common_heap_and_stack
+} > storage_subsystem_microblaze_4_local_memory_ilmb_rom_if_cntlr_0_Mem_storage_subsystem_microblaze_4_local_memory_dlmb_rom_if_cntlr_0_Mem
 
 .stack (NOLOAD) : {
    _stack_end = .;
@@ -212,7 +211,7 @@ _SDA2_BASE_ = __sdata2_start + ((__sbss2_end - __sdata2_start) / 2 );
    . = ALIGN(8);
    _stack = .;
    __stack = _stack;
-} > common_heap_and_stack
+} > storage_subsystem_microblaze_4_local_memory_ilmb_rom_if_cntlr_0_Mem_storage_subsystem_microblaze_4_local_memory_dlmb_rom_if_cntlr_0_Mem
 
 _end = .;
 }
