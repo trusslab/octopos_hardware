@@ -4,9 +4,11 @@ Authors: Zhihao "Zephyr" Yao, Seyed Mohammadjavad Seyed Talebi, Mingyi Chen, Ard
 (Collectively, "The OctopOS Authors")
 
 :paperclip: [OctopOS Paper *(to be updated)*]()
-:orange_book: [OctopOS Technical Reference Manual](https://github.com/trusslab/octopos_hardware/docs/OctopOS-TRM-2023-04-03.pdf)
+:orange_book: [OctopOS Technical Reference Manual](https://github.com/trusslab/octopos_hardware/raw/main/docs/OctopOS-TRM-2023-04-03.pdf)
+
 :computer: [OctopOS Repository](https://github.com/trusslab/octopos)
-:electric_plug: [Split-Trust Hardware Repository and User Guide](https://github.com/trusslab/octopos_hardware)
+:electric_plug: [Split-Trust Hardware Repository](https://github.com/trusslab/octopos_hardware)
+
 :flashlight: [Formal Verification](https://github.com/trusslab/octopos_hardware/tree/main/formal_verification)
 :beer: [Untrusted Domain Linux Repository *(to be updated)*]()
 
