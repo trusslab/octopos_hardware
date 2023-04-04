@@ -1,0 +1,17 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.820968",
+   "Default View_TopLeft":"-477,-497",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:9.0 TLS
+#  -string -flagsOSRD
+preplace port S_CLK_0 -pg 1 -lvl 0 -x -20 -y -280 -defaultsOSRD
+preplace port S_ARESETN_0 -pg 1 -lvl 0 -x -20 -y -260 -defaultsOSRD
+preplace inst Octopos_MailBox_1Wri_0 -pg 1 -lvl 1 -x 200 -y -190 -defaultsOSRD
+preplace netloc S_CLK_0_1 1 0 1 N -280
+preplace netloc S_ARESETN_0_1 1 0 1 N -260
+levelinfo -pg 1 -20 200 400
+pagesize -pg 1 -db -bbox -sgen -170 -500 400 620
+"
+}
+0

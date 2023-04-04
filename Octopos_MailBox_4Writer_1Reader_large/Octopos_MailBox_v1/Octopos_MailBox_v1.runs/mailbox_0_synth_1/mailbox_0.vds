@@ -1,0 +1,524 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Thu Nov 25 15:43:34 2021
+# Process ID: 3945441
+# Current directory: /home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/mailbox_0_synth_1
+# Command line: vivado -log mailbox_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mailbox_0.tcl
+# Log file: /home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/mailbox_0_synth_1/mailbox_0.vds
+# Journal file: /home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/mailbox_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source mailbox_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository '/home/xilinx/version1_4Writer_1Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/trusslab/Vivado/Vivado/2020.1/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2123.777 ; gain = 0.000 ; free physical = 19246 ; free virtual = 132836
+Command: synth_design -top mailbox_0 -part xczu9eg-ffvb1156-2-e -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg'
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 3945501
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2577.254 ; gain = 11.906 ; free physical = 18214 ; free virtual = 131804
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'mailbox_0' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/synth/mailbox_0.vhd:104]
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+	Parameter C_EXT_RESET_HIGH bound to: 1 - type: integer 
+	Parameter C_ENABLE_BUS_ERROR bound to: 0 - type: integer 
+	Parameter C_S0_AXI_BASEADDR bound to: 32'b11111111111111111111111111111111 
+	Parameter C_S0_AXI_HIGHADDR bound to: 32'b00000000000000000000000000000000 
+	Parameter C_S0_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S0_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S1_AXI_BASEADDR bound to: 32'b11111111111111111111111111111111 
+	Parameter C_S1_AXI_HIGHADDR bound to: 32'b00000000000000000000000000000000 
+	Parameter C_S1_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S1_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_M0_AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S0_AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_M1_AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S1_AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_ASYNC_CLKS bound to: 0 - type: integer 
+	Parameter C_NUM_SYNC_FF bound to: 2 - type: integer 
+	Parameter C_ASYNC_INTERRUPTS bound to: 1 - type: integer 
+	Parameter C_IMPL_STYLE bound to: 0 - type: integer 
+	Parameter C_INTERCONNECT_PORT_0 bound to: 2 - type: integer 
+	Parameter C_INTERCONNECT_PORT_1 bound to: 2 - type: integer 
+	Parameter C_MAILBOX_DEPTH bound to: 512 - type: integer 
+INFO: [Synth 8-3491] module 'mailbox' declared at '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:2720' bound to instance 'U0' of component 'mailbox' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/synth/mailbox_0.vhd:256]
+INFO: [Synth 8-638] synthesizing module 'mailbox' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:2842]
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+	Parameter C_EXT_RESET_HIGH bound to: 1 - type: integer 
+	Parameter C_ENABLE_BUS_ERROR bound to: 0 - type: integer 
+	Parameter C_S0_AXI_BASEADDR bound to: -1 - type: integer 
+	Parameter C_S0_AXI_HIGHADDR bound to: 0 - type: integer 
+	Parameter C_S0_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S0_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S1_AXI_BASEADDR bound to: -1 - type: integer 
+	Parameter C_S1_AXI_HIGHADDR bound to: 0 - type: integer 
+	Parameter C_S1_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S1_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_M0_AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S0_AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_M1_AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S1_AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_ASYNC_CLKS bound to: 0 - type: integer 
+	Parameter C_NUM_SYNC_FF bound to: 2 - type: integer 
+	Parameter C_ASYNC_INTERRUPTS bound to: 1 - type: integer 
+	Parameter C_IMPL_STYLE bound to: 0 - type: integer 
+	Parameter C_INTERCONNECT_PORT_0 bound to: 2 - type: integer 
+	Parameter C_INTERCONNECT_PORT_1 bound to: 2 - type: integer 
+	Parameter C_MAILBOX_DEPTH bound to: 512 - type: integer 
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+	Parameter C_ENABLE_BUS_ERROR bound to: 0 - type: integer 
+	Parameter C_FIFO_LENGTH_WIDTH bound to: 9 - type: integer 
+	Parameter C_INTERCONNECT bound to: 2 - type: integer 
+	Parameter C_ASYNC_CLKS bound to: 0 - type: integer 
+	Parameter C_NUM_SYNC_FF bound to: 2 - type: integer 
+	Parameter C_ASYNC_INTERRUPTS bound to: 1 - type: integer 
+	Parameter C_FSL_DWIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_BASEADDR bound to: -1 - type: integer 
+	Parameter C_S_AXI_HIGHADDR bound to: 0 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'if_decode' declared at '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:1992' bound to instance 'Bus0_If' of component 'if_decode' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:3229]
+INFO: [Synth 8-638] synthesizing module 'if_decode' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:2064]
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+	Parameter C_ENABLE_BUS_ERROR bound to: 0 - type: integer 
+	Parameter C_FIFO_LENGTH_WIDTH bound to: 9 - type: integer 
+	Parameter C_INTERCONNECT bound to: 2 - type: integer 
+	Parameter C_ASYNC_CLKS bound to: 0 - type: integer 
+	Parameter C_NUM_SYNC_FF bound to: 2 - type: integer 
+	Parameter C_ASYNC_INTERRUPTS bound to: 1 - type: integer 
+	Parameter C_FSL_DWIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_BASEADDR bound to: -1 - type: integer 
+	Parameter C_S_AXI_HIGHADDR bound to: 0 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_MIN_SIZE bound to: 32'b00000000000000000000111111111111 
+	Parameter C_USE_WSTRB bound to: 0 - type: integer 
+	Parameter C_DPHASE_TIMEOUT bound to: 16 - type: integer 
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000111111111111111111111111111111110000000000000000000000000000000011111111111111111111111111111111 
+	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000001100 
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+INFO: [Synth 8-3491] module 'axi_lite_ipif' declared at '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2868' bound to instance 'AXI4_If' of component 'axi_lite_ipif' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:2278]
+INFO: [Synth 8-638] synthesizing module 'axi_lite_ipif' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_MIN_SIZE bound to: 4095 - type: integer 
+	Parameter C_USE_WSTRB bound to: 0 - type: integer 
+	Parameter C_DPHASE_TIMEOUT bound to: 16 - type: integer 
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000111111111111111111111111111111110000000000000000000000000000000011111111111111111111111111111111 
+	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000001100 
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+INFO: [Synth 8-638] synthesizing module 'slave_attachment' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000111111111111111111111111111111110000000000000000000000000000000011111111111111111111111111111111 
+	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000001100 
+	Parameter C_IPIF_ABUS_WIDTH bound to: 32 - type: integer 
+	Parameter C_IPIF_DBUS_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_MIN_SIZE bound to: 4095 - type: integer 
+	Parameter C_USE_WSTRB bound to: 0 - type: integer 
+	Parameter C_DPHASE_TIMEOUT bound to: 16 - type: integer 
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+INFO: [Synth 8-638] synthesizing module 'address_decoder' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+	Parameter C_BUS_AWIDTH bound to: 12 - type: integer 
+	Parameter C_S_AXI_MIN_SIZE bound to: 4095 - type: integer 
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000111111111111111111111111111111110000000000000000000000000000000011111111111111111111111111111111 
+	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000001100 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-638] synthesizing module 'pselect_f' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b0000 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized0' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b0001 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized0' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized1' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b0010 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized1' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized2' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b0011 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized2' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized3' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b0100 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized3' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized4' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b0101 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized4' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized5' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b0110 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized5' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized6' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b0111 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized6' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized7' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b1000 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized7' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized8' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b1001 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized8' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized9' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b1010 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized9' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized10' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 4 - type: integer 
+	Parameter C_AW bound to: 4 - type: integer 
+	Parameter C_BAR bound to: 4'b1011 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized10' (1#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'address_decoder' (2#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+INFO: [Synth 8-226] default block is never used [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2550]
+INFO: [Synth 8-256] done synthesizing module 'slave_attachment' (3#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+INFO: [Synth 8-256] done synthesizing module 'axi_lite_ipif' (4#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+INFO: [Synth 8-256] done synthesizing module 'if_decode' (5#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:2064]
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+	Parameter C_ENABLE_BUS_ERROR bound to: 0 - type: integer 
+	Parameter C_FIFO_LENGTH_WIDTH bound to: 9 - type: integer 
+	Parameter C_INTERCONNECT bound to: 2 - type: integer 
+	Parameter C_ASYNC_CLKS bound to: 0 - type: integer 
+	Parameter C_NUM_SYNC_FF bound to: 2 - type: integer 
+	Parameter C_ASYNC_INTERRUPTS bound to: 1 - type: integer 
+	Parameter C_FSL_DWIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_BASEADDR bound to: -1 - type: integer 
+	Parameter C_S_AXI_HIGHADDR bound to: 0 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'if_decode' declared at '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:1992' bound to instance 'Bus1_If' of component 'if_decode' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:3346]
+	Parameter C_ASYNC_CLKS bound to: 0 - type: integer 
+	Parameter C_NUM_SYNC_FF bound to: 2 - type: integer 
+	Parameter C_IMPL_STYLE bound to: 0 - type: integer 
+	Parameter C_FSL_DWIDTH bound to: 32 - type: integer 
+	Parameter C_FSL_DEPTH bound to: 512 - type: integer 
+	Parameter C_FIFO_LENGTH_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'fsl_v20' declared at '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:1710' bound to instance 'fsl_0_to_1' of component 'fsl_v20' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:3461]
+INFO: [Synth 8-638] synthesizing module 'fsl_v20' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:1750]
+	Parameter C_ASYNC_CLKS bound to: 0 - type: integer 
+	Parameter C_NUM_SYNC_FF bound to: 2 - type: integer 
+	Parameter C_IMPL_STYLE bound to: 0 - type: integer 
+	Parameter C_FSL_DWIDTH bound to: 32 - type: integer 
+	Parameter C_FSL_DEPTH bound to: 512 - type: integer 
+	Parameter C_FIFO_LENGTH_WIDTH bound to: 9 - type: integer 
+	Parameter C_IMPL_STYLE bound to: 0 - type: integer 
+	Parameter C_FIFO_LENGTH_WIDTH bound to: 9 - type: integer 
+	Parameter WordSize bound to: 32 - type: integer 
+	Parameter MemSize bound to: 512 - type: integer 
+INFO: [Synth 8-3491] module 'Sync_FIFO' declared at '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:645' bound to instance 'Sync_FIFO_I1' of component 'Sync_FIFO' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:1828]
+INFO: [Synth 8-638] synthesizing module 'Sync_FIFO' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:666]
+	Parameter C_IMPL_STYLE bound to: 0 - type: integer 
+	Parameter C_FIFO_LENGTH_WIDTH bound to: 9 - type: integer 
+	Parameter WordSize bound to: 32 - type: integer 
+	Parameter MemSize bound to: 512 - type: integer 
+	Parameter C_DWIDTH bound to: 32 - type: integer 
+	Parameter C_AWIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'Sync_DPRAM' declared at '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:518' bound to instance 'DPRAM_FIFO' of component 'Sync_DPRAM' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:934]
+INFO: [Synth 8-638] synthesizing module 'Sync_DPRAM' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:534]
+	Parameter C_DWIDTH bound to: 32 - type: integer 
+	Parameter C_AWIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Sync_DPRAM' (6#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:534]
+INFO: [Synth 8-256] done synthesizing module 'Sync_FIFO' (7#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:666]
+INFO: [Synth 8-256] done synthesizing module 'fsl_v20' (8#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:1750]
+	Parameter C_ASYNC_CLKS bound to: 0 - type: integer 
+	Parameter C_NUM_SYNC_FF bound to: 2 - type: integer 
+	Parameter C_IMPL_STYLE bound to: 0 - type: integer 
+	Parameter C_FSL_DWIDTH bound to: 32 - type: integer 
+	Parameter C_FSL_DEPTH bound to: 512 - type: integer 
+	Parameter C_FIFO_LENGTH_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'fsl_v20' declared at '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:1710' bound to instance 'fsl_1_to_0' of component 'fsl_v20' [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:3504]
+INFO: [Synth 8-256] done synthesizing module 'mailbox' (9#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/hdl/mailbox_v2_1_vh_rfs.vhd:2842]
+INFO: [Synth 8-256] done synthesizing module 'mailbox_0' (10#1) [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/synth/mailbox_0.vhd:104]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 2622.191 ; gain = 56.844 ; free physical = 18306 ; free virtual = 131896
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2640.035 ; gain = 74.688 ; free physical = 18300 ; free virtual = 131891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2640.035 ; gain = 74.688 ; free physical = 18300 ; free virtual = 131891
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2640.035 ; gain = 0.000 ; free physical = 18295 ; free virtual = 131886
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/mailbox_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/mailbox_0_ooc.xdc] for cell 'U0'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/mailbox_0_ooc.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/mailbox_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/mailbox_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/mailbox_0.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/mailbox_0.xdc] for cell 'U0'
+Parsing XDC File [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/mailbox_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/mailbox_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2815.754 ; gain = 0.000 ; free physical = 18209 ; free virtual = 131801
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2815.754 ; gain = 0.000 ; free physical = 18210 ; free virtual = 131801
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 2815.754 ; gain = 250.406 ; free physical = 18262 ; free virtual = 131853
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu9eg-ffvb1156-2-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 2815.754 ; gain = 250.406 ; free physical = 18262 ; free virtual = 131853
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for U0. (constraint file  /home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/mailbox_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 2815.754 ; gain = 250.406 ; free physical = 18262 ; free virtual = 131853
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'slave_attachment'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE2 |                             0001 |                               00
+                  iSTATE |                             0010 |                               01
+                 iSTATE0 |                             0100 |                               10
+                 iSTATE1 |                             1000 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'slave_attachment'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 2815.754 ; gain = 250.406 ; free physical = 18254 ; free virtual = 131845
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   10 Bit       Adders := 2     
+	   2 Input    9 Bit       Adders := 4     
+	   2 Input    5 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               12 Bit    Registers := 2     
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 8     
+	                5 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                2 Bit    Registers := 6     
+	                1 Bit    Registers := 63    
++---Muxes : 
+	   2 Input   12 Bit        Muxes := 2     
+	   4 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 10    
+	   7 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 6     
+	   2 Input    1 Bit        Muxes := 44    
+	   4 Input    1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2520 (col length:168)
+BRAMs: 1824 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 2815.754 ; gain = 250.406 ; free physical = 18247 ; free virtual = 131842
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping	Report (see note below)
++------------+----------------------------------------------------------------------------------------------+-----------+----------------------+---------------+
+|Module Name | RTL Object                                                                                   | Inference | Size (Depth x Width) | Primitives    | 
++------------+----------------------------------------------------------------------------------------------+-----------+----------------------+---------------+
+|U0          | fsl_1_to_0/Using_FIFO.Sync_FIFO_Gen.Sync_FIFO_I1/Sync_FIFO_I.dpram_fifo_i.DPRAM_FIFO/RAM_reg | Implied   | 512 x 32             | RAM64M8 x 40	 | 
+|U0          | fsl_0_to_1/Using_FIFO.Sync_FIFO_Gen.Sync_FIFO_I1/Sync_FIFO_I.dpram_fifo_i.DPRAM_FIFO/RAM_reg | Implied   | 512 x 32             | RAM64M8 x 40	 | 
++------------+----------------------------------------------------------------------------------------------+-----------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:45 ; elapsed = 00:01:13 . Memory (MB): peak = 3213.457 ; gain = 648.109 ; free physical = 17657 ; free virtual = 131266
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:01:14 . Memory (MB): peak = 3243.488 ; gain = 678.141 ; free physical = 17634 ; free virtual = 131243
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping	Report
++------------+----------------------------------------------------------------------------------------------+-----------+----------------------+---------------+
+|Module Name | RTL Object                                                                                   | Inference | Size (Depth x Width) | Primitives    | 
++------------+----------------------------------------------------------------------------------------------+-----------+----------------------+---------------+
+|U0          | fsl_1_to_0/Using_FIFO.Sync_FIFO_Gen.Sync_FIFO_I1/Sync_FIFO_I.dpram_fifo_i.DPRAM_FIFO/RAM_reg | Implied   | 512 x 32             | RAM64M8 x 40	 | 
+|U0          | fsl_0_to_1/Using_FIFO.Sync_FIFO_Gen.Sync_FIFO_I1/Sync_FIFO_I.dpram_fifo_i.DPRAM_FIFO/RAM_reg | Implied   | 512 x 32             | RAM64M8 x 40	 | 
++------------+----------------------------------------------------------------------------------------------+-----------+----------------------+---------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:01:14 . Memory (MB): peak = 3251.496 ; gain = 686.148 ; free physical = 17642 ; free virtual = 131241
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:01:17 . Memory (MB): peak = 3254.465 ; gain = 689.117 ; free physical = 17641 ; free virtual = 131240
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:01:17 . Memory (MB): peak = 3254.465 ; gain = 689.117 ; free physical = 17641 ; free virtual = 131240
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:50 ; elapsed = 00:01:17 . Memory (MB): peak = 3254.465 ; gain = 689.117 ; free physical = 17641 ; free virtual = 131240
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:50 ; elapsed = 00:01:17 . Memory (MB): peak = 3254.465 ; gain = 689.117 ; free physical = 17641 ; free virtual = 131240
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:50 ; elapsed = 00:01:17 . Memory (MB): peak = 3254.465 ; gain = 689.117 ; free physical = 17641 ; free virtual = 131240
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:50 ; elapsed = 00:01:17 . Memory (MB): peak = 3254.465 ; gain = 689.117 ; free physical = 17641 ; free virtual = 131240
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |CARRY8  |     8|
+|2     |LUT1    |    14|
+|3     |LUT2    |    60|
+|4     |LUT3    |    59|
+|5     |LUT4    |   152|
+|6     |LUT5    |    40|
+|7     |LUT6    |   206|
+|8     |MUXF7   |    12|
+|9     |RAM64M8 |    80|
+|10    |FDRE    |   275|
+|11    |FDSE    |     2|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:50 ; elapsed = 00:01:17 . Memory (MB): peak = 3254.465 ; gain = 689.117 ; free physical = 17641 ; free virtual = 131240
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:01:09 . Memory (MB): peak = 3254.465 ; gain = 513.398 ; free physical = 17681 ; free virtual = 131280
+Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:01:17 . Memory (MB): peak = 3254.473 ; gain = 689.117 ; free physical = 17681 ; free virtual = 131280
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3265.434 ; gain = 0.000 ; free physical = 17754 ; free virtual = 131353
+INFO: [Netlist 29-17] Analyzing 100 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3317.293 ; gain = 0.000 ; free physical = 17688 ; free virtual = 131287
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 80 instances were transformed.
+  RAM64M8 => RAM64M8 (RAMD64E(x8)): 80 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+72 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:07 ; elapsed = 00:01:39 . Memory (MB): peak = 3317.293 ; gain = 1193.516 ; free physical = 17826 ; free virtual = 131425
+INFO: [Common 17-1381] The checkpoint '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/mailbox_0_synth_1/mailbox_0.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP mailbox_0, cache-ID = 83a474b9b80dda7c
+INFO: [Coretcl 2-1174] Renamed 35 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/trusslab/zcu102_verification/Octopos_MailBox_4Writer_1Reader_large/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/mailbox_0_synth_1/mailbox_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file mailbox_0_utilization_synth.rpt -pb mailbox_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 25 15:45:30 2021...

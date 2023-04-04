@@ -1,0 +1,259 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Thu Nov 25 17:05:38 2021
+# Process ID: 3963580
+# Current directory: /home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/synth_1
+# Command line: vivado -log Octopos_MailBox_1Writer_3Reader_v1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Octopos_MailBox_1Writer_3Reader_v1_0.tcl
+# Log file: /home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/synth_1/Octopos_MailBox_1Writer_3Reader_v1_0.vds
+# Journal file: /home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source Octopos_MailBox_1Writer_3Reader_v1_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository '/home/trusslab/octopos/xilinx/version1_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/trusslab/Vivado/Vivado/2020.1/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2122.746 ; gain = 0.000 ; free physical = 14366 ; free virtual = 132925
+Command: synth_design -top Octopos_MailBox_1Writer_3Reader_v1_0 -part xczu9eg-ffvb1156-2-e
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg'
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 3963637
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2577.223 ; gain = 10.906 ; free physical = 13375 ; free virtual = 131935
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Octopos_MailBox_1Writer_3Reader_v1_0' [/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/new/Octopos_MailBox_1Writer_3Reader_v1_0.v:22]
+	Parameter C_S_ctrl_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_ctrl_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter CLK_ATTR bound to: 0005 - type: string 
+INFO: [Synth 8-6157] synthesizing module 'mailbox_0' [/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/synth_1/.Xil/Vivado-3963580-trusslab-Super-Server/realtime/mailbox_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'mailbox_0' (1#1) [/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/synth_1/.Xil/Vivado-3963580-trusslab-Super-Server/realtime/mailbox_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'Octopos_MailBox_ctrl_AXI' [/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/new/Octpos_MailBox_ctrl_AXI.v:3]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter ADDR_LSB bound to: 2 - type: integer 
+	Parameter OPT_MEM_ADDR_BITS bound to: 1 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/new/Octpos_MailBox_ctrl_AXI.v:250]
+INFO: [Synth 8-226] default block is never used [/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/new/Octpos_MailBox_ctrl_AXI.v:406]
+INFO: [Synth 8-6155] done synthesizing module 'Octopos_MailBox_ctrl_AXI' (2#1) [/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/new/Octpos_MailBox_ctrl_AXI.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Octopos_MailBox_Main_Logic' [/home/trusslab/zcu102_veri/updated_hw/updated_mailboxes/1W3R/Octopos_MailBox_Main_logic.v:22]
+INFO: [Synth 8-6157] synthesizing module 'Octopos_MailBox_Ctrl_Interface_Manager' [/home/trusslab/zcu102_veri/updated_hw/updated_mailboxes/1W3R/Octopos_MailBox_Ctrl_Interface_Manager.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Octopos_MailBox_Ctrl_Interface_Manager' (3#1) [/home/trusslab/zcu102_veri/updated_hw/updated_mailboxes/1W3R/Octopos_MailBox_Ctrl_Interface_Manager.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Octopos_MailBox_Main_Logic' (4#1) [/home/trusslab/zcu102_veri/updated_hw/updated_mailboxes/1W3R/Octopos_MailBox_Main_logic.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'Octopos_MailBox_1Writer_3Reader_v1_0' (5#1) [/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/new/Octopos_MailBox_1Writer_3Reader_v1_0.v:22]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2622.160 ; gain = 55.844 ; free physical = 13431 ; free virtual = 131992
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2645.941 ; gain = 79.625 ; free physical = 13426 ; free virtual = 131987
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2645.941 ; gain = 79.625 ; free physical = 13426 ; free virtual = 131987
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2645.941 ; gain = 0.000 ; free physical = 13422 ; free virtual = 131983
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/mailbox_0/mailbox_0_in_context.xdc] for cell 'mb0'
+Finished Parsing XDC File [/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/imports/sources_1/ip/mailbox_0/mailbox_0/mailbox_0_in_context.xdc] for cell 'mb0'
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2816.660 ; gain = 0.000 ; free physical = 13339 ; free virtual = 131910
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2816.660 ; gain = 0.000 ; free physical = 13339 ; free virtual = 131910
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 2816.660 ; gain = 250.344 ; free physical = 13406 ; free virtual = 131967
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu9eg-ffvb1156-2-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 2816.660 ; gain = 250.344 ; free physical = 13406 ; free virtual = 131967
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for mb0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 2816.660 ; gain = 250.344 ; free physical = 13406 ; free virtual = 131967
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 2816.660 ; gain = 250.344 ; free physical = 13396 ; free virtual = 131958
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 1     
+	   2 Input   12 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 26    
+	                4 Bit    Registers := 8     
+	                2 Bit    Registers := 8     
+	                1 Bit    Registers := 37    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 31    
+	   4 Input   32 Bit        Muxes := 27    
+	   5 Input   32 Bit        Muxes := 1     
+	   3 Input   12 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 1     
+	   8 Input    8 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 6     
+	   4 Input    2 Bit        Muxes := 6     
+	   2 Input    1 Bit        Muxes := 67    
+	   4 Input    1 Bit        Muxes := 34    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2520 (col length:168)
+BRAMs: 1824 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 2816.660 ; gain = 250.344 ; free physical = 13382 ; free virtual = 131947
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:01:13 . Memory (MB): peak = 3217.363 ; gain = 651.047 ; free physical = 12763 ; free virtual = 131340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:01:13 . Memory (MB): peak = 3218.363 ; gain = 652.047 ; free physical = 12762 ; free virtual = 131339
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:01:13 . Memory (MB): peak = 3246.410 ; gain = 680.094 ; free physical = 12758 ; free virtual = 131335
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:01:16 . Memory (MB): peak = 3252.348 ; gain = 686.031 ; free physical = 12797 ; free virtual = 131363
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:01:16 . Memory (MB): peak = 3252.348 ; gain = 686.031 ; free physical = 12797 ; free virtual = 131363
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:01:16 . Memory (MB): peak = 3252.348 ; gain = 686.031 ; free physical = 12797 ; free virtual = 131363
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:01:16 . Memory (MB): peak = 3252.348 ; gain = 686.031 ; free physical = 12797 ; free virtual = 131363
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:01:16 . Memory (MB): peak = 3252.348 ; gain = 686.031 ; free physical = 12797 ; free virtual = 131363
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:47 ; elapsed = 00:01:16 . Memory (MB): peak = 3252.348 ; gain = 686.031 ; free physical = 12797 ; free virtual = 131363
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |mailbox_0     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |mailbox |     1|
+|2     |BUFG    |     5|
+|3     |CARRY8  |     4|
+|4     |LUT1    |    37|
+|5     |LUT2    |    43|
+|6     |LUT3    |    17|
+|7     |LUT4    |   235|
+|8     |LUT5    |    64|
+|9     |LUT6    |   395|
+|10    |FDRE    |   701|
+|11    |FDSE    |    33|
+|12    |IBUF    |   618|
+|13    |OBUF    |   344|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:47 ; elapsed = 00:01:16 . Memory (MB): peak = 3252.348 ; gain = 686.031 ; free physical = 12797 ; free virtual = 131363
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:44 ; elapsed = 00:01:10 . Memory (MB): peak = 3252.348 ; gain = 515.312 ; free physical = 12838 ; free virtual = 131405
+Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:01:16 . Memory (MB): peak = 3252.355 ; gain = 686.031 ; free physical = 12838 ; free virtual = 131405
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3264.316 ; gain = 0.000 ; free physical = 12910 ; free virtual = 131477
+INFO: [Netlist 29-17] Analyzing 627 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3310.207 ; gain = 0.000 ; free physical = 12842 ; free virtual = 131409
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 623 instances were transformed.
+  BUFG => BUFGCE: 5 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 618 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+30 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:05 ; elapsed = 00:01:38 . Memory (MB): peak = 3310.207 ; gain = 1187.461 ; free physical = 12978 ; free virtual = 131544
+INFO: [Common 17-1381] The checkpoint '/home/trusslab/zcu102_veri/Octopos_MailBox_1Writer_3Reader/Octopos_MailBox_v1/Octopos_MailBox_v1.runs/synth_1/Octopos_MailBox_1Writer_3Reader_v1_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Octopos_MailBox_1Writer_3Reader_v1_0_utilization_synth.rpt -pb Octopos_MailBox_1Writer_3Reader_v1_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 25 17:07:31 2021...

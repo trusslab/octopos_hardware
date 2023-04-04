@@ -1,0 +1,207 @@
+2020.1:
+ * Version 2.1 (Rev. 13)
+ * General: Added flip-flops to interrupt outputs to avoid clock domain crossing issues for connections to different domains
+
+2019.2.2:
+ * Version 2.1 (Rev. 12)
+ * No changes
+
+2019.2.1:
+ * Version 2.1 (Rev. 12)
+ * No changes
+
+2019.2:
+ * Version 2.1 (Rev. 12)
+ * Bug Fix: Ensure that register names follow IP-XACT standard
+
+2019.1.3:
+ * Version 2.1 (Rev. 11)
+ * No changes
+
+2019.1.2:
+ * Version 2.1 (Rev. 11)
+ * No changes
+
+2019.1.1:
+ * Version 2.1 (Rev. 11)
+ * No changes
+
+2019.1:
+ * Version 2.1 (Rev. 11)
+ * No changes
+
+2018.3.1:
+ * Version 2.1 (Rev. 11)
+ * No changes
+
+2018.3:
+ * Version 2.1 (Rev. 11)
+ * General: Avoid constraint warnings during OOC synthesis
+
+2018.2:
+ * Version 2.1 (Rev. 10)
+ * General: Updated HDL to avoid lint error. No functional change.
+
+2018.1:
+ * Version 2.1 (Rev. 9)
+ * Feature Enhancement: Added support for implementing FIFO with Ultra RAM
+
+2017.4:
+ * Version 2.1 (Rev. 8)
+ * No changes
+
+2017.3:
+ * Version 2.1 (Rev. 8)
+ * Feature Enhancement: Added FIFO reset functionality
+ * Other: Use synchronous reset for asynchronous FIFO
+
+2017.2:
+ * Version 2.1 (Rev. 7)
+ * No changes
+
+2017.1:
+ * Version 2.1 (Rev. 7)
+ * No changes
+
+2016.4:
+ * Version 2.1 (Rev. 7)
+ * No changes
+
+2016.3:
+ * Version 2.1 (Rev. 7)
+ * General: Source HDL files are concatenated into a single file to speed up synthesis and simulation. No changes required by the user
+
+2016.2:
+ * Version 2.1 (Rev. 6)
+ * Provided register information for all registers, including description and bit field definitions
+ * Revision change in one or more subcores
+
+2016.1:
+ * Version 2.1 (Rev. 5)
+ * No changes
+
+2015.4.2:
+ * Version 2.1 (Rev. 5)
+ * No changes
+
+2015.4.1:
+ * Version 2.1 (Rev. 5)
+ * No changes
+
+2015.4:
+ * Version 2.1 (Rev. 5)
+ * No changes
+
+2015.3:
+ * Version 2.1 (Rev. 5)
+ * Supported devices and production status are now determined automatically, to simplify support for future devices
+ * IP revision number added to HDL module, library, and include file names, to support designs with both locked and upgraded IP instances
+ * Revision change in one or more subcores
+
+2015.2.1:
+ * Version 2.1 (Rev. 4)
+ * No changes
+
+2015.2:
+ * Version 2.1 (Rev. 4)
+ * Corrected help text in customization dialog
+
+2015.1:
+ * Version 2.1 (Rev. 3)
+ * Added support for additional Ultrascale devices
+ * Enabled out-of-context clock frequency setting
+
+2014.4.1:
+ * Version 2.1 (Rev. 2)
+ * No changes
+
+2014.4:
+ * Version 2.1 (Rev. 2)
+ * No changes
+
+2014.3:
+ * Version 2.1 (Rev. 2)
+ * Updated subcore references, no functional changes
+ * Made period constraints applicable when not using BRAMs to implement FIFO, corrected reset constraints, and added automation
+
+2014.2:
+ * Version 2.1 (Rev. 1)
+ * Removed revision control tags from source code comments, no functional changes
+
+2014.1:
+ * Version 2.1
+ * Changed internal address automation, no functional changes
+ * Added parameter for number of synchronization flip-flops in asynchronous configuration
+ * Internal device family name change, no functional changes
+
+2013.4:
+ * Version 2.0 (Rev. 2)
+ * No changes
+
+2013.3:
+ * Version 2.0 (Rev. 2)
+ * Support for Automotive Artix-7, Automotive Zynq, Defense Grade Artix-7, and Defense Grade Zynq devices at Production status
+
+2013.2:
+ * Version 2.0 (Rev. 1)
+ * Repackaged to improve internal automation, no functional changes
+
+2013.1:
+ * Version 2.0
+ * Vivado-only core, with no functional changes from version 1.01.b
+ * There have been no functional or interface changes to this IP.  The version number has changed to support unique versioning in Vivado starting with 2013.1.
+
+2012.4:
+ * Version 1.01.b
+ * Fixed issue with sync FIFO BRAMs which could duplicate read data
+
+2012.3:
+ * Version 1.01.a
+ * Native Vivado release
+ * Use AXI interconnect as default for new instances from 7 series target architectures
+
+(c) Copyright 2010 - 2020 Xilinx, Inc. All rights reserved.
+
+This file contains confidential and proprietary information
+of Xilinx, Inc. and is protected under U.S. and
+international copyright and other intellectual property
+laws.
+
+DISCLAIMER
+This disclaimer is not a license and does not grant any
+rights to the materials distributed herewith. Except as
+otherwise provided in a valid license issued to you by
+Xilinx, and to the maximum extent permitted by applicable
+law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+(2) Xilinx shall not be liable (whether in contract or tort,
+including negligence, or under any other theory of
+liability) for any loss or damage of any kind or nature
+related to, arising under or in connection with these
+materials, including for any direct, or any indirect,
+special, incidental, or consequential loss or damage
+(including loss of data, profits, goodwill, or any type of
+loss or damage suffered as a result of any action brought
+by a third party) even if such damage or loss was
+reasonably foreseeable or Xilinx had been advised of the
+possibility of the same.
+
+CRITICAL APPLICATIONS
+Xilinx products are not designed or intended to be fail-
+safe, or for use in any application requiring fail-safe
+performance, such as life-support or safety devices or
+systems, Class III medical devices, nuclear facilities,
+applications related to the deployment of airbags, or any
+other applications that could lead to death, personal
+injury, or severe property or environmental damage
+(individually and collectively, "Critical
+Applications"). Customer assumes the sole risk and
+liability of any use of Xilinx products in Critical
+Applications, subject only to applicable laws and
+regulations governing limitations on product liability.
+
+THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+PART OF THIS FILE AT ALL TIMES.

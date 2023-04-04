@@ -186,9 +186,9 @@ update_ip_catalog -rebuild
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../../octopos/xilinx/version1/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/new/Octpos_MailBox_ctrl_AXI.v" ]\
- [file normalize "${origin_dir}/../../octopos/xilinx/version1/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/new/Octopos_MailBox_3Writer_1Reader_v1_0.v" ]\
- [file normalize "${origin_dir}/../../octopos/xilinx/version1/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/component.xml" ]\
+ [file normalize "${origin_dir}/sources_1/new/Octpos_MailBox_ctrl_AXI.v" ]\
+ [file normalize "${origin_dir}/sources_1/new/Octopos_MailBox_3Writer_1Reader_v1_0.v" ]\
+ [file normalize "${origin_dir}/sources_1/component.xml" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -251,7 +251,7 @@ set_property -name "vhdl_version" -value "vhdl_2k" -objects $obj
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../../octopos/xilinx/version1/Octopos_MailBox_v1/Octopos_MailBox_v1.srcs/sources_1/ip/mailbox_0/mailbox_0.xci" ]\
+ [file normalize "${origin_dir}/sources_1/ip/mailbox_0/mailbox_0.xci" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
