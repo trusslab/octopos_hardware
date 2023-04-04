@@ -1,6 +1,6 @@
 echo "Run this script with argument <PATH TO VITIS BLS> <PATH TO VITIS DOMAINS>"
 
-echo "Before running this script to finalize Vitis project setup, please make sure you have completed Step 1 - 15 in https://github.com/trusslab/octopos/README.md (Populating Hardware Design and Launching OctopOS Software from Scratch)"
+echo "Before running this script to finalize Vitis project setup, please make sure you have completed Step 1 - 15 in https://github.com/trusslab/octopos_hardware/README.md (Populating Hardware Design and Launching OctopOS Software from Scratch)"
 
 # type yes to continue
 read -p "Continue? (press any key) " -n 1 -r

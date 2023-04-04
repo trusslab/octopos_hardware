@@ -1,13 +1,15 @@
 # Populating Hardware Design and Launching OctopOS Software from Scratch
 
+Authors: Zhihao "Zephyr" Yao, Seyed Mohammadjavad Seyed Talebi, Mingyi Chen, Ardalan Amiri Sani, Thomas Anderson
+
 Software Version: Vivado 2020.1
 
 Hardware Version: ZCU102
 
-This document provides a step-by-step guide to populate our hardware design and to launch OctopOS software on top of it.
+This document provides a step-by-step guide to populate our Split-Trust hardware design and to launch OctopOS on top of it.
 
-It is recommended to follow this guide on a single Linux machine with at least 32GB of RAM and 512GB of free disk space (SSD is preferred), although it is possible to prepare hardware design, OctopOS binaries, and petalinux image separately on different machines.
-We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare the hardware design and OctopOS binaries. The total machine time is about 6-9 hours, and the manual work takes about 8-12 hours if you are familiar with the tools.
+It is recommended to follow this guide on a single Linux machine with at least 32GB of RAM and 512GB of free disk space (SSD is preferred), although it is possible to prepare hardware design, OctopOS binaries, and Petalinux image separately on different machines.
+We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare the hardware design and OctopOS binaries. The total machine time is about 6-9 hours, and the manual work takes about 8-12 hours depend on your familiarity with the tools.
 
 ## Hardware Design
 
@@ -15,7 +17,7 @@ We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare th
 
 2) To re-create the hardware project, install Vivado 2020.1, and run `vivado -source <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102/project_zcu102.tcl`.
 
-![Populated hardware block design](img/2023-04-03-vivado.png)
+![Populated hardware block design](docs/img/2023-04-03-vivado.png)
 
 3) Re-create the mailbox projects in the same way, package them, and add their paths to the IP repository of the main project. You may follow the instruction in our [guide to update Mailbox IP](https://github.com/trusslab/octopos_hardware/blob/main/docs/Update-Mailbox-IP.rst) to do so.
 
@@ -23,7 +25,7 @@ We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare th
 
 5) The synthesized hardware design is a `xsa` file. To export the hardware design to the Vitis SDK, click `File -> Export -> Export Hardware`. Selected `Fixed` and `Include bitstream`. Take note of the file location of the exported `xsa` file.
 
-![Generated hardware design](img/2023-04-03-xsa.png)
+![Generated hardware design](docs/img/2023-04-03-xsa.png)
 
 ## OctopOS Software
 
@@ -61,7 +63,7 @@ We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare th
 | Enclave1 | RUNTIME_ID=2 ARCH_SEC_HW ARCH_SEC_HW_RUNTIME           |
 | Network  | ARCH_SEC_HW ARCH_SEC_HW_NETWORK HW_MAILBOX_BLOCKING   |
 
-![Vitis settings](img/2023-04-03-vitis_settings.png)
+![Vitis settings](docs/img/2023-04-03-vitis_settings.png)
 
 18) Open the Vitis OctopOS bootloader working directory (`~/vitis_workspace/octopos_bootloaders`). Repeat the same step as in step 17 for each bootloader projects (but use the table below for compiler symbols.
 
@@ -150,7 +152,7 @@ An Arduino Mega board can be used to collect serial outputs from multiple domain
 OctopOS will be booted automatically. Upon successful boot, you should see boot info printed on the resource manage's debug terminal, and domain prints on the corresponding domain's debug terminal.
 
 Resource Manager Domain:
-![OctopOS Resource Manager Domain](img/2023-04-03-OSBOOT.png)
+![OctopOS Resource Manager Domain](docs/img/2023-04-03-OSBOOT.png)
 
 Untrusted Domain:
-![OctopOS Untrusted Domain](img/2023-04-03-Untrusted.png)
+![OctopOS Untrusted Domain](docs/img/2023-04-03-Untrusted.png)
