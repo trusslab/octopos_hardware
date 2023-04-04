@@ -2,11 +2,26 @@
 
 Authors: Zhihao "Zephyr" Yao, Seyed Mohammadjavad Seyed Talebi, Mingyi Chen, Ardalan Amiri Sani, Thomas Anderson
 
-Software Version: Vivado 2020.1
-
-Hardware Version: ZCU102
-
 This document provides a step-by-step guide to populate our Split-Trust hardware design and to launch OctopOS on top of it.
+
+## Table of Contents
+
+- [Populating Hardware Design and Launching OctopOS](#populating-hardware-design-and-launching-octopos)
+  - [Table of Contents](#table-of-contents)
+  - [System requirements](#system-requirements)
+  - [Hardware Design](#hardware-design)
+  - [OctopOS Software](#octopos-software)
+  - [Petalinux for the untrusted domain](#petalinux-for-the-untrusted-domain)
+  - [Package the final boot image](#package-the-final-boot-image)
+  - [Boot the external TPM device](#boot-the-external-tpm-device)
+  - [Prepare serial terminals](#prepare-serial-terminals)
+  - [Boot the ZCU102 board](#boot-the-zcu102-board)
+
+## System requirements
+
+Software version: Vivado 2020.1
+
+Development board version: ZCU102
 
 It is recommended to follow this guide on a single Linux machine with at least 32GB of RAM and 512GB of free disk space (SSD is preferred), although it is possible to prepare hardware design, OctopOS binaries, and Petalinux image separately on different machines.
 We use an Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare the hardware design and OctopOS binaries. The total machine time is about 6-9 hours, and the manual work takes about 8-12 hours depending on your familiarity with the tools.
@@ -133,7 +148,7 @@ We use PMOD pins for domains to dump debug information. The following table show
 
 The pin mapping can be found at Page 74-75 of [ZCU102 Evaluation Board User Guide UG1182 (v1.7) February 21, 2023](https://docs.xilinx.com/v/u/en-US/ug1182-zcu102-eval-bd).
 
-1)   Open serial terminals for the following devices:
+26)   Open serial terminals for the following devices:
 
 The keyboard domain is directly mapped to one of the board's serial interface (on Ubuntu, it is `/dev/ttyUSB2`, with baud rate 9600).
 
