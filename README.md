@@ -1,4 +1,4 @@
-# Populating Hardware Design and Launching OctopOS Software from Scratch
+# Populating Hardware Design and Launching OctopOS
 
 Authors: Zhihao "Zephyr" Yao, Seyed Mohammadjavad Seyed Talebi, Mingyi Chen, Ardalan Amiri Sani, Thomas Anderson
 
@@ -9,7 +9,7 @@ Hardware Version: ZCU102
 This document provides a step-by-step guide to populate our Split-Trust hardware design and to launch OctopOS on top of it.
 
 It is recommended to follow this guide on a single Linux machine with at least 32GB of RAM and 512GB of free disk space (SSD is preferred), although it is possible to prepare hardware design, OctopOS binaries, and Petalinux image separately on different machines.
-We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare the hardware design and OctopOS binaries. The total machine time is about 6-9 hours, and the manual work takes about 8-12 hours depend on your familiarity with the tools.
+We use an Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare the hardware design and OctopOS binaries. The total machine time is about 6-9 hours, and the manual work takes about 8-12 hours depending on your familiarity with the tools.
 
 ## Hardware Design
 
@@ -45,13 +45,13 @@ We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare th
 
 13) Mount OctopOS bootloaders into the Vitis working directory for the bootloaders, `source <PATH_TO_OCTOPOS_HARDWARE>/scripts/mount_octopos.sh <PATH_TO_OCTOPOS_SOFTWARE> ~/vitis_workspace/octopos_bootloaders`.
 
-14) Open the Vitis OctopOS domain working directory created in step 9 (`~/vitis_workspace/octopos_domains`), create the following projects one by one (`File->New->Application Project`): `storage, oss, keyboard, serialout, enclave0, enclave1, network`. Please use the exact name for each domain project, and select the corresponding processors (all processor names starts with a domain name, so that you can easily  match them). Use default settings for all projects. Select `empty c project` for all domains except for `storage`. For `storage`, select `empty c++ project`.
+14) Open the Vitis OctopOS domain working directory created in step 9 (`~/vitis_workspace/octopos_domains`), and create the following projects one by one (`File->New->Application Project`): `storage, oss, keyboard, serialout, enclave0, enclave1, network`. Please use the exact name for each domain project, and select the corresponding processors (all processor names start with a domain name, so that you can easily match them). Use default settings for all projects. Select `empty c project` for all domains except for `storage`. For `storage`, select `empty c++ project`.
 
-15) Open the Vitis OctopOS bootloaders working directory created in step 11 (`~/vitis_workspace/octopos_bootloaders`), create the following projects one by one: `storage_bootloader, os_bootloader, keyboard_bootloader, serialout_bootloader, enclave0_bootloader, enclave1_bootloader, network_bootloader`. Please follow the same instructions as in step 14.
+15) Open the Vitis OctopOS bootloaders working directory created in step 11 (`~/vitis_workspace/octopos_bootloaders`), and create the following projects one by one: `storage_bootloader, os_bootloader, keyboard_bootloader, serialout_bootloader, enclave0_bootloader, enclave1_bootloader, network_bootloader`. Please follow the same instructions as in step 14.
 
 16) Apply patches to Xilinx BSPs, `source <PATH_TO_OCTOPOS_HARDWARE>/scripts/vitis_setup.sh ~/vitis_workspace/octopos_bootloaders ~/vitis_workspace/octopos_domains`.
 
-17) Open the Vitis OctopOS domain working directory (`~/vitis_workspace/octopos_domains`). Repeat the following step for each domain projects: double-click the `<domain name>_system`, a subfolder named `<domain name>` will show up; right click the `<domain name>` folder, select `C/C++ Build Settings`, and navigate to `Microblaze gcc compiler->Symbols`, add the corresponding symbols in the table below for each project; navigate to `Microblaze gcc compiler->Optimization`, select `Optimize for size -Os`; navigate to `Microblaze gcc compiler->Inferred Options->Software Platform`, add `${workspace_loc:/${ProjName}/src/octopos/arch/include}` and `${workspace_loc:/${ProjName}/src/octopos/include}` to the include path. If the add button is not visible, drag the edge of the window to the right to make it visible. 
+17) Open the Vitis OctopOS domain working directory (`~/vitis_workspace/octopos_domains`). Repeat the following step for each domain project: double-click the `<domain name>_system`, a subfolder named `<domain name>` will show up; right-click the `<domain name>` folder, select `C/C++ Build Settings`, and navigate to `Microblaze gcc compiler->Symbols`, add the corresponding symbols in the table below for each project; navigate to `Microblaze gcc compiler->Optimization`, select `Optimize for size -Os`; navigate to `Microblaze gcc compiler->Inferred Options->Software Platform`, add `${workspace_loc:/${ProjName}/src/octopos/arch/include}` and `${workspace_loc:/${ProjName}/src/octopos/include}` to the include path. If the add button is not visible, drag the edge of the window to the right to make it visible. 
 
 | Domain   | Compiler Symbol                                       |
 |----------|-------------------------------------------------------|
@@ -65,7 +65,7 @@ We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare th
 
 ![Vitis settings](docs/img/2023-04-03-vitis_settings.png)
 
-18) Open the Vitis OctopOS bootloader working directory (`~/vitis_workspace/octopos_bootloaders`). Repeat the same step as in step 17 for each bootloader projects (but use the table below for compiler symbols.
+18) Open the Vitis OctopOS bootloader working directory (`~/vitis_workspace/octopos_bootloaders`). Repeat the same step as in step 17 for each bootloader project (but use the table below for compiler symbols.
 
 | Domain Name         | Compiler Symbol                                            |
 |---------------------|------------------------------------------------------------|
@@ -86,7 +86,7 @@ We use a Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare th
 
 ## Petalinux for the untrusted domain
 
-22) Create the petalinux project for the untrusted domain.  Please see [Guide to create Petalinux project for the untrusted domain](https://github.com/trusslab/octopos_hardware/blob/main/docs/petalinux-guide.rst) for details.
+22) Create the Petalinux project for the untrusted domain.  Please see [Guide to create Petalinux project for the untrusted domain](https://github.com/trusslab/octopos_hardware/blob/main/docs/petalinux-guide.rst) for details.
 
 ## Package the final boot image
 
@@ -131,7 +131,7 @@ We use PMOD pins for domains to dump debug information. The following table show
 | F20 | TX to TPM        |
 | G20 | RX from TPM      |
 
-The pin mapping can be found at the Page 74-75 of [ZCU102 Evaluation Board User Guide UG1182 (v1.7) February 21, 2023](https://docs.xilinx.com/v/u/en-US/ug1182-zcu102-eval-bd).
+The pin mapping can be found at Page 74-75 of [ZCU102 Evaluation Board User Guide UG1182 (v1.7) February 21, 2023](https://docs.xilinx.com/v/u/en-US/ug1182-zcu102-eval-bd).
 
 26)  Open serial terminals for the following devices:
 
@@ -149,7 +149,7 @@ An Arduino Mega board can be used to collect serial outputs from multiple domain
 
 27) Insert the SD-Card into the ZCU102 board, and power on the board.
 
-OctopOS will be booted automatically. Upon successful boot, you should see boot info printed on the resource manage's debug terminal, and domain prints on the corresponding domain's debug terminal.
+OctopOS will be booted automatically. Upon successful boot, you should see boot info printed on the resource manager's debug terminal, and domain prints on the corresponding domain's debug terminal.
 
 Resource Manager Domain:
 ![OctopOS Resource Manager Domain](docs/img/2023-04-03-OSBOOT.png)
