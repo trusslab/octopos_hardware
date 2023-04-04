@@ -156,4 +156,30 @@ Binaries are generated in the following directory:
 
 ~/octopos_untrusted_domain/untrusted/images/linux
 
+Notes on the Linux kernel binary size
+=====================================
+
+Because the size of Linux kernel binary is unknown, when our modified u-boot loads the Linux kernel from OctopOS storage domain, it does not know when to stop. Therefore, we have to manually provide the size of the Linux kernel binary to u-boot. I am sure this can be done automatically, but I have not figured out how to do it yet.
+
+After a successful build, open ~/octopos_untrusted_domain/octopos_uboot/fs/fs.c, and find the following line:
+
+.. code-block:: c
+
+   int block_size = xxxx;
+
+Replace xxxx with the size of the Linux kernel binary in bytes / 512.
+
+Finally, rebuild Petalinux,
+
+.. code-block:: bash
+
+    petalinux-build
+
+Output final binaries
+=====================
+
+Binaries are generated in the following directory:
+
+~/octopos_untrusted_domain/untrusted/images/linux
+
 Provide this path (or any path containing the same files) to the OctopOS configuration file in Step 23 of **Populating Hardware Design and Launching OctopOS Software from Scratch**  (https://github.com/trusslab/octopos/README.md)

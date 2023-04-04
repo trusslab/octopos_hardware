@@ -1,12 +1,21 @@
-# Populating Hardware Design and Launching OctopOS
+# Split-Trust Hardware Design User Guide
 
 Authors: Zhihao "Zephyr" Yao, Seyed Mohammadjavad Seyed Talebi, Mingyi Chen, Ardalan Amiri Sani, Thomas Anderson
+(Collectively, "The OctopOS Authors")
 
-This document provides a step-by-step guide to populate our Split-Trust hardware design and to launch OctopOS on top of it.
+:paperclip: [OctopOS Paper *(to be updated)*]()
+:orange_book: [OctopOS Technical Reference Manual](https://github.com/trusslab/octopos_hardware/docs/OctopOS-TRM-2023-04-03.pdf)
+:computer: [OctopOS Repository](https://github.com/trusslab/octopos)
+:electric_plug: [Split-Trust Hardware Repository and User Guide](https://github.com/trusslab/octopos_hardware)
+:flashlight: [Formal Verification](https://github.com/trusslab/octopos_hardware/tree/main/formal_verification)
+:beer: [Untrusted Domain Linux Repository *(to be updated)*]()
+
+
+This guide provides a step-by-step guide to populate our Split-Trust hardware design and launch OctopOS on top of it.
 
 ## Table of Contents
 
-- [Populating Hardware Design and Launching OctopOS](#populating-hardware-design-and-launching-octopos)
+- [Split-Trust Hardware Design User Guide](#split-trust-hardware-design-user-guide)
   - [Table of Contents](#table-of-contents)
   - [System requirements](#system-requirements)
   - [Hardware Design](#hardware-design)
@@ -28,7 +37,7 @@ We use an Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare t
 
 ## Hardware Design
 
-1) Clone this repo (`git clone https://github.com/trusslab/octopos_hardware`) into `<PATH_TO_OCTOPOS_HARDWARE>`. This repo contains the hardware design of our multi-domain hardware prototype, IP source codes, and scripts to populate the hardware design and launch OctopOS software.
+1) Clone this repo (`git clone https://github.com/trusslab/octopos_hardware`) into `<PATH_TO_OCTOPOS_HARDWARE>`. This repo contains the hardware design of our Split-Trust hardware prototype, IP source codes, and scripts to populate the hardware design and launch OctopOS software.
 
 2) To re-create the hardware project, install Vivado 2020.1, and run `vivado -source <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102/project_zcu102.tcl`.
 
@@ -46,7 +55,7 @@ We use an Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare t
 
 6) Launch Vitis, and load the exported `xsa`` file in step 5. The version of Vitis SDK should be 2020.1. Vitis SDK provides a GUI to manage the software running on each processor. 
 
-7) Obtain the OctopOS software, `git clone https://github.com/trusslab/octopos` into `<PATH_TO_OCTOPOS_SOFTWARE>`. OctopOS is an operating system that runs on our multi-domain hardware. It provides source code to run on each domain, and a set of APIs to communicate between domains through our mailboxes. OctopOS supports both the hardware prototype (this repo), and a software emulator that runs on a Linux desktop (please see OctopOS repo for details). In this guide, we will use the hardware prototype.
+7) Obtain the OctopOS software, `git clone https://github.com/trusslab/octopos` into `<PATH_TO_OCTOPOS_SOFTWARE>`. OctopOS is an operating system that runs on our Split-Trust hardware. It provides source code to run on each domain, and a set of APIs to communicate between domains through our mailboxes. OctopOS supports both the hardware prototype (this repo), and a software emulator that runs on a Linux desktop (please see OctopOS repo for details). In this guide, we will use the hardware prototype.
 
 8) mkdir `~/vitis_workspace`.
 
@@ -122,7 +131,11 @@ Please refer to this table for path settings,
 
 ## Boot the external TPM device
 
-24) Launch TPM on the untrusted domain. Please see [Guide to launch TPM for OctopOS hardware](TODO) for details.
+24) Launch TPM on the untrusted domain. 
+
+Follow the [TPM installation guide](https://github.com/trusslab/octopos/blob/main/docs/tpm.rst) to install TPM emulator on a Raspberry Pi device. We include our code for the Raspberry Pi-based TPM to communicate with the ZCU102 board (TPM forwarder). Please see `external/tpm-client/tpm-client.c` under `arm_dev` branch of the [OctopOS repository](https://github.com/trusslab/octopos) for details.
+
+OctopOS will still boot without the TPM device because, during the boot process, the domains simply extend to the TPM PCRs. However, the domains will not be able to attest to the TPM PCRs.
 
 ## Prepare serial terminals
 
