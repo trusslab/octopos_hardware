@@ -113,10 +113,10 @@ Please refer to this table for path settings,
 
 25) Plug the following pins and jumpers on the ZCU102 board:
 
-TODO: Insert board picture.
+![ZCU102 board](docs/img/2023-04-03-board.jpg)
 
-Jumper XX is needed for enabling the network SFP port.
-Switch XX must be set to position XX to enable SD boot.
+As shown in the picture, J16 (the jumper in red circle) must be connected to enable the top-right network SFP socket.
+The boot mode switch (in yellow circle) must be set to position 1-ON, 2-OFF, 3-OFF, and 4-OFF to enable SD boot.
 
 We use PMOD pins for domains to dump debug information. The following table shows the mapping between PMOD pins and domains:
 
@@ -133,7 +133,7 @@ We use PMOD pins for domains to dump debug information. The following table show
 
 The pin mapping can be found at Page 74-75 of [ZCU102 Evaluation Board User Guide UG1182 (v1.7) February 21, 2023](https://docs.xilinx.com/v/u/en-US/ug1182-zcu102-eval-bd).
 
-26)  Open serial terminals for the following devices:
+1)   Open serial terminals for the following devices:
 
 The keyboard domain is directly mapped to one of the board's serial interface (on Ubuntu, it is `/dev/ttyUSB2`, with baud rate 9600).
 
