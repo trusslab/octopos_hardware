@@ -1,3 +1,8 @@
+// Copyright (c) 2020 - 2023, The OctopOS Authors
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 `include "./Octopos_MailBox_Main_logic.v"
 `include "./Octopos_MailBox_Ctrl_Interface_Manager.v"
 module testbench(

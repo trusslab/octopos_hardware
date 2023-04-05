@@ -1,3 +1,8 @@
+# Copyright (c) 2020 - 2023, The OctopOS Authors
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 echo "Run this script with argument <PATH TO VITIS BLS> <PATH TO VITIS DOMAINS>"
 
 echo "Before running this script to finalize Vitis project setup, please make sure you have completed Step 1 - 15 in https://github.com/trusslab/octopos_hardware/README.md (Populating Hardware Design and Launching OctopOS Software from Scratch)"

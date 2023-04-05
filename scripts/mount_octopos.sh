@@ -1,6 +1,7 @@
-#cp $1/os/file_system.c $1/arch/sec_hw/bootloader_interface/file_system.c
-#sed -i '1s/^/#if defined(ARCH_SEC_HW_BOOT) \&\& !defined(ARCH_SEC_HW_BOOT_OS)\n/' $1/arch/sec_hw/bootloader_interface/file_system.c
-#echo '#endif' >> $1/arch/sec_hw/bootloader_interface/file_system.c
+# Copyright (c) 2020 - 2023, The OctopOS Authors
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 mkdir -p $2/oss/src/octopos/arch
 mkdir -p $2/oss/src/octopos/include

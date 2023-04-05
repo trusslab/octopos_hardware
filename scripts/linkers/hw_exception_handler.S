@@ -232,7 +232,6 @@ handle_ex_regular:
 #endif  /* defined (MICROBLAZE_FP_EXCEPTION_ENABLED) && defined (MICROBLAZE_FP_EXCEPTION_DECODE) */
 
 handle_other_ex:                                        /* Handle Other exceptions here         */
-// ZEPHYR
 //        ori     r6, r0, 20;
 //        cmp     r6, r5, r6;                             /* >= 20 are exceptions we do not handle. */
 //        BLEI    r6, ex_handler_unhandled;
