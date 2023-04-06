@@ -10,8 +10,8 @@ Authors: Zhihao "Zephyr" Yao, Seyed Mohammadjavad Seyed Talebi, Mingyi Chen, Ard
 :electric_plug: [Split-Trust Hardware Repository](https://github.com/trusslab/octopos_hardware)
 
 :flashlight: [Formal Verification](https://github.com/trusslab/octopos_hardware/tree/main/formal_verification)
-:beer: [Untrusted Domain Linux Repository *(to be updated)*]()
-
+:beer: [Untrusted Domain Petalinux Repository](https://github.com/trusslab/linux-xlnx)
+:beer: [OctopOS Emulator](https://github.com/trusslab/octopos/blob/main/docs/emulator.rst)
 
 This guide provides a step-by-step guide to populate our Split-Trust hardware design and launch OctopOS on top of it.
 
