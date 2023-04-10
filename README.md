@@ -1,8 +1,5 @@
 # Split-Trust Hardware Design User Guide
 
-Authors: Zhihao "Zephyr" Yao, Seyed Mohammadjavad Seyed Talebi, Mingyi Chen, Ardalan Amiri Sani, Thomas Anderson
-(Collectively, "The OctopOS Authors")
-
 :paperclip: [OctopOS Paper *(to be updated)*]()
 :orange_book: [OctopOS Technical Reference Manual](https://github.com/trusslab/octopos_hardware/raw/main/docs/OctopOS-TRM-2023-04-03.pdf)
 
