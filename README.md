@@ -27,7 +27,7 @@ This guide provides a step-by-step guide to populate our Split-Trust hardware de
 
 ## System requirements
 
-Software version: Vivado 2020.1
+Software version: [Vivado 2020.1](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/archive.html)
 
 Development board version: ZCU102
 
@@ -38,13 +38,13 @@ We use an Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare t
 
 1) Clone this repo (`git clone https://github.com/trusslab/octopos_hardware`) into `<PATH_TO_OCTOPOS_HARDWARE>`. This repo contains the hardware design of our Split-Trust hardware prototype, IP source codes, and scripts to populate the hardware design and launch OctopOS software.
 
-2) To re-create the hardware project, install Vivado 2020.1, and run `vivado -source <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102/project_zcu102.tcl`.
+2) To re-create the hardware project, install Vivado 2020.1, `cd <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102`, and run `vivado -source <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102/project_zcu102.tcl`. Alternatively, you can launch `vivado`, in the tcl command window, `cd <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102`, and `source <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102/project_zcu102.tcl`.
 
 ![Populated hardware block design](docs/img/2023-04-03-vivado.png)
 
-3) Re-create the mailbox projects in the same way, package them, and add their paths to the IP repository of the main project. You may follow the instruction in our [guide to update Mailbox IP](https://github.com/trusslab/octopos_hardware/blob/main/docs/Update-Mailbox-IP.rst) to do so.
+3) You do not have to package the mailboxes, arbiter, and rom fuse IPs yourself because the pre-packaged IPs are already included in this repository. However, if you would like to modify these IPs, you may follow the instruction in our [guide to update Mailbox IP](https://github.com/trusslab/octopos_hardware/blob/main/docs/Update-Mailbox-IP.rst) to do so.
 
-4) Generate bitstream. This may take a few hours depending on your machine.
+4) Generate bitstream. This may take a few hours depending on your machine. Please note you need a Vivado license (which usually comes with your board purchase, or your institution may have an institutional license) to generate bitstream. Our network domain design also requires the [LogiCORE Tri-Mode Ethernet IP license](https://www.xilinx.com/products/intellectual-property/temac-order.html), and a free Evaluation License can be obtained: https://digilent.com/reference/vivado/temac.
 
 5) The synthesized hardware design is a `xsa` file. To export the hardware design to the Vitis SDK, click `File -> Export -> Export Hardware`. Selected `Fixed` and `Include bitstream`. Take note of the file location of the exported `xsa` file.
 
