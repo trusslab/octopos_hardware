@@ -40,41 +40,119 @@ We use an Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare t
 
 2) To re-create the hardware project, install Vivado 2020.1, `cd <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102`, and run `vivado -source <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102/project_zcu102.tcl`. Alternatively, you can launch `vivado`, in the tcl command window, `cd <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102`, and `source <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102/project_zcu102.tcl`.
 
-![Populated hardware block design](docs/img/2023-04-03-vivado.png)
+If you successfully created the hardware project, you should see the following hierarchical block design in Vivado. The top-level design has 9 subsystems.
 
-3) You do not have to package the mailboxes, arbiter, and rom fuse IPs yourself because the pre-packaged IPs are already included in this repository. However, if you would like to modify these IPs, you may follow the instruction in our [guide to update Mailbox IP](https://github.com/trusslab/octopos_hardware/blob/main/docs/Update-Mailbox-IP.rst) to do so.
+![Hierarchical block design](docs/img/design_1.jpg)
+
+The resource manager domain subsystem (`os_subsys`):
+
+![Resource manager subsystem](docs/img/resource_manager_subsys.png)
+
+The storage domain subsystem (`storage_subsystem`):
+
+![Storage subsystem](docs/img/storage_subsystem.png)
+
+The network domain subsystem (`ethernet_subsystem`):
+
+![Network subsystem](docs/img/ethernet_subsystem.png)
+
+The enclave 0 domain subsystem (`enclave0_subsys`):
+
+![Enclave 0 subsystem](docs/img/enclave0_subsys.png)
+
+The enclave 1 domain subsystem (`enclave1_subsys`):
+
+![Enclave 1 subsystem](docs/img/enclave1_subsys.png)
+
+The untrusted domain subsystem (`ps_subsystem`):
+
+![Untrusted domain subsystem](docs/img/ps_subsystem.png)
+
+The keyboard domain subsystem (`secure_serial_in`):
+
+![Keyboard domain subsystem](docs/img/secure_serial_in.png)
+
+The serial out domain subsystem (`secure_serial_out`):
+
+![Serial out domain subsystem](docs/img/secure_serial_out.png)
+
+The TPM forwarder subsystem (`TPM_subsys`):
+
+![TPM forwarder subsystem](docs/img/TPM_subsys.png)
+
+3) You do not have to package the mailboxes, arbiter, and ROM fuse IPs yourself because the pre-packaged IPs are already included in this repository. However, if you would like to modify these IPs, you may follow the instruction in our [guide to update Mailbox IP](https://github.com/trusslab/octopos_hardware/blob/main/docs/Update-Mailbox-IP.rst) to do so.
+
+![Synthesis hardware design](docs/img/2023-04-03-vivado.png)
 
 4) Generate bitstream. This may take a few hours depending on your machine. Please note you need a Vivado license (which usually comes with your board purchase, or your institution may have an institutional license) to generate bitstream. Our network domain design also requires the [LogiCORE Tri-Mode Ethernet IP license](https://www.xilinx.com/products/intellectual-property/temac-order.html), and a free Evaluation License can be obtained: https://digilent.com/reference/vivado/temac.
 
-5) The synthesized hardware design is a `xsa` file. To export the hardware design to the Vitis SDK, click `File -> Export -> Export Hardware`. Selected `Fixed` and `Include bitstream`. Take note of the file location of the exported `xsa` file.
+5) The synthesized hardware design is an `xsa` file. To export the hardware design to the Vitis SDK, click `File -> Export -> Export Hardware`. Selected `Fixed` and `Include bitstream`. Take note of the file location of the exported `xsa` file.
 
 ![Generated hardware design](docs/img/2023-04-03-xsa.png)
 
 ## OctopOS Software
 
-6) Launch Vitis, and load the exported `xsa`` file in step 5. The version of Vitis SDK should be 2020.1. Vitis SDK provides a GUI to manage the software running on each processor. 
+6) Install Vitis. The version of Vitis SDK should be 2020.1.
 
-7) Obtain the OctopOS software, `git clone https://github.com/trusslab/octopos` into `<PATH_TO_OCTOPOS_SOFTWARE>`. OctopOS is an operating system that runs on our Split-Trust hardware. It provides source code to run on each domain, and a set of APIs to communicate between domains through our mailboxes. OctopOS supports both the hardware prototype (this repo), and a software emulator that runs on a Linux desktop (please see OctopOS repo for details). In this guide, we will use the hardware prototype.
+7) Obtain the OctopOS software, `git clone https://github.com/trusslab/octopos` into `<PATH_TO_OCTOPOS_SOFTWARE>`. OctopOS is an operating system that runs on our Split-Trust hardware. It provides source code to run on each domain, and a set of APIs to communicate between domains through our mailboxes. OctopOS supports both the hardware prototype (this repo), and a software emulator that runs on a Linux desktop (please see OctopOS repo for details). In this guide, we will launch OctopOS on the hardware prototype.
 
 8) mkdir `~/vitis_workspace`.
 
-9) Create a Vitis working directory at `~/vitis_workspace/octopos_domains`. This directory will contain the software for each domain. This path is just an example and you can choose any path you like, same for step 11.
+9) Create a Vitis working directory at `~/vitis_workspace/octopos_domains`. This directory will contain the software for each domain. This path is just an example and you can choose any path you like, the same for step 11.
 
-10) Keep the previous Vitis working directory open, launch another Vitis, and load the exported `xsa` file in step 5. Please make sure to launch a new Vitis, not a new project in the same Vitis window.
+![Vitis working directory](docs/img/2023-05-01-vitis_workspace.png)
+
+Click `Create Application Project`, and select `Create a new platform from hardware (XSA)`.
+
+![Create Application Project](docs/img/2023-05-01-create_application_project1.png)
+
+Select the exported `xsa` file in step 5. This process can take a few minutes.
+
+![Create Application Project](docs/img/2023-05-01-create_application_project2.png)
+
+Now, type in the project name `storage`, find the processor name `storage_subsystem`, and click `Next`.
+
+![Create Application Project](docs/img/2023-05-01-create_application_project3.png)
+
+Select `Next` in the `New Application Project` window.
+
+![Create Application Project](docs/img/2023-05-01-create_application_project4.png)
+
+Select `Empty Application (C++)` and click `Finish`.
+
+![Create Application Project](docs/img/2023-05-01-create_application_project5.png)
+
+Note that during the creation of platform project, we created the first application project, `storage` as well. We will create the rest of the application projects (`oss, keyboard, serialout, enclave0, enclave1, network`) in Step 12.
+
+10) Keep the previous Vitis working directory open, and launch another Vitis. Please make sure to launch a new Vitis, not a new project in the same Vitis window.
 
 11) Create a new Vitis working directory named `~/vitis_workspace/octopos_bootloaders`. This directory will contain the bootloaders for each domain.
 
-12) Mount OctopOS software into the Vitis working directory for the domains, `source <PATH_TO_OCTOPOS_HARDWARE>/scripts/mount_octopos.sh <PATH_TO_OCTOPOS_SOFTWARE> ~/vitis_workspace/octopos_domains`.
+![Vitis working directory](docs/img/2023-05-01-vitis_bootloader_workspace.png)
 
-13) Mount OctopOS bootloaders into the Vitis working directory for the bootloaders, `source <PATH_TO_OCTOPOS_HARDWARE>/scripts/mount_octopos.sh <PATH_TO_OCTOPOS_SOFTWARE> ~/vitis_workspace/octopos_bootloaders`.
+Repeat step 9, except that the first project name should be `storage_bootloader`.
 
-14) Open the Vitis OctopOS domain working directory created in step 9 (`~/vitis_workspace/octopos_domains`), and create the following projects one by one (`File->New->Application Project`): `storage, oss, keyboard, serialout, enclave0, enclave1, network`. Please use the exact name for each domain project, and select the corresponding processors (all processor names start with a domain name, so that you can easily match them). Use default settings for all projects. Select `empty c project` for all domains except for `storage`. For `storage`, select `empty c++ project`.
+![Create Application Project](docs/img/2023-05-01-create_application_project_bootloader1.png)
 
-15) Open the Vitis OctopOS bootloaders working directory created in step 11 (`~/vitis_workspace/octopos_bootloaders`), and create the following projects one by one: `storage_bootloader, os_bootloader, keyboard_bootloader, serialout_bootloader, enclave0_bootloader, enclave1_bootloader, network_bootloader`. Please follow the same instructions as in step 14.
+We have created the first bootloader project, `storage_bootloader`. We will create the rest of the bootloader projects (`os_bootloader, keyboard_bootloader, serialout_bootloader, enclave0_bootloader, enclave1_bootloader, network_bootloader`) in Step 13.
+
+12) Open the Vitis OctopOS domain working directory created in step 9 (`~/vitis_workspace/octopos_domains`), and create the following projects one by one (`File->New->Application Project`): `storage, oss, keyboard, serialout, enclave0, enclave1, network` (`storage` has already been created in step 9, so you can skip it). Please use the exact name for each domain project, and select the corresponding processors (all processor names start with a domain name, so that you can easily match them). Use default settings for all projects. Select `empty c project` for all domains except for `storage`. For `storage`, select `empty c++ project`.
+
+![Empty C Project](docs/img/2023-05-01-application_project_empty_c.png)
+
+13) Open the Vitis OctopOS bootloaders working directory created in step 11 (`~/vitis_workspace/octopos_bootloaders`), and create the following projects one by one: `storage_bootloader, os_bootloader, keyboard_bootloader, serialout_bootloader, enclave0_bootloader, enclave1_bootloader, network_bootloader` (`storage_bootloader` has already been created in step 11, so you can skip it). Please follow the same instructions as in step 12.
+
+14) Mount OctopOS software into the Vitis working directory for the domains, `source <PATH_TO_OCTOPOS_HARDWARE>/scripts/mount_octopos.sh <PATH_TO_OCTOPOS_SOFTWARE> ~/vitis_workspace/octopos_domains`.
+
+15) Mount OctopOS bootloaders into the Vitis working directory for the bootloaders, `source <PATH_TO_OCTOPOS_HARDWARE>/scripts/mount_octopos.sh <PATH_TO_OCTOPOS_SOFTWARE> ~/vitis_workspace/octopos_bootloaders`.
 
 16) Apply patches to Xilinx BSPs, `source <PATH_TO_OCTOPOS_HARDWARE>/scripts/vitis_setup.sh ~/vitis_workspace/octopos_bootloaders ~/vitis_workspace/octopos_domains`.
 
-17) Open the Vitis OctopOS domain working directory (`~/vitis_workspace/octopos_domains`). Repeat the following step for each domain project: double-click the `<domain name>_system`, a subfolder named `<domain name>` will show up; right-click the `<domain name>` folder, select `C/C++ Build Settings`, and navigate to `Microblaze gcc compiler->Symbols`, add the corresponding symbols in the table below for each project; navigate to `Microblaze gcc compiler->Optimization`, select `Optimize for size -Os`; navigate to `Microblaze gcc compiler->Inferred Options->Software Platform`, add `${workspace_loc:/${ProjName}/src/octopos/arch/include}` and `${workspace_loc:/${ProjName}/src/octopos/include}` to the include path. If the add button is not visible, drag the edge of the window to the right to make it visible. 
+17) Open the Vitis OctopOS domain working directory (`~/vitis_workspace/octopos_domains`). Repeat the following step for each domain project: double-click the `<domain name>_system`, a subfolder named `<domain name>` will show up; right-click the `<domain name>` folder, select `C/C++ Build Settings`, as shown in the screenshot below.
+
+![C/C++ Build Settings](docs/img/2023_05_01-vitis-c-settings.png)
+    
+Navigate to `Microblaze gcc compiler->Symbols`, add the corresponding symbols in the table below for each project; navigate to `Microblaze gcc compiler->Optimization`, select `Optimize for size -Os`; navigate to `Microblaze gcc compiler->Inferred Options->Software Platform`, add `${workspace_loc:/${ProjName}/src/octopos/arch/include}` and `${workspace_loc:/${ProjName}/src/octopos/include}` to the include path. If the add button is not visible, drag the edge of the window to the right to make it visible. 
 
 | Domain   | Compiler Symbol                                       |
 |----------|-------------------------------------------------------|
@@ -86,9 +164,13 @@ We use an Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare t
 | Enclave1 | RUNTIME_ID=2 ARCH_SEC_HW ARCH_SEC_HW_RUNTIME           |
 | Network  | ARCH_SEC_HW ARCH_SEC_HW_NETWORK HW_MAILBOX_BLOCKING   |
 
-![Vitis settings](docs/img/2023-04-03-vitis_settings.png)
+For example, the screenshot below shows the settings for the storage domain.
 
-18) Open the Vitis OctopOS bootloader working directory (`~/vitis_workspace/octopos_bootloaders`). Repeat the same step as in step 17 for each bootloader project (but use the table below for compiler symbols.
+![Vitis settings](docs/img/2023_05_01-vitis-settings-1.png)
+![Vitis settings](docs/img/2023_05_01-vitis-settings-2.png)
+![Vitis settings](docs/img/2023_05_01-vitis-settings-3.png)
+
+18)  Open the Vitis OctopOS bootloader working directory (`~/vitis_workspace/octopos_bootloaders`). Repeat the same step as in step 17 for each bootloader project (but use the table below for compiler symbols.
 
 | Domain Name         | Compiler Symbol                                            |
 |---------------------|------------------------------------------------------------|
@@ -100,12 +182,28 @@ We use an Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare t
 | Enclave1 Bootloader | ARCH_SEC_HW ARCH_SEC_HW_RUNTIME ARCH_SEC_HW_BOOT ARCH_SEC_HW_BOOT_RUNTIME_2 ARCH_SEC_HW_BOOT_OTHER RUNTIME_ID=2 |
 | Network Bootloader   | ARCH_SEC_HW ARCH_SEC_HW_NETWORK ARCH_SEC_HW_BOOT ARCH_SEC_HW_BOOT_OTHER ARCH_SEC_HW_BOOT_NETWORK |
 
+For example, the settings for one of the enclave bootloaders are shown below.
+
+![Vitis settings](docs/img/2023_05_01-vitis-settings-4.png)
+![Vitis settings](docs/img/2023_05_01-vitis-settings-5.png)
+![Vitis settings](docs/img/2023_05_01-vitis-settings-6.png)
 
 19)  Open the Vitis OctopOS domain working directory (`~/vitis_workspace/octopos_domains`). Build all projects. The first build will take about 10 minutes.
 
+![Vitis build](docs/img/2023-05-01-vitis_build.png)
+
 20)  Open the Vitis OctopOS bootloader working directory (`~/vitis_workspace/octopos_bootloaders`). Build all projects.
 
-21)  Launch a new Vitis, and import the Vitis TPM project (`<PATH_TO_OCTOPOS_HARDWARE>/bin/vitis_tpm.ide.zip`) to `~/vitis_workspace/octopos_tpm_forwarder`. Open the Vitis TPM project, and build it. Please see [Guide to import Vitis project](https://github.com/trusslab/octopos_hardware/blob/main/docs/Vitis-import-project.rst) for instructions on how to import a Vitis project.
+![Vitis build](docs/img/2023-05-01-bootloader_build.png)
+
+21)  Launch a new Vitis, and import the Vitis TPM project (`<PATH_TO_OCTOPOS_HARDWARE>/tpm_forwarder_sw/vitis_export_archive.ide.zip`) to `~/vitis_workspace/octopos_tpm_forwarder`. Please see [Guide to import Vitis project](https://github.com/trusslab/octopos_hardware/blob/main/docs/Vitis-import-project.rst) for instructions on how to import a Vitis project.
+
+<!-- ![Vitis import](docs/img/2023_05_01-tpm-import1.png) -->
+![Vitis import](docs/img/2023_05_01-tpm-import2.png)
+
+Open the Vitis TPM project, and build it. 
+
+![Vitis build](docs/img/2023-05-01-tpm_fwd_build.png)
 
 ## Petalinux for the untrusted domain
 
@@ -158,11 +256,11 @@ We use PMOD pins for domains to dump debug information. The following table show
 | F20 | TX to TPM        |
 | G20 | RX from TPM      |
 
-The pin mapping can be found at Page 74-75 of [ZCU102 Evaluation Board User Guide UG1182 (v1.7) February 21, 2023](https://docs.xilinx.com/v/u/en-US/ug1182-zcu102-eval-bd).
+The pin mapping can be found on Page 74-75 of [ZCU102 Evaluation Board User Guide UG1182 (v1.7) February 21, 2023](https://docs.xilinx.com/v/u/en-US/ug1182-zcu102-eval-bd).
 
 26)   Open serial terminals for the following devices:
 
-The keyboard domain is directly mapped to one of the board's serial interface (on Ubuntu, it is `/dev/ttyUSB2`, with baud rate 9600).
+The keyboard domain is directly mapped to one of the board's serial interfaces (on Ubuntu, it is `/dev/ttyUSB2`, with baud rate 9600).
 
 The untrusted domain is mapped to the other board's serial interface (on Ubuntu, it is `/dev/ttyUSB0`, with baud rate 115200).
 
