@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-num_of_ports = 4;
+num_of_ports = 3;
 manyWriter_OneReader =0;
 
 version = 'v1_0'
@@ -13,19 +13,42 @@ if(manyWriter_OneReader):
 else:
     suffix = "1Writer_%dReader" % num_of_ports
 
-f = open("sample.v","w+");
+#f = open("sample.v","w+");
+f = open("Octopos_MailBox_%s_%s.v" % (suffix,version),"w+");
 #for i in 
 #range(0,10):
 #    f.write("this is a line %d\n" % i);
 
 f.write('`timescale 1 ns / 1 ps\n')
+
+f.write('//////////////////////////////////////////////////////////////////////////////////\n')
+f.write('// Company: University of California, Irvine\n')
+f.write('// Engineer: Seyed Mohammadjavad Seyed Talebi (mjavad@uci.edu)\n')
+f.write('// \n')
+f.write('// Create Date: 11/07/2021 10:35:37 PM\n')
+f.write('// Design Name: \n')
+f.write('// Module Name: Octopos_MailBox_Main_Logic\n')
+f.write('// Project Name: Octopos\n')
+f.write('// Target Devices:  Zcu102\n')
+f.write('// Tool Versions: \n')
+f.write('// Description: \n')
+f.write('// \n')
+f.write('// Dependencies: \n')
+f.write('// \n')
+f.write('// Revision:\n')
+f.write('// Revision 0.01 - File Created\n')
+f.write('// Additional Comments:\n')
+f.write('// \n')
+f.write('//////////////////////////////////////////////////////////////////////////////////\n')
+f.write('\n')
 f.write('\tmodule Octopos_MailBox_%s_%s #\n'% (suffix,version))
 
 f.write('\t//Parameters\n')
 f.write('\t(\n') # parameter def start
 f.write('\t\t// Parameters of Axi contrl Buses Interfaces\n') # comment
 f.write('\t\tparameter integer C_S_ctrl_AXI_DATA_WIDTH	= 32,\n')
-f.write('\t\tparameter integer C_S_ctrl_AXI_ADDR_WIDTH	= 4\n')
+f.write('\t\tparameter integer C_S_ctrl_AXI_ADDR_WIDTH	= 4,\n')
+f.write('\t\tparameter integer CLK_ATTR = "FREQ_HZ 99990005"\n')
 f.write('\t)\n') # parameter def end
 
 f.write('\t//Ports\n')
@@ -35,6 +58,7 @@ f.write('\t\tinput wire S_CLK,\n')
 f.write('\t\tinput wire S_ARESETN,\n')
 for i in range(0,num_of_ports):
     f.write('\t\t// Ctrl%d AXI port\n' % i) # comment
+    f.write('\t\t(* X_INTERFACE_PARAMETER = CLK_ATTR *)\n')
     f.write('\t\tinput wire  s_ctrl%d_axi_aclk,\n' % i)
     f.write('\t\tinput wire  s_ctrl%d_axi_aresetn,\n' % i)
     f.write('\t\tinput wire [C_S_ctrl_AXI_ADDR_WIDTH-1 : 0] s_ctrl%d_axi_awaddr,\n' % i)
@@ -57,6 +81,7 @@ for i in range(0,num_of_ports):
     f.write('\t\toutput wire  s_ctrl%d_axi_rvalid,\n' % i)
     f.write('\t\tinput wire  s_ctrl%d_axi_rready,\n' % i)
 f.write('\t\t// Ctrl%s AXI port\n' % '_fixed') # comment
+f.write('\t\t(* X_INTERFACE_PARAMETER = CLK_ATTR *)\n')
 f.write('\t\tinput wire  s_ctrl%s_axi_aclk,\n' % '_fixed')
 f.write('\t\tinput wire  s_ctrl%s_axi_aresetn,\n' % '_fixed')
 f.write('\t\tinput wire [C_S_ctrl_AXI_ADDR_WIDTH-1 : 0] s_ctrl%s_axi_awaddr,\n' % '_fixed')
@@ -79,6 +104,7 @@ f.write('\t\toutput wire [1 : 0] s_ctrl%s_axi_rresp,\n' % '_fixed')
 f.write('\t\toutput wire  s_ctrl%s_axi_rvalid,\n' % '_fixed')
 f.write('\t\tinput wire  s_ctrl%s_axi_rready,\n' % '_fixed')    
 for i in range(0,num_of_ports):
+    f.write('\t\t(* X_INTERFACE_PARAMETER = CLK_ATTR *)\n')
     f.write('\t\t// data%d AXI port\n' % i) # comment
     f.write('\t\tinput wire S0_data%d_AXI_ACLK,\n' % i)
     f.write('\t\tinput wire S0_data%d_AXI_ARESETN,\n' % i)
@@ -100,6 +126,7 @@ for i in range(0,num_of_ports):
     f.write('\t\toutput wire S0_data%d_AXI_RVALID,\n' % i)
     f.write('\t\tinput wire S0_data%d_AXI_RREADY,\n' % i)
 f.write('\t\t// data%s AXI port\n' % '_fixed') # comment
+f.write('\t\t(* X_INTERFACE_PARAMETER = CLK_ATTR *)\n')
 f.write('\t\tinput wire S1_data%s_AXI_ACLK,\n' % '_fixed')
 f.write('\t\tinput wire S1_data%s_AXI_ARESETN,\n' % '_fixed')
 f.write('\t\tinput wire [31 : 0] S1_data%s_AXI_AWADDR,\n' % '_fixed')
@@ -120,62 +147,61 @@ f.write('\t\toutput wire [1 : 0] S1_data%s_AXI_RRESP,\n' % '_fixed')
 f.write('\t\toutput wire S1_data%s_AXI_RVALID,\n' % '_fixed')
 f.write('\t\tinput wire S1_data%s_AXI_RREADY,\n' % '_fixed')
 
+
 f.write('\t\t// Interrupt lines\n') # comment
 for i in range(0,num_of_ports):
     f.write('\t\toutput wire Interrupt_%d,\n' % i) 
     f.write('\t\toutput wire Interrupt_ctrl%d,\n' % i)
 f.write('\t\toutput wire Interrupt_fixed,\n') 
-f.write('\t\toutput wire Interrupt_ctrl_fixed\n') 
+f.write('\t\toutput wire Interrupt_ctrl_fixed,\n') 
+
+f.write('\t\t// Busy lines\n') # comment
+for i in range(0,7):
+    f.write('\t\toutput wire busy%d,\n' %i)      
+f.write('\t\toutput wire busy7\n')   
 
 f.write('\t);//Ports def end\n') # Ports def end
 
 #Id defenitions
 f.write('\t//Constant defenitions\n')
-for i in range(0,num_of_ports):
+for i in range(0,8):
     f.write('\t`define ID%d 8\'d%d\n' % (i,i) )
-f.write('\t`define YIELD_ID 8\'d255\n' )
-f.write('\t`define ID%s %s\n' % ('_FIXED', '9\'b111111111') )
-f.write('\t`define INFINITY 12\'hFFF\n')
-f.write('\t`define STACK_SIZE 16\n')
-f.write('\t`define TIMER_MAX 10000000\n')
-f.write('\tinteger i;\n')
+f.write('\n')    
+f.write('\t`define BUSY_PATTERN0 8\'b00000001\n')
+f.write('\t`define BUSY_PATTERN1 8\'b00000010\n')
+f.write('\t`define BUSY_PATTERN2 8\'b00000100\n')
+f.write('\t`define BUSY_PATTERN3 8\'b00001000\n')
+f.write('\t`define BUSY_PATTERN4 8\'b00010000\n')
+f.write('\t`define BUSY_PATTERN5 8\'b00100000\n')
+f.write('\t`define BUSY_PATTERN6 8\'b01000000\n')
+f.write('\t`define BUSY_PATTERN7 8\'b10000000\n')
+f.write('\n')    
+f.write('\t`define TIMER_MAX 32\'hF0000000\n')
 f.write('\t//System registers (FlipFlops) defenitions\n')#comment
-f.write('\treg [31:0] state_reg;\n')
-f.write('\treg [7:0] owner_id;\n')
-f.write('\treg [11:0] time_out;\n')
-f.write('\treg [11:0] limit;\n')
-f.write('\treg write_req_latched;\n')
-f.write('\treg stack_req_latched;\n')
-f.write('\treg timer_req_latched;\n')
-
-f.write('\treg limit_req_latched;\n')
-f.write('\treg [7:0] stack_pointer;\n')
-f.write('\treg [31:0] stack_memory [`STACK_SIZE:0];\n')
 f.write('\treg [31:0] timer_counter;\n' )
 
-f.write('\treg Octopos_resetn;\n')
-
 f.write('\t//System wires(Some defined as reg to be used in always blocks)defenitions\n')#comment
-f.write('\treg [31:0] write_state_value;\n')
-f.write('\treg [7:0]  write_state_owner_id;\n')
-f.write('\treg [11:0] write_state_time_out;\n')
-f.write('\treg [11:0] write_state_limit;\n')
-f.write('\treg [11:0] next_time_out;\n')
-f.write('\treg [11:0] next_limit;\n')
-f.write('\treg write_req;\n')
-f.write('\treg write_req_valid;\n')
-f.write('\treg write_req_reset;\n')
-f.write('\treg stack_req;\n')
-f.write('\treg stack_req_reset;\n')
+f.write('\twire [31:0] state_reg;\n')
+f.write('\twire [7:0] owner_id;\n')
+f.write('\tassign owner_id = state_reg[31:24];\n')
+f.write('\twire Octopos_resetn;\n')
+f.write('\treg [7:0] busy;\n')
 f.write('\treg timer_req;\n')
-f.write('\treg timer_req_reset;\n')
 f.write('\treg limit_req;\n')
-f.write('\treg limit_req_reset;\n')
 for i in range(0,num_of_ports):
     f.write('\twire [31:0] s_ctrl%d_write_state_value;\n' % i) 
+    f.write('\twire [31:0] s_ctrl%d_read_state_value;\n' % i) 
     f.write('\twire  s_ctrl%d_write_req;\n' % i)
 f.write('\twire [31:0] s_ctrl%s_write_state_value;\n' % '_fixed') 
+f.write('\twire [31:0] s_ctrl%s_read_state_value;\n' % '_fixed') 
 f.write('\twire  s_ctrl%s_write_req;\n' % '_fixed')
+f.write('\n')    
+
+f.write('\t//Interrupt clear signals\n')#comment
+for i in range(0,num_of_ports):
+    f.write('\twire Interrupt_clear_ctrl%d;\n' % i)
+f.write('\twire Interrupt_clear_ctrl_fixed;\n')
+f.write('\n')    
 
 f.write('\t//Internal mailbox programable side signals\n')#comment
 f.write('\treg S0_data_AXI_ACLK;\n')
@@ -215,8 +241,10 @@ for i in range(0,num_of_ports):
     f.write('\treg Interrupt%d_reg;\n' % i)
 
 f.write('\t//Connect output wires to temporary regs \n')#comment
+f.write('\twire clk;\n')
+f.write('\twire resetn;\n')
 f.write('\tassign clk = S_CLK;\n')
-f.write('\tassign resetn = S_ARESETN;;\n')
+f.write('\tassign resetn = S_ARESETN;\n')
 	
 for i in range(0,num_of_ports):
     f.write('\t// Assignment for port %d\n' %i)
@@ -229,6 +257,13 @@ for i in range(0,num_of_ports):
     f.write('\tassign S0_data%d_AXI_RRESP = S0_data%d_AXI_RRESP_reg;\n' % (i,i))
     f.write('\tassign S0_data%d_AXI_RVALID = S0_data%d_AXI_RVALID_reg;\n' % (i,i))
     f.write('\tassign Interrupt_%d = Interrupt%d_reg;\n' % (i,i))
+
+f.write('\n')    
+
+f.write('\t// Assignment for busy signals\n')#comment
+for i in range(0,8):
+    f.write('\tassign busy%d = busy[%d];\n' % (i,i))
+f.write('\n')    
 
 f.write('\n\t//Multiplexer for Mailbox programable port \n')#comment
 f.write('\talways @(*)\n')
@@ -306,6 +341,22 @@ f.write('\t\t\tend\n')
 f.write('\t\tendcase\n')
 f.write('\tend//for always @(*)\n')		
 
+f.write('\n')    
+
+f.write('\n\t//Multiplexer for BUSY signals \n')#comment
+f.write('\talways @(*)\n')
+f.write('\tbegin\n')
+f.write('\t\tcase(owner_id)\n')
+for i in range(0,8):
+    f.write('\t\t\t`ID%d:\n' %i)
+    f.write('\t\t\t\tbusy = `BUSY_PATTERN%d;\n' %i)
+f.write('\t\t\tdefault:\n')
+f.write('\t\t\t\tbusy = 8\'b0;\n')
+f.write('\t\tendcase\n')
+f.write('\tend\n')
+
+f.write('\n')
+
 #Internal Mailbox instantiation
 f.write('\n\t//Internal MailBox Instantiation\n')
 f.write('\tmailbox_0 mb0 (\n')
@@ -381,9 +432,8 @@ for i in range(0,num_of_ports):
     f.write('\t\t.S_AXI_RREADY(s_ctrl%d_axi_rready),\n' % i )
     f.write('\t\t.S_WRITE_REQ(s_ctrl%d_write_req),\n' % i )
     f.write('\t\t.S_WRITE_STATE_VALUE(s_ctrl%d_write_state_value),\n' % i )
-    f.write('\t\t.S_ID({1\'b0,`ID%d}),\n' % i)
-    f.write('\t\t.S_SYSTEM_STATE_REG(state_reg),\n')
-    f.write('\t\t.S_INTERRUPT(Interrupt_ctrl%d)\n' % i)
+    f.write('\t\t.S_READ_STATE_VALUE(s_ctrl%d_read_state_value),\n' % i )
+    f.write('\t\t.S_INTERRUPT_CLEAR(Interrupt_clear_ctrl%d)\n' % i)
     f.write('\t);\n')
 
 f.write('\t//Control AXI bus%s instantiation\n' % '_fixed')
@@ -414,89 +464,38 @@ f.write('\t\t.S_AXI_RVALID(s_ctrl%s_axi_rvalid),\n' % '_fixed' )
 f.write('\t\t.S_AXI_RREADY(s_ctrl%s_axi_rready),\n' % '_fixed' )
 f.write('\t\t.S_WRITE_REQ(s_ctrl%s_write_req),\n' % '_fixed' )
 f.write('\t\t.S_WRITE_STATE_VALUE(s_ctrl%s_write_state_value),\n' % '_fixed' )
-f.write('\t\t.S_ID({1\'b0,`ID%s}),\n' % '_FIXED')
-f.write('\t\t.S_SYSTEM_STATE_REG(state_reg),\n')
-f.write('\t\t.S_INTERRUPT(Interrupt_ctrl%s)\n' % '_fixed')
+f.write('\t\t.S_READ_STATE_VALUE(s_ctrl%s_read_state_value),\n' % '_fixed' )
+f.write('\t\t.S_INTERRUPT_CLEAR(Interrupt_clear_ctrl%s)\n' % '_fixed')
 f.write('\t);\n')
 
-f.write('\n\t//Octopos Mailbox Main logic\n\n ') #comment
+f.write('\n\t//Octopos Mailbox Main logic\n') #comment
+f.write('\n')
+f.write('\tOctopos_MailBox_Main_Logic  Main_Logic (\n') 
+f.write('\t\t.S_CLK(S_CLK),\n') 
+f.write('\t\t.S_ARESETN(S_ARESETN),\n') 
+f.write('\t\t.S_SYSTEM_STATE_REG(state_reg),\n') 
+f.write('\t\t.S_LIMIT_REQ(limit_req),\n') 
+f.write('\t\t.S_TIME_REQ(timer_req),\n') 
+f.write('\t\t.S_INTERNAL_MAILBOX_RESETN(Octopos_resetn),\n') 
+for i in range(0,num_of_ports):    
+    f.write('\t\t.S_WRITE_REQ_%d(s_ctrl%d_write_req),\n' % (i,i)) 
+    f.write('\t\t.S_WRITE_STATE_VALUE_%d(s_ctrl%d_write_state_value),\n' % (i,i)) 
+    f.write('\t\t.S_READ_STATE_VALUE_%d(s_ctrl%d_read_state_value),\n'  % (i,i)) 
+    f.write('\t\t.S_INTERRUPT_CLEAR_%d(Interrupt_clear_ctrl%d),\n' % (i,i)) 
+    f.write('\t\t.S_INTERRUPT_%d(Interrupt_ctrl%d),\n' % (i,i)) 
+
+f.write('\t\t.S_WRITE_REQ_%s(s_ctrl_%s_write_req),\n' % ('fixed','fixed')) 
+f.write('\t\t.S_WRITE_STATE_VALUE_%s(s_ctrl_%s_write_state_value),\n' % ('fixed','fixed')) 
+f.write('\t\t.S_READ_STATE_VALUE_%s(s_ctrl_%s_read_state_value),\n' % ('fixed','fixed')) 
+f.write('\t\t.S_INTERRUPT_CLEAR_%s(Interrupt_clear_ctrl_%s),\n' % ('fixed','fixed')) 
+f.write('\t\t.S_INTERRUPT_%s(Interrupt_ctrl_%s)\n' % ('fixed','fixed')) 
+f.write('\t);\n') 
+
+
+
 f.write('\n\t//Combinational logic\n\n ') #comment
-f.write('\t//State register break down\n ') #comment
-f.write('\talways @(*)\n')
-f.write('\tbegin\n')
-f.write('\t\t//For System State register\n ') #comment
-f.write('\t\towner_id = state_reg[31:24];\n')
-f.write('\t\tlimit = state_reg[23:12];\n')
-f.write('\t\ttime_out = state_reg[11:0];\n')
-f.write('\t\t//For to be writtern register\n ') #comment
-f.write('\t\twrite_state_owner_id = write_state_value[31:24];\n')
-f.write('\t\twrite_state_limit = write_state_value[23:12];\n')
-f.write('\t\twrite_state_time_out = write_state_value[11:0];\n')
-f.write('\tend\n')
 
-f.write('\t//Multiplexer for write_state_value and write_req \n ') #comment
-f.write('\talways @(*)\n')
-f.write('\tbegin\n')
-f.write('\t\tcase(owner_id)\n')
-for i in range(0,num_of_ports):
-    f.write('\t\t\t`ID%d: begin\n' % i)
-    f.write('\t\t\t\twrite_state_value = s_ctrl%d_write_state_value;\n' % i)
-    f.write('\t\t\t\twrite_req = s_ctrl%d_write_req;\n' % i)
-    f.write('\t\t\tend\n')
-f.write('\t\t\tdefault: begin\n')
-f.write('\t\t\t\twrite_state_value = 32\'b0;\n')
-f.write('\t\t\t\twrite_req = 1\'b0;\n')			
-f.write('\t\t\tend\n')
-f.write('\t\tendcase\n')
-f.write('\tend\n')
 
-f.write('\t//Reset generation for req signal latches \n ') #comment
-f.write('\talways @(*)\n')
-f.write('\tbegin\n')
-f.write('\t\tstack_req_reset = stack_req_latched;\n')
-f.write('\t\twrite_req_reset = (!stack_req_latched) & write_req_latched;\n')
-f.write('\t\tlimit_req_reset = (!stack_req_latched) & (!write_req_latched) & limit_req_latched;\n')
-f.write('\t\ttimer_req_reset = (!stack_req_latched) & (!write_req_latched) & (!limit_req_latched) & timer_req_latched;\n')
-f.write('\tend\n')
-
-f.write('\t//Generate a signal to know when we need to pop the stack \n ') #comment
-f.write('\talways @(*)\n')
-f.write('\tbegin\n')
-f.write('\t\tif( (limit == 8\'b0) || (time_out == 12\'b0) || ( (write_req == 1\'b1) && (write_state_owner_id == `YIELD_ID) ) )\n')
-f.write('\t\t\tstack_req = 1\'b1;\n')
-f.write('\t\telse\n')
-f.write('\t\t\tstack_req = 1\'b0;\n')
-f.write('\tend\n')
-
-f.write('\t//Generate a signal to know when outside ctrl channel can rewrite the state reg \n ') #comment
-f.write('\talways @(*)\n')
-f.write('\tbegin\n')
-f.write('\t\tif( (write_req == 1\'b1)&& (write_state_limit < limit) &&  (write_state_limit != 0) &&(write_state_time_out < time_out) &&(write_state_time_out != 0) && (write_state_owner_id != `YIELD_ID)  )\n')
-f.write('\t\t\twrite_req_valid = 1\'b1;\n')
-f.write('\t\telse\n')
-f.write('\t\t\twrite_req_valid = 1\'b0;\n')
-f.write('\tend\n')
-
-f.write('\t//Calculate the normal next values for time_out and limit  \n ') #comment
-f.write('\talways @(*)\n')
-f.write('\tbegin\n')
-f.write('\t\tif( limit == 0 )\n')
-f.write('\t\t\tnext_limit = 1\'b0;\n')
-f.write('\t\telse if ( limit == `INFINITY)\n')
-f.write('\t\t\tnext_limit  = `INFINITY;\n')
-f.write('\t\telse\n')
-f.write('\t\t\tnext_limit  = limit - 1\'b1;\n')
-f.write('\tend\n')
-
-f.write('\talways @(*)\n')
-f.write('\tbegin\n')
-f.write('\t\tif( time_out == 0 )\n')
-f.write('\t\t\tnext_time_out = 1\'b0;\n')
-f.write('\t\telse if ( time_out == `INFINITY)\n')
-f.write('\t\t\tnext_time_out  = `INFINITY;\n')
-f.write('\t\telse\n')
-f.write('\t\t\tnext_time_out  = time_out - 1\'b1;\n')
-f.write('\tend\n\n')
 
 f.write('\n\t//Generate timer_req and limit_req signals\n ') #comment
 if(manyWriter_OneReader == 1):
@@ -524,144 +523,8 @@ f.write('\t\telse\n')
 f.write('\t\t\ttimer_req = 1\'b0;\n')
 f.write('\tend\n')
 
-f.write('\n\t//Sequential logic\n\n ') #comment
-f.write('\t//FlipFlops for Multiplexer Chain selectors latched signals\n') #comment
-f.write('\talways @( posedge clk )\n')
-f.write('\tbegin\n')
-f.write('\t\tif( resetn == 1\'b0 )\n')
-f.write('\t\t  begin\n')
-f.write('\t\t    stack_req_latched <= 1\'b0;\n')
-f.write('\t\t\twrite_req_latched <= 1\'b0; \n')
-f.write('\t\t\tlimit_req_latched <= 1\'b0;\n')
-f.write('\t\t\ttimer_req_latched <= 1\'b0;\n')
-f.write('\t\t\t\n')
-f.write('\t\t  end\n')
-f.write('\t\telse\n')
-f.write('\t\t  begin\n')
-f.write('\t\t  \n')
-f.write('\t\t\tif(stack_req_reset == 1\'b1)\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t    stack_req_latched <= 1\'b0;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\telse\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t    if(stack_req_latched == 1\'b0)\n')
-f.write('\t\t\t\t\tstack_req_latched <= stack_req;\n')
-f.write('\t\t\t\telse\n')
-f.write('\t\t\t\t\tstack_req_latched <=  stack_req_latched;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\t  \n')
-f.write('\t\t\tif(write_req_reset == 1\'b1)\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t    write_req_latched <= 1\'b0;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\telse\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t    if(write_req_latched == 1\'b0)\n')
-f.write('\t\t\t\t\twrite_req_latched <= write_req_valid;\n')
-f.write('\t\t\t\telse\n')
-f.write('\t\t\t\t\twrite_req_latched <=  write_req_latched;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\t  \n')
-f.write('\t\t\tif(limit_req_reset == 1\'b1)\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t    limit_req_latched <= 1\'b0;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\telse\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t    if(limit_req_latched == 1\'b0)\n')
-f.write('\t\t\t\t\tlimit_req_latched <= limit_req;\n')
-f.write('\t\t\t\telse\n')
-f.write('\t\t\t\t\tlimit_req_latched <=  limit_req_latched;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\t  \n')
-f.write('\t\t\tif(timer_req_reset == 1\'b1)\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t    timer_req_latched <= 1\'b0;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\telse\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t    if(timer_req_latched == 1\'b0)\n')
-f.write('\t\t\t\t\ttimer_req_latched <= timer_req;\n')
-f.write('\t\t\t\telse\n')
-f.write('\t\t\t\t\ttimer_req_latched <=  timer_req_latched;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\t\t\n')
-f.write('\t\t  end\n')
-f.write('\tend\n')
 
-f.write('\t//FlipFlops for the main state_reg and stack ( and the main Multiplexer chain)\n')
-f.write('\talways @( posedge clk )\n')
-f.write('\tbegin\n')
-f.write('\t\tif( resetn == 1\'b0 )\n')
-f.write('\t\t  begin\n')
-f.write('\t\t    // on reset give the infinit amount of limits to the first enclave\n')
-f.write('\t\t    state_reg <= { `ID0 , `INFINITY, `INFINITY};\n')
-f.write('\t\t\t//stack regs\n')
-f.write('\t\t\tstack_pointer <= 0;\n')
-f.write('\t\t\tfor (i = 0; i < `STACK_SIZE; i = i +1) begin\n')
-f.write('\t\t\t\tstack_memory[i] <= 32\'b0;\n')
-f.write('\t\t\tend\n')
-f.write('\t\t\tOctopos_resetn <= 1\'b1;\n')
-f.write('\t\t  end\n')
-f.write('\t\telse\n')
-f.write('\t\t  begin\n')
-f.write('\t\t\tif(stack_req_latched == 1\'b1)\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t    //pop the stack and load the data into the state_reg, if it is a yield give the remaining limits to the parent\n')
-f.write('\t\t\t    if( (write_req == 1\'b1) && (write_state_owner_id == `YIELD_ID) )\n')
-f.write('\t\t\t\t  begin\n')
-#f.write('\t\t\t\t    state_reg <= {stack_memory[stack_pointer -1][31:24] , stack_memory[stack_pointer -1][23:12] + limit , stack_memory[stack_pointer -1][11:0]  +time_out};\n')
-f.write('\t\t\t\t\tif( (stack_memory[stack_pointer -1][23:12] == `INFINITY)&&(stack_memory[stack_pointer -1][11:0]==`INFINITY)) \n')
-f.write('\t\t\t\t\t	state_reg <= {stack_memory[stack_pointer -1][31:24] , stack_memory[stack_pointer -1][23:12]  , stack_memory[stack_pointer -1][11:0] };\n')
-f.write('\t\t\t\t\telse if (stack_memory[stack_pointer -1][23:12] == `INFINITY)\n')
-f.write('\t\t\t\t\t	state_reg <= {stack_memory[stack_pointer -1][31:24] , stack_memory[stack_pointer -1][23:12] , stack_memory[stack_pointer -1][11:0]  +time_out};\n')
-f.write('\t\t\t\t\telse if (stack_memory[stack_pointer -1][11:0]==`INFINITY)\n')
-f.write('\t\t\t\t\t	state_reg <= {stack_memory[stack_pointer -1][31:24] , stack_memory[stack_pointer -1][23:12] + limit , stack_memory[stack_pointer -1][11:0]};\n')
-f.write('\t\t\t\t\telse\n')
-f.write('\t\t\t\t\t	state_reg <= {stack_memory[stack_pointer -1][31:24] , stack_memory[stack_pointer -1][23:12] + limit , stack_memory[stack_pointer -1][11:0]  +time_out};\n')
-f.write('\t\t\t\t  end\n')
-f.write('\t\t\t\telse\n')
-f.write('\t\t\t\t  begin\n')
-f.write('\t\t\t\t\tstate_reg <= stack_memory[stack_pointer -1 ];\n')
-f.write('\t\t\t\t  end\n')
-f.write('\t\t\t\tstack_pointer <= stack_pointer - 1;  \n')
-f.write('\t\t\t\tOctopos_resetn <= 1\'b0;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\telse if (write_req_latched == 1\'b1)\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t    //push the parent remaining permissions to the stack\n')
-#f.write('\t\t\t\tstack_memory[ stack_pointer ] <= { owner_id , limit - write_state_limit , time_out - write_state_time_out};\n')
-f.write('\t\t\t\tif( (limit == `INFINITY) && ( time_out == `INFINITY) ) \n')
-f.write('\t\t\t\t\tstack_memory[ stack_pointer ] <= { owner_id , limit , time_out };\n')
-f.write('\t\t\t\telse if (limit == `INFINITY)\n')
-f.write('\t\t\t\t\tstack_memory[ stack_pointer ] <= { owner_id , limit  , time_out - write_state_time_out};	\n')
-f.write('\t\t\t\telse if ( time_out == `INFINITY)\n')
-f.write('\t\t\t\t\tstack_memory[ stack_pointer ] <= { owner_id , limit - write_state_limit , time_out};\n')
-f.write('\t\t\t\telse\n')	
-f.write('\t\t\t\t\tstack_memory[ stack_pointer ] <= { owner_id , limit - write_state_limit , time_out - write_state_time_out};\n')
-f.write('\t\t\t\tstack_pointer <= stack_pointer + 1;\n')
-f.write('\t\t\t\t//update the state_reg with new value\n')
-f.write('\t\t\t\tstate_reg <= write_state_value;\n')
-f.write('\t\t\t\tOctopos_resetn <= 1\'b0;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\telse if (limit_req_latched == 1\'b1)\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t\tstate_reg <= {owner_id, next_limit , time_out};\n')
-f.write('\t\t\t\tOctopos_resetn <= 1\'b1;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\telse if (timer_req_latched == 1\'b1)\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t\tstate_reg <= {owner_id , limit , next_time_out};\n')
-f.write('\t\t\t\tOctopos_resetn <= 1\'b1;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t\telse\n')
-f.write('\t\t\t  begin\n')
-f.write('\t\t\t\tstate_reg <= state_reg;\n')
-f.write('\t\t\t\tOctopos_resetn <= 1\'b1;\n')
-f.write('\t\t\t  end\n')
-f.write('\t\t  end\n')
-f.write('\tend\n')
+f.write('\n\t//Sequential logic\n\n ') #comment
 
 f.write('\t//TIMER\n') #comment
 f.write('\talways @( posedge clk )\n')
