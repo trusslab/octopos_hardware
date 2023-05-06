@@ -10,7 +10,12 @@
 :beer: [Untrusted Domain Petalinux](https://github.com/trusslab/linux-xlnx)
 :beer: [OctopOS Emulator](https://github.com/trusslab/octopos/blob/main/docs/emulator.rst)
 
-This guide provides a step-by-step guide to populate our Split-Trust hardware design and launch OctopOS on top of it.
+Authors: Zhihao "Zephyr" Yao, Seyed Mohammadjavad Seyed Talebi, Mingyi Chen, Ardalan Amiri Sani, Thomas Anderson (Collectively, "The OctopOS Authors")
+
+The work was supported by NSF Awards #1617513, #1718923, #1846230, and #1953932.
+
+This is step-by-step guide to instantiate Split-Trust hardware and launch OctopOS on top of it.
+---
 
 ## Table of Contents
 
