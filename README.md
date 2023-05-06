@@ -1,7 +1,7 @@
 # Split-Trust Hardware Design User Guide
 
 :paperclip: [OctopOS Paper *(to be updated)*]()
-:orange_book: [OctopOS Technical Reference Manual](https://github.com/trusslab/octopos_hardware/raw/main/docs/OctopOS-TRM-2023-04-03.pdf)
+:orange_book: [OctopOS Technical Reference Manual](https://github.com/trusslab/octopos_hardware/raw/main/docs/OctopOS-TRM.pdf)
 
 :computer: [OctopOS Repository](https://github.com/trusslab/octopos)
 :electric_plug: [Split-Trust Hardware Repository](https://github.com/trusslab/octopos_hardware)
