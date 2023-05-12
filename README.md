@@ -97,6 +97,16 @@ The TPM forwarder subsystem (`TPM_subsys`):
 
 ![Generated hardware design](docs/img/2023-04-03-xsa.png)
 
+### Network hardware connection
+
+To connect an ethernet cable to the ZCU102 board (which will be then mapped to our network domain with a constraint file), you will need an SFP-Ethernet adaptor. We use a [10Gtek 1.25G SFP-T, 1000BASE-T Copper SFP adaptor](https://www.amazon.com/10Gtek-Compatible-SFP-GE-T-Transceiver-1000Base-T/dp/B00U77IJ2M/ref=sr_1_1?dchild=1&th=1).
+
+The SFP jummper setting:
+![SFP jummper](docs/img/SFP_Jumper.jpg)
+
+The SFP connection:
+![SFP connection](docs/img/SFP_connection.jpg)
+
 ## OctopOS Software
 
 6) Install Vitis. The version of Vitis SDK should be 2020.1.
