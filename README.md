@@ -43,7 +43,7 @@ We use an Intel Xeon E5-2697 CPU with 72 threads with 192 GB memory to prepare t
 
 1) Clone this repo (`git clone https://github.com/trusslab/octopos_hardware`) into `<PATH_TO_OCTOPOS_HARDWARE>`. This repo contains the hardware design of our Split-Trust hardware prototype, IP source codes, and scripts to populate the hardware design and launch OctopOS software.
 
-***Steps 2-5 can be automated with our script `generate_hardware.sh`. Before running the script, please make sure you have installed Vivado 2020.1 and necessary licenses, including the Vivado license and the [LogiCORE Tri-Mode Ethernet IP license](https://www.xilinx.com/products/intellectual-property/temac-order.html). If you would like to review the hardware design and synthesis options, please follow the steps below.***
+***Steps 2-5 can be automated with our script `generate_hardware.sh -j <number_of_thread> -d <output_directory>`. Before running the script, please make sure you have installed Vivado 2020.1 and necessary licenses, including the Vivado license and the [LogiCORE Tri-Mode Ethernet IP license](https://www.xilinx.com/products/intellectual-property/temac-order.html). If you would like to review the hardware design and synthesis options, please follow the steps below.***
 
 2) To re-create the hardware project, install Vivado 2020.1, `cd <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102`, and run `vivado -source <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102/project_zcu102.tcl`. Alternatively, you can launch `vivado`, in the tcl command window, `cd <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102`, and `source <PATH_TO_OCTOPOS_HARDWARE>/octopos_hw_zcu102/project_zcu102.tcl`.
 
