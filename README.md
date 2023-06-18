@@ -17,6 +17,7 @@ The work was supported by NSF Awards #1617513, #1718923, #1846230, and #1953932.
 This is step-by-step guide to instantiate Split-Trust hardware and launch OctopOS on top of it.
 
 MobiSys 2023 artifact evaluation is done on Split-Trust Hardware commit 1786e76591987ebf9a07888288daa8fba0dd44c8.
+
 ---
 
 ## Table of Contents
